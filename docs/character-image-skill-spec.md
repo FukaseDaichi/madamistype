@@ -408,7 +408,8 @@ python scripts/generate_character_batch.py --all --with-transparent
 
 - `NANOBANANA_API_KEY`
 - `NANOBANANA_API_BASE`
-- `BG_REMOVAL_PROVIDER`
+
+repo ルートに `.env.character-images` を置いて設定できるようにする。
 
 ## 14. 品質担保
 
