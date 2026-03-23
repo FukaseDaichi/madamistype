@@ -1,0 +1,23 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-23T09:47:07.924969+00:00",
+  "repoRoot": "C:\\Users\\119003\\git\\madamistype",
+  "typesDir": "C:\\Users\\119003\\git\\madamistype\\data\\types",
+  "outputDir": "C:\\Users\\119003\\git\\madamistype\\output\\character-images",
+  "withTransparent": true,
+  "dryRun": false,
+  "successCount": 1,
+  "failureCount": 0,
+  "results": [
+    {
+      "typeCode": "OFEI",
+      "variants": {
+        "standard": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774259202976-jwx4imskds.png",
+          "referenceMode": "none"
+        }
+      }
+    }
+  ]
+}

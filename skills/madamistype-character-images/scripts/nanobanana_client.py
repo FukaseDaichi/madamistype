@@ -22,6 +22,12 @@ class NanoBananaClient:
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Accept": "application/json",
+            "Accept-Language": "en-US,en;q=0.9",
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/136.0.0.0 Safari/537.36"
+            ),
         }
 
         if payload is not None:
@@ -93,7 +99,18 @@ class NanoBananaClient:
 
     def download_file(self, url: str, destination: Path) -> None:
         destination.parent.mkdir(parents=True, exist_ok=True)
-        request = urllib.request.Request(url=url, headers={"Accept": "*/*"})
+        request = urllib.request.Request(
+            url=url,
+            headers={
+                "Accept": "*/*",
+                "Accept-Language": "en-US,en;q=0.9",
+                "User-Agent": (
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/136.0.0.0 Safari/537.36"
+                ),
+            },
+        )
         try:
             with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
                 destination.write_bytes(response.read())

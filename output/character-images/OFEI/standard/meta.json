@@ -1,0 +1,18 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-23T09:47:07.918514+00:00",
+  "typeCode": "OFEI",
+  "variant": "standard",
+  "withTransparent": true,
+  "status": "success",
+  "referenceMode": "none",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774259202976-jwx4imskds.png",
+  "promptPreview": "Create a polished anime-style character illustration for the Madamistype project. Character identity: 潜入記者 (OFEI). Gender presentation: female. Age impression: 20代後半. Archetype: やわらかく切り込むフィールドレポーター. Character description: 親しみやすい笑顔で距離を縮めながら、必要な本音は逃さない女性。柔らかさの裏に鋭い仕事勘がある。. Outfit and props: ベージュのトレンチコート、白シャツ、ダークブラウンのスカート、細いショルダーカメラストラップ、記者メモ。動きやすく知的な装い。. Color palette: beige, white, dark brown. Pose: ペンを持ちながら身を少し乗り出して話を聞く. Expression: 親しみやすいが観察力のある笑顔. Draw exactly one character. Use full-body or ne",
+  "negativePromptPreview": "multiple characters, childish proportions, overly comedic expression, excessive skin exposure, overly casual modern outfit, low resolution, blurry, text, logo, watermark, extra props, deformed hands, 複数人、子供っぽい体型、コミカルすぎる表情、過度な露出、現代カジュアルすぎる服装、低解像度、ぼやけ、文字、ロゴ、透かし、余計な小物、手の崩れ, multiple characters, cropped head, cropped feet, deformed hands, extra fingers, text, logo, watermark, background clutter, green clothing, green accessories, green hair highlights, busy background, background shadows, background",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 0
+  }
+}

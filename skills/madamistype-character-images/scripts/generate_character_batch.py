@@ -60,6 +60,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--types", help="Comma-separated list of type codes to process.")
     parser.add_argument("--retry-failed", action="store_true", help="Retry failed types from the previous batch report.")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing artifacts.")
+    parser.add_argument(
+        "--variants",
+        choices=("standard", "chibi", "both"),
+        default="both",
+        help="Select which variants to generate. Default: both",
+    )
     parser.add_argument("--with-transparent", action="store_true", help="Generate green-screen art and export transparent PNGs.")
     parser.add_argument("--output-dir", help="Override output directory.")
     parser.add_argument("--aspect-ratio", default="1:1", help="NanoBanana aspectRatio. Default: 1:1")
@@ -383,6 +389,7 @@ def main() -> int:
 
     discovered = discover_type_files(types_dir)
     selected_codes = parse_selected_types(args, discovered, output_dir)
+    requested_variants = ["standard", "chibi"] if args.variants == "both" else [args.variants]
 
     client = None
     if not args.dry_run:
@@ -399,44 +406,47 @@ def main() -> int:
         type_data = load_type_data(discovered[type_code])
         type_output_dir = output_dir / type_code
 
-        standard_result = process_variant(
-            client=client,
-            type_data=type_data,
-            variant="standard",
-            output_dir=output_dir,
-            with_transparent=args.with_transparent,
-            overwrite=args.overwrite,
-            dry_run=args.dry_run,
-            aspect_ratio=args.aspect_ratio,
-            resolution=args.resolution,
-            poll_interval=args.poll_interval,
-            timeout_seconds=args.timeout_seconds,
-        )
+        variant_results: dict[str, Any] = {}
+        reference_url = read_result_image_url(type_output_dir / "standard")
 
-        reference_url = standard_result.get("resultImageUrl") or read_result_image_url(type_output_dir / "standard")
+        if "standard" in requested_variants:
+            standard_result = process_variant(
+                client=client,
+                type_data=type_data,
+                variant="standard",
+                output_dir=output_dir,
+                with_transparent=args.with_transparent,
+                overwrite=args.overwrite,
+                dry_run=args.dry_run,
+                aspect_ratio=args.aspect_ratio,
+                resolution=args.resolution,
+                poll_interval=args.poll_interval,
+                timeout_seconds=args.timeout_seconds,
+            )
+            variant_results["standard"] = standard_result
+            reference_url = standard_result.get("resultImageUrl") or read_result_image_url(type_output_dir / "standard")
 
-        chibi_result = process_variant(
-            client=client,
-            type_data=type_data,
-            variant="chibi",
-            output_dir=output_dir,
-            with_transparent=args.with_transparent,
-            overwrite=args.overwrite,
-            dry_run=args.dry_run,
-            aspect_ratio=args.aspect_ratio,
-            resolution=args.resolution,
-            poll_interval=args.poll_interval,
-            timeout_seconds=args.timeout_seconds,
-            reference_url=reference_url,
-        )
+        if "chibi" in requested_variants:
+            chibi_result = process_variant(
+                client=client,
+                type_data=type_data,
+                variant="chibi",
+                output_dir=output_dir,
+                with_transparent=args.with_transparent,
+                overwrite=args.overwrite,
+                dry_run=args.dry_run,
+                aspect_ratio=args.aspect_ratio,
+                resolution=args.resolution,
+                poll_interval=args.poll_interval,
+                timeout_seconds=args.timeout_seconds,
+                reference_url=reference_url,
+            )
+            variant_results["chibi"] = chibi_result
 
         results.append(
             {
                 "typeCode": type_code,
-                "variants": {
-                    "standard": standard_result,
-                    "chibi": chibi_result,
-                },
+                "variants": variant_results,
             }
         )
 
