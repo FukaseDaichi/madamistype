@@ -27,7 +27,10 @@
   ],
   "compatibility": {
     "summary": "あなたの爆発力は、整理役や静観型と組むと無駄なく盤面の前進力に変わります。",
-    "goodWithTypeCodes": ["OFLP", "TRLP"],
+    "goodWithTypeCodes": [
+      "OFLP",
+      "TRLP"
+    ],
     "goodWithDescription": "OFLPが発生した情報を丁寧に拾い、TRLPが広がった可能性を仮説へ束ねるため、あなたの熱量が強い推進力として機能します。"
   },
   "shareText": "あなたのマダミスタイプは「扇動役者（TFEI）」でした。",
@@ -43,13 +46,17 @@
     "characterArchetype": "空気に火を入れるステージメーカー",
     "characterDescription": "表情の切り替えが鮮やかで、ひと言で場の温度を変える華やかな女性。挑発と親しみやすさを同時に持つ。",
     "outfitDescription": "ワインレッドのショートジャケット、黒のシルクブラウス、細身のパンツ、大ぶりではないゴールドピアス。華やかだが動きやすい舞台感のある装い。",
-    "colorPalette": ["wine red", "black", "gold"],
+    "colorPalette": [
+      "wine red",
+      "black",
+      "gold"
+    ],
     "pose": "片手を軽く広げて観客を煽るように笑う",
     "expression": "いたずらっぽく熱を帯びた笑顔"
   },
   "imagePrompt": {
-    "ja": "マーダーミステリー診断の結果カード用イラスト。日本人女性キャラクター1人、20代前半、空気に火をつける扇動役者タイプ、表情豊かで華やか、艶のある黒髪。ワインレッドのショートジャケット、黒のシルクブラウス、細身のパンツ、控えめなゴールドアクセサリー。上半身構図、ドラマチックな室内光、赤と黒を基調にした背景、シネマティック、精密描写、文字なし、ロゴなし。",
-    "en": "Character illustration for a murder mystery personality result card. One Japanese female character in her early 20s, charismatic instigator archetype, expressive and glamorous, glossy black hair. Wine red short jacket, black silk blouse, slim pants, subtle gold accessories. Waist-up composition, dramatic indoor lighting, red and black themed background, cinematic, highly detailed, no text, no logo."
+    "ja": "マーダーミステリー診断の結果カード用イラスト。日本人女性キャラクター1人、20代前半、空気に火をつける扇動役者タイプ、表情豊かで華やか、ディープバーガンディの艶のある大きなウェーブのロング。ワインレッドのショートジャケット、黒のシルクブラウス、細身のパンツ、控えめなゴールドアクセサリー。上半身構図、ドラマチックな室内光、赤と黒を基調にした背景、シネマティック、精密描写、文字なし、ロゴなし。",
+    "en": "Character illustration for a murder mystery personality result card. One Japanese female character in her early 20s, charismatic instigator archetype, expressive and glamorous, deep burgundy glossy hair in large waves, long. Wine red short jacket, black silk blouse, slim pants, subtle gold accessories. Waist-up composition, dramatic indoor lighting, red and black themed background, cinematic, highly detailed, no text, no logo."
   },
   "negativePrompt": {
     "ja": "複数人、子供っぽい体型、コミカルすぎる表情、過度な露出、現代カジュアルすぎる服装、低解像度、ぼやけ、文字、ロゴ、透かし、余計な小物、手の崩れ",

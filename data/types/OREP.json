@@ -55,8 +55,8 @@
     "expression": "思いやりと洞察を感じる穏やかな表情"
   },
   "imagePrompt": {
-    "ja": "マーダーミステリー診断の結果カード用イラスト。日本人女性キャラクター1人、20代後半、感情を言葉に翻訳する読解者タイプ、穏やかで知的、やわらかな黒髪。ラベンダーグレーのニット、ネイビーのロングコート、細いネックレス、上質な手帳。上半身構図、やわらかな室内光、ネイビーと淡い紫を基調にした背景、シネマティック、精密描写、文字なし、ロゴなし。",
-    "en": "Character illustration for a murder mystery personality result card. One Japanese female character in her late 20s, emotional translator archetype, calm and intelligent, soft black hair. Lavender-gray knit top, navy long coat, delicate necklace, high-quality notebook. Waist-up composition, soft indoor lighting, navy and pale purple themed background, cinematic, highly detailed, no text, no logo."
+    "ja": "マーダーミステリー診断の結果カード用イラスト。日本人女性キャラクター1人、20代後半、感情を言葉に翻訳する読解者タイプ、穏やかで知的、アッシュブラウンのやわらかいミディアムボブ。ラベンダーグレーのニット、ネイビーのロングコート、細いネックレス、上質な手帳。上半身構図、やわらかな室内光、ネイビーと淡い紫を基調にした背景、シネマティック、精密描写、文字なし、ロゴなし。",
+    "en": "Character illustration for a murder mystery personality result card. One Japanese female character in her late 20s, emotional translator archetype, calm and intelligent, soft ash brown medium bob. Lavender-gray knit top, navy long coat, delicate necklace, high-quality notebook. Waist-up composition, soft indoor lighting, navy and pale purple themed background, cinematic, highly detailed, no text, no logo."
   },
   "negativePrompt": {
     "ja": "複数人、子供っぽい体型、コミカルすぎる表情、過度な露出、現代カジュアルすぎる服装、低解像度、ぼやけ、文字、ロゴ、透かし、余計な小物、手の崩れ",

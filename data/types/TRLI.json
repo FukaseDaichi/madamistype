@@ -55,8 +55,8 @@
     "expression": "余裕を感じる挑発的な笑み"
   },
   "imagePrompt": {
-    "ja": "マーダーミステリー診断の結果カード用イラスト。日本人女性キャラクター1人、20代後半、知的でトリックスターな奇術師タイプ、挑発的な笑み、長めの黒髪。黒のショートテーラードジャケット、スモーキーパープルのシャツ、細身のベルト、片手袋。上半身構図、舞台のような陰影、黒と紫と銀を基調にした背景、シネマティック、精密描写、文字なし、ロゴなし。",
-    "en": "Character illustration for a murder mystery personality result card. One Japanese female character in her late 20s, intelligent trickster magician archetype, teasing smile, long black hair. Black short tailored jacket, smoky purple shirt, slim belt, one glove. Waist-up composition, stage-like shadows, black, purple and silver themed background, cinematic, highly detailed, no text, no logo."
+    "ja": "マーダーミステリー診断の結果カード用イラスト。日本人女性キャラクター1人、20代後半、知的でトリックスターな奇術師タイプ、挑発的な笑み、シルバーホワイトの軽やかなロング。黒のショートテーラードジャケット、スモーキーパープルのシャツ、細身のベルト、片手袋。上半身構図、舞台のような陰影、黒と紫と銀を基調にした背景、シネマティック、精密描写、文字なし、ロゴなし。",
+    "en": "Character illustration for a murder mystery personality result card. One Japanese female character in her late 20s, intelligent trickster magician archetype, teasing smile, silver white light long hair. Black short tailored jacket, smoky purple shirt, slim belt, one glove. Waist-up composition, stage-like shadows, black, purple and silver themed background, cinematic, highly detailed, no text, no logo."
   },
   "negativePrompt": {
     "ja": "複数人、子供っぽい体型、コミカルすぎる表情、過度な露出、現代カジュアルすぎる服装、低解像度、ぼやけ、文字、ロゴ、透かし、余計な小物、手の崩れ",

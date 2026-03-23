@@ -55,8 +55,8 @@
     "expression": "静かに思考している鋭い横顔"
   },
   "imagePrompt": {
-    "ja": "マーダーミステリー診断の結果カード用イラスト。日本人男性キャラクター1人、30代前半、戦略家で参謀タイプ、知的で落ち着いた雰囲気、整えた黒髪。ダークブラウンのロングコート、黒のベスト、深い緑のネクタイ、革の書類ケース。上半身構図、重厚な室内光、深緑と茶色を基調にした背景、シネマティック、精密描写、文字なし、ロゴなし。",
-    "en": "Character illustration for a murder mystery personality result card. One Japanese male character in his early 30s, strategist and mastermind adviser archetype, intelligent and composed, neat black hair. Dark brown long coat, black vest, deep green tie, leather document case. Waist-up composition, moody indoor lighting, deep green and brown background, cinematic, highly detailed, no text, no logo."
+    "ja": "マーダーミステリー診断の結果カード用イラスト。日本人男性キャラクター1人、30代前半、戦略家で参謀タイプ、知的で落ち着いた雰囲気、チャコールグレーブラウンの後ろに流したスタイル。ダークブラウンのロングコート、黒のベスト、深い緑のネクタイ、革の書類ケース。上半身構図、重厚な室内光、深緑と茶色を基調にした背景、シネマティック、精密描写、文字なし、ロゴなし。",
+    "en": "Character illustration for a murder mystery personality result card. One Japanese male character in his early 30s, strategist and mastermind adviser archetype, intelligent and composed, charcoal gray-brown hair swept back. Dark brown long coat, black vest, deep green tie, leather document case. Waist-up composition, moody indoor lighting, deep green and brown background, cinematic, highly detailed, no text, no logo."
   },
   "negativePrompt": {
     "ja": "複数人、子供っぽい体型、コミカルすぎる表情、過度な露出、現代カジュアルすぎる服装、低解像度、ぼやけ、文字、ロゴ、透かし、余計な小物、手の崩れ",
