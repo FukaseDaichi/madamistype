@@ -13,6 +13,14 @@
 
 将来拡張として、LINE スタンプ生成を見据えた設計上の余白も含める。
 
+本書は、主仕様書である [specification.md](./specification.md) に付随する運用・制作系の補助仕様書である。ユーザー向けMVP要件そのものを上書きする文書ではなく、タイプ別アセット生成の前提と運用方法を定める。
+
+参照文書:
+
+- [specification.md](./specification.md)
+- [type-design-spec.md](./type-design-spec.md)
+- [ui-design-spec.md](./ui-design-spec.md)
+
 ## 2. 前提と現状整理
 
 ### 2.1 入力データの現状
@@ -27,6 +35,8 @@
 - `imagePrompt`
 - `negativePrompt`
 - `shareText`
+
+`typeCode` と `typeName` の正式定義は [type-design-spec.md](./type-design-spec.md) を正とする。
 
 このため、スキル側で新しいマスタを持たず、既存タイプ JSON を唯一の入力ソースとして扱う方針が妥当である。
 
@@ -322,7 +332,6 @@ output/character-images/
 
 - `opencv-python`
 - `numpy`
-- `pillow`
 
 初期パラメータは、指定記事の例をベースにする。
 
@@ -385,11 +394,11 @@ skills/madamistype-character-images/
 ### 13.1 最低限の実行例
 
 ```bash
-python scripts/generate_character_batch.py --all
-python scripts/generate_character_batch.py --types OFEI,TRLP
-python scripts/generate_character_batch.py --all --overwrite
-python scripts/generate_character_batch.py --retry-failed
-python scripts/generate_character_batch.py --all --with-transparent
+python skills/madamistype-character-images/scripts/generate_character_batch.py --all
+python skills/madamistype-character-images/scripts/generate_character_batch.py --types OFEI,TRLP
+python skills/madamistype-character-images/scripts/generate_character_batch.py --all --overwrite
+python skills/madamistype-character-images/scripts/generate_character_batch.py --retry-failed
+python skills/madamistype-character-images/scripts/generate_character_batch.py --all --with-transparent
 ```
 
 ### 13.2 主な引数案

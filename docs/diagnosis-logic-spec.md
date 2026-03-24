@@ -250,13 +250,13 @@ balanceScore = round(((axisScore + 16) / 32) * 100)
 
 ### 9.2 タイプマスタ項目案
 
-相性情報として、タイプマスタに以下のいずれかを持たせる。
+相性情報は、タイプマスタ内の `compatibility` オブジェクトで保持する。
 
-- `compatibilitySummary`: 相性傾向の要約文
-- `goodWithTypeCodes`: 相性が良い傾向として見せる代表タイプコード一覧
-- `goodWithDescription`: なぜ相性が良いかの説明文
+- `compatibility.summary`: 相性傾向の要約文
+- `compatibility.goodWithTypeCodes`: 相性が良い傾向として見せる代表タイプコード一覧
+- `compatibility.goodWithDescription`: なぜ相性が良いかの説明文
 
-MVPでは `compatibilitySummary` のみでも成立する。
+MVPでは `compatibility.summary` を必須とし、ほか2項目は任意として成立する。
 
 ## 10. 実装時の検証観点
 

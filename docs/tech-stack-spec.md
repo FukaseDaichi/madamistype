@@ -11,6 +11,15 @@
 - 採用時に気を付けるべき点は何か
 - 必要な補足提案や修正は何か
 
+本書は [specification.md](./specification.md) の「9.4 技術方針」や MVP 範囲を、実装観点で具体化する補助仕様書である。要件の主文書は [specification.md](./specification.md) とし、本書はそれを単独で上書きしない。
+
+参照文書:
+
+- [specification.md](./specification.md)
+- [diagnosis-logic-spec.md](./diagnosis-logic-spec.md)
+- [type-design-spec.md](./type-design-spec.md)
+- [ui-design-spec.md](./ui-design-spec.md)
+
 ---
 
 ## 2. 採用方針の結論
