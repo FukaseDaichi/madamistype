@@ -3,17 +3,27 @@
 import { useState } from "react";
 
 type ShareActionsProps = {
+  id?: string;
   typeCode: string;
   typeName: string;
   shareText: string;
   shareUrl: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  className?: string;
 };
 
 export function ShareActions({
+  id,
   typeCode,
   typeName,
   shareText,
   shareUrl,
+  eyebrow = "Share",
+  title = "結果をシェアする",
+  description = "X、LINE、OSの共有シートからそのまま送れます。",
+  className = "",
 }: ShareActionsProps) {
   const [status, setStatus] = useState("");
 
@@ -54,12 +64,15 @@ export function ShareActions({
   }
 
   return (
-    <div className="surface-panel flex flex-col gap-4">
+    <div
+      id={id}
+      className={`surface-panel flex flex-col gap-4 ${className}`.trim()}
+    >
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Share</p>
-        <h2 className="section-title">結果をシェアする</h2>
+        <p className="eyebrow">{eyebrow}</p>
+        <h2 className="section-title">{title}</h2>
         <p className="text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          X、LINE、OSの共有シートからそのまま送れます。
+          {description}
         </p>
       </div>
 

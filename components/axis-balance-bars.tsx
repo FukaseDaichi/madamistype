@@ -2,23 +2,32 @@ import type { AxisSummary } from "@/lib/types";
 
 type AxisBalanceBarsProps = {
   items: AxisSummary[];
+  eyebrow?: string;
   title?: string;
   description?: string;
+  note?: string;
+  className?: string;
 };
 
 export function AxisBalanceBars({
   items,
+  eyebrow = "Axis",
   title = "4軸バランス",
   description = "回答の寄り方を、4つの軸で見ています。",
+  note,
+  className = "",
 }: AxisBalanceBarsProps) {
   return (
-    <section className="surface-panel flex flex-col gap-5">
+    <section
+      className={`surface-panel flex flex-col gap-5 ${className}`.trim()}
+    >
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Axis</p>
+        <p className="eyebrow">{eyebrow}</p>
         <h2 className="section-title">{title}</h2>
         <p className="text-sm leading-7 text-[color:var(--color-text-subtle)]">
           {description}
         </p>
+        {note ? <p className="axis-note text-sm">{note}</p> : null}
       </div>
 
       <div className="flex flex-col gap-4">

@@ -50,13 +50,13 @@ const noteFont = Caveat({
 const FEATURE_SUMMARIES = [
   {
     number: "01",
-    title: "卓での主導の仕方",
-    copy: "前に出て流れを作るか、静かに観察して拾うかを解析",
+    title: "憑依のさせ方を分析",
+    copy: "あなた自身というより、プレイの仕方や考え方にフォーカス",
   },
   {
     number: "02",
-    title: "事実と推理の寄り方",
-    copy: "証拠を固める型か、裏筋を読む型かを整理",
+    title: "分析手法は統計心理学ベースのAI",
+    copy: "質問内容や傾向もAIによる分析結果",
   },
   {
     number: "03",
@@ -99,7 +99,9 @@ export default async function HomePage() {
         />
         <section className="surface-panel flex flex-col gap-3">
           <p className="eyebrow">Home</p>
-          <h1 className="section-title">タイプデータを読み込めませんでした。</h1>
+          <h1 className="section-title">
+            タイプデータを読み込めませんでした。
+          </h1>
           <p className="text-sm leading-7 text-[color:var(--color-text-subtle)]">
             データ配置を確認してから、もう一度アクセスしてください。
           </p>
@@ -117,7 +119,9 @@ export default async function HomePage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: stringifyJsonLd(getWebsiteJsonLd()) }}
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(getWebsiteJsonLd()),
+        }}
       />
 
       <div className={styles.shell}>
@@ -307,7 +311,10 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section className={styles.allTypes} aria-labelledby="all-types-heading">
+        <section
+          className={styles.allTypes}
+          aria-labelledby="all-types-heading"
+        >
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>Index</span>
             <h2 id="all-types-heading" className={styles.sectionTitle}>

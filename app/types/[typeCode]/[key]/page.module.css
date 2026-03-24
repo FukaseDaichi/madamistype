@@ -1,0 +1,686 @@
+.page {
+  --rcf-ink: #1a1208;
+  --rcf-paper: #f0e8d5;
+  --rcf-paper-dark: #e2d6be;
+  --rcf-red: #c0392b;
+  --rcf-amber: #d4820a;
+  --rcf-sepia: #8b6914;
+  --rcf-sepia-light: #c4a96b;
+  --rcf-noir: #0d0b08;
+  --rcf-tape: rgba(210, 190, 140, 0.5);
+  --color-text: rgba(240, 232, 213, 0.92);
+  --color-text-subtle: rgba(196, 169, 107, 0.72);
+  --color-line: rgba(196, 169, 107, 0.18);
+  --color-accent: var(--rcf-sepia-light);
+  --color-accent-soft: rgba(196, 169, 107, 0.12);
+  --color-action-primary: var(--rcf-red);
+  --color-action-primary-hover: #a93226;
+  --color-action-secondary: var(--rcf-sepia-light);
+  --color-action-secondary-hover: #dcc38f;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  color: var(--rcf-paper);
+}
+
+.page a {
+  color: inherit;
+}
+
+.page :global(.font-display) {
+  font-family: var(--rcf-font-serif), serif;
+  letter-spacing: 0.04em;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--rcf-noir);
+  background-image:
+    radial-gradient(ellipse 78% 60% at 18% 0%, #1c1508 0%, transparent 60%),
+    radial-gradient(ellipse 64% 84% at 82% 100%, #100c05 0%, transparent 52%);
+}
+
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 169, 107, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 169, 107, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.44), transparent 85%);
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 6rem;
+}
+
+.mast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(196, 169, 107, 0.28);
+}
+
+.mastLogo {
+  color: var(--rcf-sepia-light);
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+
+.mastBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(196, 169, 107, 0.55);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.mastBack:hover {
+  color: var(--rcf-sepia-light);
+}
+
+.suspectCard {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(196, 169, 107, 0.5);
+  background: var(--rcf-paper);
+  padding: clamp(1.8rem, 4vw, 2.5rem) clamp(1.4rem, 4vw, 2.5rem)
+    clamp(1.8rem, 4vw, 2rem);
+  box-shadow:
+    0 12px 42px rgba(0, 0, 0, 0.45),
+    inset 0 0 60px rgba(139, 105, 20, 0.05);
+  animation: sharedFadeUp 0.55s ease both;
+}
+
+.suspectCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(139, 105, 20, 0.1) 31px,
+    rgba(139, 105, 20, 0.1) 32px
+  );
+  pointer-events: none;
+}
+
+.suspectCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 64px;
+  bottom: 0;
+  width: 1px;
+  background: rgba(192, 57, 43, 0.25);
+}
+
+.stamp {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.8rem;
+  z-index: 1;
+  color: var(--rcf-red);
+  border: 2px solid var(--rcf-red);
+  padding: 0.2rem 0.7rem;
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  opacity: 0.72;
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
+.fileMeta {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.8rem;
+  color: var(--rcf-sepia);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.suspectName {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.6rem;
+  color: var(--rcf-ink);
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+}
+
+.suspectName em {
+  font-style: normal;
+  color: var(--rcf-red);
+}
+
+.sharedNote {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  color: var(--rcf-sepia);
+  font-family: var(--rcf-font-note), cursive;
+  font-size: 1rem;
+  transform: rotate(-1deg);
+}
+
+.heroCols {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.artworkFrame {
+  position: relative;
+}
+
+.artworkFrame::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 70px;
+  height: 18px;
+  background: var(--rcf-tape);
+  transform: translateX(-50%) rotate(-2deg);
+  z-index: 2;
+}
+
+.artworkInner {
+  border: 1px solid rgba(139, 105, 20, 0.4);
+  overflow: hidden;
+}
+
+.heroArtwork:global(.illustration-frame) {
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 3 / 4;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: linear-gradient(160deg, #241a0b 0%, #140f07 100%);
+}
+
+.heroArtwork:global(.placeholder-illustration) {
+  justify-content: flex-end;
+  gap: 0.65rem;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at top left, rgba(196, 169, 107, 0.12), transparent 34%),
+    linear-gradient(160deg, #241a0b 0%, #140f07 100%);
+}
+
+.heroArtwork :global(.placeholder-badge) {
+  border-radius: 0;
+  background: rgba(13, 11, 8, 0.65);
+  color: var(--rcf-sepia-light);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+}
+
+.heroArtwork :global(.font-display) {
+  color: rgba(240, 232, 213, 0.94);
+  font-size: 1.4rem;
+}
+
+.heroArtwork :global(.text-sm) {
+  color: rgba(196, 169, 107, 0.68) !important;
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
+
+.heroArtwork :global(img) {
+  filter: sepia(28%) contrast(1.06);
+}
+
+.typeInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.typeCode {
+  margin: 0;
+  color: var(--rcf-sepia);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.typeName {
+  margin: 0;
+  color: var(--rcf-ink);
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.typeTagline {
+  margin: 0;
+  color: var(--rcf-red);
+  font-family: var(--rcf-font-note), cursive;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.typeSummary {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(139, 105, 20, 0.35);
+  color: #3d2e10;
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.8rem;
+  line-height: 2;
+}
+
+.heroActions {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.primaryButton {
+  border: 1px solid var(--rcf-red);
+  background: var(--rcf-red);
+  color: #fff;
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+.primaryButton:hover {
+  background: #a93226;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(139, 105, 20, 0.5);
+  background: transparent;
+  color: var(--rcf-ink);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.secondaryButton:hover {
+  background: rgba(139, 105, 20, 0.1);
+}
+
+.section,
+.axisPanel,
+.sharePanel {
+  position: relative;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(196, 169, 107, 0.18);
+  background: rgba(13, 11, 8, 0.86);
+  padding: 2rem 2.2rem;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+  animation: sharedFadeUp 0.55s ease both;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.axisPanel,
+.sharePanel {
+  border-radius: 0;
+  backdrop-filter: none;
+}
+
+.axisPanel::after,
+.sharePanel::after {
+  content: none;
+}
+
+.axisPanel {
+  animation-delay: 0.05s;
+}
+
+.sharePanel {
+  animation-delay: 0.08s;
+}
+
+.sectionEyebrow,
+.axisPanel :global(.eyebrow),
+.sharePanel :global(.eyebrow) {
+  display: block;
+  margin: 0 0 0.5rem;
+  color: rgba(196, 169, 107, 0.45);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.sectionTitle,
+.axisPanel :global(.section-title),
+.sharePanel :global(.section-title) {
+  margin: 0 0 1rem;
+  color: rgba(240, 232, 213, 0.9);
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.detailText,
+.compatText,
+.axisUnavailable,
+.axisPanel :global(.text-sm),
+.sharePanel :global(.text-sm),
+.sharePanel :global(.secondary-button span) {
+  margin: 0;
+  color: rgba(196, 169, 107, 0.72);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.82rem;
+  line-height: 2;
+}
+
+.axisPanel :global(.axis-note) {
+  color: rgba(196, 169, 107, 0.55);
+  font-family: var(--rcf-font-note), cursive;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.axisUnavailable {
+  padding-left: 1rem;
+  border-left: 3px solid rgba(196, 169, 107, 0.2);
+}
+
+.signatureGrid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.signatureCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border: 1px solid rgba(196, 169, 107, 0.16);
+  background: rgba(240, 232, 213, 0.05);
+  padding: 1rem;
+}
+
+.signatureLabel {
+  margin: 0;
+  color: rgba(196, 169, 107, 0.72);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.signaturePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.signatureDominant,
+.signatureOther {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.8rem;
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+}
+
+.signatureDominant {
+  background: rgba(196, 169, 107, 0.14);
+  color: rgba(240, 232, 213, 0.94);
+}
+
+.signatureOther {
+  border: 1px solid rgba(196, 169, 107, 0.18);
+  color: rgba(196, 169, 107, 0.72);
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: rgba(196, 169, 107, 0.75);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+.list li::before {
+  content: "-";
+  flex-shrink: 0;
+  color: var(--rcf-red);
+}
+
+.compatText + .compatText {
+  border-top: 1px dashed rgba(196, 169, 107, 0.2);
+  padding-top: 0.8rem;
+}
+
+.compatLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.compatLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  border: 1px solid rgba(196, 169, 107, 0.28);
+  padding: 0.35rem 0.8rem;
+  color: rgba(240, 232, 213, 0.94);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.compatLink:hover {
+  background: rgba(196, 169, 107, 0.08);
+}
+
+.axisPanel :global(.flex.items-center.justify-between.gap-4.text-sm) {
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}
+
+.axisPanel :global(.font-semibold) {
+  color: rgba(240, 232, 213, 0.94);
+}
+
+.axisPanel :global(.axis-track) {
+  height: 6px;
+  background: rgba(196, 169, 107, 0.14);
+}
+
+.axisPanel :global(.axis-fill) {
+  background: linear-gradient(90deg, var(--rcf-red), var(--rcf-amber));
+}
+
+.sharePanel :global(.primary-button),
+.sharePanel :global(.secondary-button) {
+  justify-content: center;
+  min-height: 50px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.sharePanel :global(.primary-button) {
+  border: 1px solid var(--rcf-red);
+  background: var(--rcf-red);
+  color: #fff;
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: 1rem;
+}
+
+.sharePanel :global(.primary-button:hover) {
+  background: #a93226;
+}
+
+.sharePanel :global(.secondary-button) {
+  border: 1px solid rgba(196, 169, 107, 0.35);
+  background: transparent;
+  color: var(--rcf-sepia-light);
+  font-family: var(--rcf-font-typewriter), monospace;
+  text-transform: uppercase;
+}
+
+.sharePanel :global(.secondary-button:hover) {
+  background: rgba(196, 169, 107, 0.08);
+}
+
+.sharePanel :global([aria-live="polite"]) {
+  min-height: 1.5rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(196, 169, 107, 0.14);
+}
+
+.footerText {
+  margin: 0;
+  color: rgba(196, 169, 107, 0.3);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+}
+
+@keyframes sharedFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .heroCols,
+  .twoCol,
+  .heroActions {
+    grid-template-columns: 1fr;
+  }
+
+  .shell {
+    padding-inline: 1rem;
+  }
+
+  .mast {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .suspectCard::after {
+    left: 40px;
+  }
+
+  .stamp {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .section,
+  .axisPanel,
+  .sharePanel {
+    padding: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .suspectCard,
+  .section,
+  .axisPanel,
+  .sharePanel {
+    animation: none;
+  }
+
+  .mastBack,
+  .primaryButton,
+  .secondaryButton,
+  .sharePanel :global(.primary-button),
+  .sharePanel :global(.secondary-button) {
+    transition: none;
+  }
+}
