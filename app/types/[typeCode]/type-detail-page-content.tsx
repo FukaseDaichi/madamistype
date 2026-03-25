@@ -1,4 +1,4 @@
-import type { TypeData } from "@/lib/types";
+import type { AxisSummary, TypeData } from "@/lib/types";
 
 import Image from "next/image";
 import {
@@ -48,12 +48,28 @@ const noteFont = Caveat({
   preload: false,
 });
 
+/** Maps each axis label to its English keyword and single-letter code. */
+const AXIS_LETTER_MAP: Record<
+  string,
+  { letter: string; english: string }
+> = {
+  "発言型": { letter: "T", english: "Talk" },
+  "観察型": { letter: "O", english: "Observe" },
+  "事実重視": { letter: "F", english: "Fact" },
+  "推理重視": { letter: "R", english: "Reasoning" },
+  "論理派": { letter: "L", english: "Logic" },
+  "感情派": { letter: "E", english: "Emotion" },
+  "計画型": { letter: "P", english: "Plan" },
+  "即興型": { letter: "I", english: "Improvise" },
+};
+
 type TypeDetailPageContentProps = {
   mode: "public" | "shared";
   typeData: TypeData;
   shareUrl: string;
   publicUrl: string;
   hasChibi?: boolean;
+  axisSummaries?: AxisSummary[];
 };
 
 export function TypeDetailPageContent({
@@ -62,58 +78,32 @@ export function TypeDetailPageContent({
   shareUrl,
   publicUrl,
   hasChibi = false,
+  axisSummaries,
 }: TypeDetailPageContentProps) {
   const isShared = mode === "shared";
   const axisRows = [
     {
-      title: "発言 / 観察",
       dominant: typeData.axis.axis1,
       other: typeData.axis.axis1 === "発言型" ? "観察型" : "発言型",
-      meaning:
-        "卓で情報を取りにいくときに、まず会話を動かす側か、まず周囲を見て拾う側かを表す軸です。",
-      tendencyLabel: `${typeData.axis.axis1}の傾向`,
-      tendency:
-        typeData.axis.axis1 === "発言型"
-          ? "問いかけや話題整理で場を前に進めやすく、沈黙を破って議論の起点になりやすい傾向があります。"
-          : "表情や言葉のズレを拾いながら状況を見極め、確度が上がったところで効く一言を出しやすい傾向があります。",
     },
     {
-      title: "事実 / 推理",
       dominant: typeData.axis.axis2,
       other: typeData.axis.axis2 === "事実重視" ? "推理重視" : "事実重視",
-      meaning:
-        "証拠や発言の整合性を重く見るか、背景や意図まで含めて可能性を読むかを表す軸です。",
-      tendencyLabel: `${typeData.axis.axis2}の傾向`,
-      tendency:
-        typeData.axis.axis2 === "事実重視"
-          ? "証拠、時系列、発言の矛盾を足場にして、確かな情報から盤面を固める傾向があります。"
-          : "表に出た情報だけでなく、動機や裏の意図まで広く読み、複数の筋を並行して考える傾向があります。",
     },
     {
-      title: "論理 / 感情",
       dominant: typeData.axis.axis3,
       other: typeData.axis.axis3 === "論理派" ? "感情派" : "論理派",
-      meaning:
-        "筋道や合理性を優先するか、人間関係や気持ちの流れから盤面を読むかを表す軸です。",
-      tendencyLabel: `${typeData.axis.axis3}の傾向`,
-      tendency:
-        typeData.axis.axis3 === "論理派"
-          ? "主張のつながりや説明の一貫性を大切にし、納得できる筋道があるかで判断しやすい傾向があります。"
-          : "言葉の温度や関係性の揺れに注目し、その人がなぜそう動いたかを感情の流れから捉えやすい傾向があります。",
     },
     {
-      title: "計画 / 即興",
       dominant: typeData.axis.axis4,
       other: typeData.axis.axis4 === "計画型" ? "即興型" : "計画型",
-      meaning:
-        "発言順や進行を整理して進めるか、その場の流れに合わせて柔軟に動くかを表す軸です。",
-      tendencyLabel: `${typeData.axis.axis4}の傾向`,
-      tendency:
-        typeData.axis.axis4 === "計画型"
-          ? "話す順番や確認ポイントを整えながら進めやすく、卓全体の進行を安定させやすい傾向があります。"
-          : "その場の反応や空気の変化を見て動き方を変えやすく、局面に応じて自然に立ち回りを切り替える傾向があります。",
     },
   ];
+
+  // Map axisSummaries by axis code for lookup (A1..A4)
+  const summaryByIndex = axisSummaries
+    ? Object.fromEntries(axisSummaries.map((s, i) => [i, s]))
+    : null;
 
   const heroHeading = isShared ? (
     <>
@@ -130,11 +120,6 @@ export function TypeDetailPageContent({
   );
 
   const heroNote = "Image File";
-  const signatureDescription = `${typeData.typeName}は「${axisRows
-    .map((row) => row.dominant)
-    .join(
-      "・",
-    )}」が前に出やすいタイプです。卓で何を手がかりに動きやすいかを、4つの軸で読み解けます。`;
   const shareDescription = isShared
     ? "共有リンクとしてそのまま送れます。個人名や回答パラメーターは表示しません。"
     : "X、LINE、OSの共有シートからそのまま送れます。";
@@ -229,67 +214,75 @@ export function TypeDetailPageContent({
           <div className={styles.sectionHeaderCentered}>
             <span className={styles.sectionEyebrow}>Type Signature</span>
             <h2 id="signature-heading" className={styles.sectionTitle}>
-              このタイプの軸構成
+              タイプコードの読み方
             </h2>
-            <p className={`${styles.detailText} ${styles.signatureIntro}`}>
-              {signatureDescription}
-            </p>
           </div>
 
-          <div className={styles.signatureSnapshot}>
-            <p className={styles.signatureSnapshotLabel}>
-              このタイプで目立ちやすい傾向
-            </p>
-            <div className={styles.signatureSnapshotPills}>
-              {axisRows.map((row) => (
-                <span
-                  key={`${row.title}-${row.dominant}`}
-                  className={styles.signatureSnapshotPill}
-                >
-                  {row.dominant}
-                </span>
-              ))}
-            </div>
+          <div className={styles.sigCodeDisplay}>
+            {axisRows.map((row, i) => {
+              const dom = AXIS_LETTER_MAP[row.dominant];
+              const oth = AXIS_LETTER_MAP[row.other];
+              const summary = summaryByIndex ? summaryByIndex[i] : null;
+              const isDominantPositive = summary
+                ? summary.positiveLabel === row.dominant
+                : null;
+              const dominantPercent = summary
+                ? isDominantPositive
+                  ? summary.positivePercent
+                  : summary.negativePercent
+                : null;
+              const otherPercent = summary
+                ? isDominantPositive
+                  ? summary.negativePercent
+                  : summary.positivePercent
+                : null;
+
+              return (
+                <div key={row.dominant} className={styles.sigAxisRow}>
+                  <div className={styles.sigSide}>
+                    <span className={`${styles.sigLetter} ${styles.sigLetterDominant}`}>
+                      {dom?.letter}
+                    </span>
+                    <span className={styles.sigEnglish}>{dom?.english}</span>
+                    <span className={styles.sigLabel}>{row.dominant}</span>
+                    {dominantPercent !== null ? (
+                      <span className={styles.sigPercent}>{dominantPercent}%</span>
+                    ) : null}
+                  </div>
+
+                  <div className={styles.sigBarWrap}>
+                    {summary ? (
+                      <div className={styles.sigBar} aria-hidden="true">
+                        <div
+                          className={styles.sigBarFillLeft}
+                          style={{ width: `${dominantPercent}%` }}
+                        />
+                      </div>
+                    ) : (
+                      <div className={styles.sigBarStatic} aria-hidden="true">
+                        <div className={styles.sigBarFillLeft} style={{ width: "100%" }} />
+                      </div>
+                    )}
+                  </div>
+
+                  <div className={`${styles.sigSide} ${styles.sigSideRight}`}>
+                    {otherPercent !== null ? (
+                      <span className={styles.sigPercent}>{otherPercent}%</span>
+                    ) : null}
+                    <span className={styles.sigLabelSub}>{row.other}</span>
+                    <span className={styles.sigEnglishSub}>{oth?.english}</span>
+                    <span className={styles.sigLetterSub}>
+                      {oth?.letter}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
-          <div className={styles.signatureGrid}>
-            {axisRows.map((row) => (
-              <article key={row.title} className={styles.signatureCard}>
-                <div className={styles.signatureCardHeader}>
-                  <div className={styles.signatureCardHeading}>
-                    <p className={styles.signatureLabel}>{row.title}</p>
-                    <h3 className={styles.signatureCardTitle}>
-                      {row.dominant}
-                    </h3>
-                  </div>
-                  <span className={styles.signatureTrendBadge}>優勢</span>
-                </div>
-
-                <div className={styles.signaturePills}>
-                  <span className={styles.signatureDominant}>
-                    {row.dominant}
-                  </span>
-                  <span className={styles.signatureOther}>{row.other}</span>
-                </div>
-
-                <div className={styles.signatureBody}>
-                  <div className={styles.signatureBlock}>
-                    <p className={styles.signatureBlockLabel}>
-                      この軸が表すこと
-                    </p>
-                    <p className={styles.signatureBlockText}>{row.meaning}</p>
-                  </div>
-
-                  <div className={styles.signatureBlock}>
-                    <p className={styles.signatureBlockLabel}>
-                      {row.tendencyLabel}
-                    </p>
-                    <p className={styles.signatureBlockText}>{row.tendency}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          <p className={styles.sigCaption}>
+            {typeData.typeCode} = {axisRows.map((r) => AXIS_LETTER_MAP[r.dominant]?.english).join(" + ")}
+          </p>
         </section>
 
         <div className={styles.twoCol}>

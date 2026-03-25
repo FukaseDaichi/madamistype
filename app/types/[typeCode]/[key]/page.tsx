@@ -20,6 +20,8 @@ async function getSharedPageData(typeCode: string, key: string) {
     notFound();
   }
 
+  let axisSummaries;
+
   if (payload.v === 2) {
     const questionMaster = await getQuestionMaster();
     const result = calculateDiagnosisResult(questionMaster, payload.a);
@@ -27,6 +29,8 @@ async function getSharedPageData(typeCode: string, key: string) {
     if (result.typeCode !== typeCode) {
       notFound();
     }
+
+    axisSummaries = result.axisSummaries;
   }
 
   const hasChibi = await hasChibiImage(typeData.typeCode);
@@ -36,6 +40,7 @@ async function getSharedPageData(typeCode: string, key: string) {
     publicUrl: `/types/${typeData.typeCode}`,
     shareUrl: getAbsoluteUrl(`/types/${typeData.typeCode}/${key}`),
     hasChibi,
+    axisSummaries,
   };
 }
 
@@ -71,10 +76,8 @@ export async function generateMetadata({
 
 export default async function SharedResultPage({ params }: PageProps) {
   const { typeCode, key } = await params;
-  const { typeData, shareUrl, publicUrl, hasChibi } = await getSharedPageData(
-    typeCode,
-    key,
-  );
+  const { typeData, shareUrl, publicUrl, hasChibi, axisSummaries } =
+    await getSharedPageData(typeCode, key);
 
   return (
     <TypeDetailPageContent
@@ -83,6 +86,7 @@ export default async function SharedResultPage({ params }: PageProps) {
       shareUrl={shareUrl}
       publicUrl={publicUrl}
       hasChibi={hasChibi}
+      axisSummaries={axisSummaries}
     />
   );
 }
