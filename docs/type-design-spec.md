@@ -118,29 +118,80 @@
 
 | 項目名     | 必須 | 内容                             |
 | ---------- | ---- | -------------------------------- |
+| `typeId`   | 必須 | タイプの一意ID（通常は `typeCode` と同値） |
 | `typeCode` | 必須 | 本書で定義した4文字コード        |
 | `typeName` | 必須 | 本書で定義した正式タイプ名称     |
 | `tagline`  | 必須 | 一言キャッチコピー               |
 | `summary`  | 必須 | 想定プレイ像をもとにした簡易説明 |
 | `detailDescription` | 必須 | 詳細説明文 |
-| `strengths` | 必須 | 強み一覧 |
-| `cautions` | 必須 | 注意点一覧 |
-| `recommendedPlaystyle` | 必須 | 推奨立ち回り一覧 |
-| `suitableRoles` | 必須 | 向いている役回り一覧 |
+| `strengths` | 必須 | 強み一覧（文字列配列） |
+| `cautions` | 必須 | 注意点一覧（文字列配列） |
+| `recommendedPlaystyle` | 必須 | 推奨立ち回り一覧（文字列配列） |
+| `suitableRoles` | 必須 | 向いている役回り一覧（文字列配列） |
 | `compatibility` | 必須 | 相性情報オブジェクト |
 | `shareText` | 必須 | SNSシェア用の文面 |
-| `axis1`    | 必須 | 発言型 or 観察型                 |
-| `axis2`    | 必須 | 事実重視 or 推理重視             |
-| `axis3`    | 必須 | 論理派 or 感情派                 |
-| `axis4`    | 必須 | 計画型 or 即興型                 |
+| `axis`     | 必須 | 軸情報のネストオブジェクト（下記参照） |
+
+#### `axis` オブジェクトの構造
+
+軸情報はトップレベルではなく、`axis` オブジェクトにネストして保持する。
+
+```json
+{
+  "axis": {
+    "axis1": "発言型",
+    "axis2": "事実重視",
+    "axis3": "論理派",
+    "axis4": "計画型"
+  }
+}
+```
+
+各値は「発言型」「観察型」「事実重視」「推理重視」「論理派」「感情派」「計画型」「即興型」のいずれかとする。
 
 ### 6.2 シェア・画像生成に必要な補助項目
 
 | 項目名 | 必須 | 内容 |
 | ------ | ---- | ---- |
-| `visualProfile` | 必須 | タイプ別キャラクターやOGPの見た目を決める補助データ |
-| `imagePrompt` | 必須 | 画像生成時の補助プロンプト |
-| `negativePrompt` | 必須 | 画像生成時の禁止条件 |
+| `visualProfile` | 必須 | タイプ別キャラクターやOGPの見た目を決める補助データ（下記参照） |
+| `imagePrompt` | 必須 | 画像生成時の補助プロンプト（`{ ja, en }` の多言語ペア） |
+| `negativePrompt` | 必須 | 画像生成時の禁止条件（`{ ja, en }` の多言語ペア） |
+
+#### `visualProfile` オブジェクトの構造
+
+```json
+{
+  "visualProfile": {
+    "genderPresentation": "male",
+    "ageRange": "20代後半",
+    "characterArchetype": "冷静なリードインベスティゲーター",
+    "characterDescription": "鋭い観察眼を持つ知的な青年。...",
+    "outfitDescription": "ネイビーのスリーピーススーツに...",
+    "colorPalette": ["navy", "burgundy", "gold"],
+    "pose": "片手に手帳を持ち、もう片手で論点を示す",
+    "expression": "冷静で自信のある視線",
+    "background": "transparent"
+  }
+}
+```
+
+- `colorPalette` は色名の文字列配列で、`lib/site.ts` の `PALETTE_COLOR_MAP` で HEX に変換される
+- `background` は任意項目
+
+#### `imagePrompt` / `negativePrompt` の構造
+
+```json
+{
+  "imagePrompt": {
+    "ja": "日本語のプロンプト...",
+    "en": "English prompt..."
+  },
+  "negativePrompt": {
+    "ja": "日本語の禁止条件...",
+    "en": "English negative prompt..."
+  }
+}
+```
 
 画像生成関連の運用ルールと出力仕様は [character-image-skill-spec.md](./character-image-skill-spec.md) を参照する。
 

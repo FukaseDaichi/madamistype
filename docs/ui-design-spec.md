@@ -25,12 +25,12 @@
 
 ### 2.1 中核コンセプト
 
-本サービスのビジュアルコンセプトは、**「探偵事務所のケースファイル × ダークノワール」** とする。
+本サービスのビジュアルコンセプトは、**「Romantic Case File」** とする。
 
-- 黒い背景の上に、紙の資料や封筒を重ねて読む感覚を作る
+- アイボリーの紙面に、淡いローズとティールのアクセントを重ねた柔らかい世界観
 - 情報は「カード」ではなく「記録物」「証拠」「ファイル」として見せる
-- 甘い恋愛診断の雰囲気ではなく、静かな緊張と知的な没入感を優先する
-- ただしホラーやゴシックに寄せすぎず、エンタメとして読み進めやすい温度を保つ
+- 甘い恋愛診断の雰囲気ではなく、静かな知的没入感と紙面の温かみを両立する
+- トップページでは「ケースファイル封筒」モチーフを維持しつつ、ライトトーンで展開する
 
 ### 2.2 目指す体験
 
@@ -49,18 +49,17 @@ UIは、以下の感情を順に生むことを目標とする。
 - 手書き注記
 - マスキングテープ
 - 用紙の罫線、余白、経年感
-- 暗い室内で紙束だけが浮かぶようなコントラスト
+- アイボリー紙面に淡い色彩で浮かぶ柔らかなコントラスト
 
 ### 2.4 キーワード
 
-- 機密
 - 記録
 - 捜査資料
-- 静かな緊張
-- 赤いスタンプ
+- 静かな知的さ
 - 紙の手触り
 - 読ませる余白
-- ノワール
+- アイボリーとローズ
+- ティールのアクセント
 
 ## 3. 対象ユーザーと利用文脈
 
@@ -91,7 +90,7 @@ UIは、以下の感情を順に生むことを目標とする。
 
 - Romantic は甘さではなく、感情の機微や余韻を指す
 - Case File は紙の記録物としての知性と整理感を指す
-- Noir は黒背景・低照度・張りつめた空気を指す
+- ライトトーンのアイボリー背景で、紙面の温かみと知的な整理感を両立する
 
 ### 4.2 禁止する方向性
 
@@ -114,31 +113,36 @@ UIは、以下の感情を順に生むことを目標とする。
 
 ### 5.1 基本パレット
 
-| 役割           | 色名           | HEX       | 用途                          |
-| -------------- | -------------- | --------- | ----------------------------- |
-| 背景最暗部     | Noir Black     | `#0D0B08` | 画面全体の暗部、ベース背景    |
-| 本文基調       | Sepia Ink      | `#1A1208` | 紙面上の主要テキスト          |
-| ベース紙面     | Case Paper     | `#F0E8D5` | メインの用紙面、封筒、資料面  |
-| 補助紙面       | Aged Paper     | `#E2D6BE` | サブカード、写真台紙、差し紙  |
-| 境界線         | File Edge      | `#C4A96B` | 枠線、罫線、補助ラベル        |
-| 補助色         | Evidence Sepia | `#8B6914` | メタ情報、説明線、手書き注記  |
-| 主アクセント   | Stamp Red      | `#C0392B` | 機密スタンプ、主要CTA、警戒感 |
-| 補助アクセント | Lead Amber     | `#D4820A` | 数値強調、注目点、焦点誘導    |
-| 補助差分A      | File Green     | `#1A6B4A` | タイプ差分、二次装飾          |
-| 補助差分B      | Case Blue      | `#2A4A8B` | タイプ差分、二次装飾          |
+| 役割             | 色名         | HEX       | 用途                              |
+| ---------------- | ------------ | --------- | --------------------------------- |
+| ベース背景       | Ivory 100    | `#F7F2ED` | 画面全体のベース背景              |
+| サーフェス       | Ivory 50     | `#FFF9F6` | カード面、パネル背景              |
+| 境界線           | Ivory 200    | `#D8CEC9` | 枠線、罫線                        |
+| 本文基調         | Plum 900     | `#2B2430` | 主要テキスト                      |
+| 補助テキスト     | Plum 600     | `#6D6471` | メタ情報、補助テキスト            |
+| ブランドカラー   | Rose 400     | `#C97B92` | ブランドアクセント、グラデーション |
+| ブランド強調     | Rose 500     | `#B86881` | ブランド強調                      |
+| 主要CTA          | Rose 600     | `#D85E72` | 主要ボタン背景                    |
+| 主要CTAホバー    | Rose 700     | `#C84F64` | 主要ボタンホバー                  |
+| 危険色           | Rose 800     | `#A94A5F` | エラー、危険表示                  |
+| アクセント       | Teal 700     | `#2F6F74` | リンク、アイキャッチラベル        |
+| アクセント淡     | Teal 400     | `#DDECEB` | 選択済み回答の背景                |
+| 副次CTA          | Blue 400     | `#7FA8C9` | セカンダリボタン枠線              |
+| 副次CTAホバー    | Blue 500     | `#6C98BB` | セカンダリボタンホバー            |
+| 成功色           | Green 600    | `#3E8D6D` | ステータス通知                    |
+| 警告色           | Amber 500    | `#D49A31` | 警告表示                          |
 
 ### 5.2 運用ルール
 
-- 画面全体の印象は、黒 40% / 紙 40% / 装飾色 20% を上限目安とする
-- `Stamp Red` は強い意味を持つ色として扱い、使いすぎない
-- `Lead Amber` は注目点の強調に限定し、エラー色として使わない
-- 緑や青はタイプ差分の補助色であり、ブランド全体の主色にしない
+- 画面全体の印象は、アイボリー背景にローズとティールのアクセントを散りばめる
+- `Rose 600` は主要CTAに限定し、使いすぎない
+- `Teal 700` はリンクやアイキャッチラベルに使い、ブランドとの差別化を保つ
 - 色だけで意味を伝えず、ラベル、余白、位置でも意味を伝える
+- 背景にはローズとティールの放射グラデーションを薄く重ね、奥行きを出す
 
 ### 5.3 推奨コントラスト
 
-- 黒背景上の本文は `Case Paper` 以上の明度を使う
-- 紙面上の本文は `Sepia Ink` を基準とする
+- アイボリー背景上の本文は `Plum 900` を基準とする
 - 12〜14pxのメタ情報でも 4.5:1 を満たす
 - ボタン、入力欄、リンクは背景と 3:1 以上のコントラストを確保する
 
@@ -148,17 +152,27 @@ UIは、以下の感情を順に生むことを目標とする。
 
 ```css
 :root {
-  --primitive-noir-950: #0d0b08;
-  --primitive-ink-900: #1a1208;
-  --primitive-paper-50: #f7f2e8;
-  --primitive-paper-100: #f0e8d5;
-  --primitive-paper-200: #e2d6be;
-  --primitive-sepia-500: #8b6914;
-  --primitive-sepia-300: #c4a96b;
-  --primitive-stamp-600: #c0392b;
-  --primitive-amber-500: #d4820a;
-  --primitive-green-700: #1a6b4a;
-  --primitive-blue-700: #2a4a8b;
+  --primitive-ivory-50: #fff9f6;
+  --primitive-ivory-100: #f7f2ed;
+  --primitive-ivory-200: #d8cec9;
+
+  --primitive-plum-900: #2b2430;
+  --primitive-plum-600: #6d6471;
+
+  --primitive-rose-400: #c97b92;
+  --primitive-rose-500: #b86881;
+  --primitive-rose-600: #d85e72;
+  --primitive-rose-700: #c84f64;
+  --primitive-rose-800: #a94a5f;
+
+  --primitive-teal-400: #ddeceb;
+  --primitive-teal-700: #2f6f74;
+
+  --primitive-blue-400: #7fa8c9;
+  --primitive-blue-500: #6c98bb;
+
+  --primitive-green-600: #3e8d6d;
+  --primitive-amber-500: #d49a31;
 }
 ```
 
@@ -166,40 +180,39 @@ UIは、以下の感情を順に生むことを目標とする。
 
 ```css
 :root {
-  --color-bg: var(--primitive-noir-950);
-  --color-surface: var(--primitive-paper-100);
-  --color-surface-muted: var(--primitive-paper-200);
-  --color-text: var(--primitive-paper-50);
-  --color-text-on-paper: var(--primitive-ink-900);
-  --color-text-subtle: rgba(240, 232, 213, 0.72);
-  --color-border: var(--primitive-sepia-300);
-  --color-meta: var(--primitive-sepia-500);
-  --color-accent: var(--primitive-stamp-600);
-  --color-accent-strong: var(--primitive-amber-500);
-  --color-focus-ring: var(--primitive-amber-500);
+  --color-bg: var(--primitive-ivory-100);
+  --color-surface: var(--primitive-ivory-50);
+  --color-line: var(--primitive-ivory-200);
+  --color-text: var(--primitive-plum-900);
+  --color-text-subtle: var(--primitive-plum-600);
+
+  --color-brand: var(--primitive-rose-400);
+  --color-brand-strong: var(--primitive-rose-500);
+  --color-accent: var(--primitive-teal-700);
+  --color-accent-soft: var(--primitive-teal-400);
+
+  --color-action-primary: var(--primitive-rose-600);
+  --color-action-primary-hover: var(--primitive-rose-700);
+  --color-action-secondary: var(--primitive-blue-400);
+  --color-action-secondary-hover: var(--primitive-blue-500);
+
+  --color-success: var(--primitive-green-600);
+  --color-warning: var(--primitive-amber-500);
+  --color-danger: var(--primitive-rose-800);
+  --color-focus-ring: var(--primitive-teal-700);
 }
 ```
 
-### 6.3 Componentトークン
+### 6.3 共通スタイル
 
-```css
-:root {
-  --btn-primary-bg: var(--color-accent);
-  --btn-primary-text: #ffffff;
-  --btn-primary-border: var(--color-accent);
+ボタン、パネル、フォーム要素などの共通スタイルは `app/globals.css` にユーティリティクラスとして定義されている。
 
-  --btn-secondary-bg: transparent;
-  --btn-secondary-text: var(--color-border);
-  --btn-secondary-border: rgba(196, 169, 107, 0.35);
-
-  --panel-paper-bg: var(--color-surface);
-  --panel-paper-border: var(--color-border);
-  --panel-dark-bg: rgba(13, 11, 8, 0.85);
-
-  --label-font: var(--font-typewriter);
-  --annotation-font: var(--font-note);
-}
-```
+- `.surface-panel`: カード面。角丸、半透明背景、内側二重ボーダー
+- `.primary-button` / `.secondary-button`: CTA ボタン
+- `.text-field`: テキスト入力欄
+- `.eyebrow`: セクションラベル（英字、大文字、ティール色）
+- `.question-block` / `.answer-option`: 診断 UI の質問・回答コンポーネント
+- `.progress-track` / `.progress-fill`: 進捗バー
 
 ## 7. タイポグラフィ
 
@@ -213,11 +226,17 @@ UIは、以下の感情を順に生むことを目標とする。
 
 ### 7.2 推奨フォント
 
-- Display: `Bebas Neue`
-- Typewriter: `Special Elite`
-- Serif: `Noto Serif JP`
-- Note: `Caveat`
-- Sans（設問やフォーム補助用）: `Noto Sans JP`
+全体レイアウト（`app/layout.tsx`）:
+
+- Body: `Noto Sans JP`（`--font-body-family`）
+- Display: `Shippori Mincho B1`（`--font-display-family`）
+
+トップページ（`app/page.tsx`）では追加で以下を読み込む:
+
+- Display: `Bebas Neue`（`--rcf-font-display`）
+- Typewriter: `Special Elite`（`--rcf-font-typewriter`）
+- Serif: `Noto Serif JP`（`--rcf-font-serif`）
+- Note: `Caveat`（`--rcf-font-note`）
 
 ### 7.3 運用ルール
 
@@ -375,8 +394,10 @@ UIは、以下の感情を順に生むことを目標とする。
 ### 13.1 実装方針
 
 - 全体トークンは `app/globals.css` で管理する
-- トップページの強いアートディレクションはページスコープCSSで許容する
+- トップページの強いアートディレクションは `app/page.module.css` で管理する
 - フォントは `next/font/google` を使い、外部 `@import` は避ける
+- 全体レイアウトでは `Noto Sans JP` と `Shippori Mincho B1` を読み込む
+- トップページでは追加で `Bebas Neue`, `Special Elite`, `Noto Serif JP`, `Caveat` を読み込む
 - 装飾のために JavaScript を増やさない
 
 ### 13.2 実装優先度
