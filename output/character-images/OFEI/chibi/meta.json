@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T00:53:42.399Z",
+  "typeCode": "OFEI",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFEI.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774400011629-10zhxkk0qbc.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same Japanese female reporter character from the reference image, preserving her face impression, light brown wavy semi-long hair, beige trench coat, white shirt, dark brown skirt, shoulder camera strap, reporter memo pad, and pen. Make her a super-deformed anime chibi with about three heads tall proportions, oversized head, and a clean readable silhouette. Show the entire full body comple",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "dynamic mid-air jump",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "潜入記者",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T00:56:52.259Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2761905
+}

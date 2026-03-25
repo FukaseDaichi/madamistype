@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T00:53:41.463Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "91ec7406348e993f894cd84b69057a20"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "91ec7406348e993f894cd84b69057a20",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFEI.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same Japanese female reporter character from the reference image, preserving her face impression, light brown wavy semi-long hair, beige trench coat, white shirt, dark brown skirt, shoulder camera strap, reporter memo pad, and pen. Make her a super-deformed anime chibi with about three heads tall proportions, oversized head, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give her a dynamic mid-air jump pose, one knee bent, one leg kicked back, memo pad raised high, pen in the other hand, lively and playful but still smart and reporter-like. Keep the expression warm, observant, and charming. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 08:53:33",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774400011629-10zhxkk0qbc.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 08:52:16"
+    }
+  }
+}

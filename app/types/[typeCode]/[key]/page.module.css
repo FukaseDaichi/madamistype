@@ -373,6 +373,10 @@
   gap: 1rem;
 }
 
+.signatureSection {
+  gap: 1.5rem;
+}
+
 .axisPanel,
 .sharePanel {
   border-radius: 0;
@@ -428,6 +432,25 @@
   line-height: 2;
 }
 
+.sectionHeaderCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionHeaderCentered .sectionEyebrow,
+.sectionHeaderCentered .sectionTitle {
+  margin-bottom: 0;
+}
+
+.signatureIntro {
+  max-width: 40rem;
+}
+
 .axisPanel :global(.axis-note) {
   color: rgba(196, 169, 107, 0.55);
   font-family: var(--rcf-font-note), cursive;
@@ -440,18 +463,77 @@
   border-left: 3px solid rgba(196, 169, 107, 0.2);
 }
 
+.signatureSnapshot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid rgba(196, 169, 107, 0.2);
+  background:
+    linear-gradient(180deg, rgba(240, 232, 213, 0.06), rgba(240, 232, 213, 0.03)),
+    rgba(13, 11, 8, 0.28);
+  padding: 1rem 1.25rem 1.1rem;
+  text-align: center;
+}
+
+.signatureSnapshotLabel {
+  margin: 0;
+  color: rgba(196, 169, 107, 0.66);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.signatureSnapshotPills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.signatureSnapshotPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.2rem;
+  border: 1px solid rgba(196, 169, 107, 0.24);
+  background: rgba(192, 57, 43, 0.08);
+  padding: 0.4rem 0.9rem;
+  color: rgba(240, 232, 213, 0.94);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+}
+
 .signatureGrid {
   display: grid;
-  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .signatureCard {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
+  min-height: 100%;
   border: 1px solid rgba(196, 169, 107, 0.16);
-  background: rgba(240, 232, 213, 0.05);
-  padding: 1rem;
+  background:
+    radial-gradient(circle at top right, rgba(192, 57, 43, 0.08), transparent 34%),
+    rgba(240, 232, 213, 0.05);
+  padding: 1.2rem;
+}
+
+.signatureCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.signatureCardHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .signatureLabel {
@@ -459,7 +541,30 @@
   color: rgba(196, 169, 107, 0.72);
   font-family: var(--rcf-font-typewriter), monospace;
   font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
+}
+
+.signatureCardTitle {
+  margin: 0;
+  color: rgba(240, 232, 213, 0.94);
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.signatureTrendBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.9rem;
+  border: 1px solid rgba(192, 57, 43, 0.38);
+  padding: 0.25rem 0.65rem;
+  color: rgba(255, 177, 167, 0.9);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .signaturePills {
@@ -487,6 +592,37 @@
 .signatureOther {
   border: 1px solid rgba(196, 169, 107, 0.18);
   color: rgba(196, 169, 107, 0.72);
+}
+
+.signatureBody {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.signatureBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid rgba(196, 169, 107, 0.24);
+  background: rgba(240, 232, 213, 0.04);
+}
+
+.signatureBlockLabel {
+  margin: 0;
+  color: rgba(240, 232, 213, 0.86);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.signatureBlockText {
+  margin: 0;
+  color: rgba(196, 169, 107, 0.78);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.78rem;
+  line-height: 1.9;
 }
 
 .twoCol {
@@ -628,6 +764,10 @@
     grid-template-columns: 1fr;
   }
 
+  .signatureGrid {
+    grid-template-columns: 1fr;
+  }
+
   .shell {
     padding-inline: 1rem;
   }
@@ -651,6 +791,14 @@
   .axisPanel,
   .sharePanel {
     padding: 1.5rem;
+  }
+
+  .signatureCardHeader {
+    flex-direction: column;
+  }
+
+  .signatureTrendBadge {
+    align-self: flex-start;
   }
 }
 
