@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:40:33.702Z",
+  "typeCode": "TRLP",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TRLP.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402825450-tggsn0zqben.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 黒幕参謀. Archetype: 盤面を俯瞰する戦略家. Character description: 全体像を一歩引いて見渡し、静かに勝ち筋を組み立てる青年。語るたびに卓の視界が広がる知将タイプ。. Outfit and props: ダークブラウンのロングコート、黒のベスト、深い緑のネクタイ、革の書類ケース。知略を感じさせるクラシック寄りの装い。. Color palette: dark brown, black, deep green. Make this a pol",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a strategic long stride with the coat moving behind, one arm holding the document case low, the other hand indicating an unseen plan with quiet authority",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "黒幕参謀",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:40:33.703Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2956117
+}

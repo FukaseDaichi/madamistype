@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T01:23:29.979Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "b63d37b7b9754521b70fcc43b566fc70"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "b63d37b7b9754521b70fcc43b566fc70",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/ORLI.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 潜伏スパイ. Archetype: 影に潜む情報工作員. Character description: 表情を多く見せず、必要な瞬間だけ急所へ踏み込む寡黙な青年。暗い場所ほど輪郭が際立つ。. Outfit and props: 黒のハイカラーコート、ダークグレーのシャツ、レザーグローブ、細いチェーン。隠密性と洗練が同居する装い。. Color palette: black, dark gray, steel blue. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a stealthy low landing pose, coat trailing behind, knees bent, one gloved hand close to the ground while the eyes glance sharply to the side. Keep the expression 感情を伏せた鋭い視線. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 09:23:23",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401801784-83mi86eh0px.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 09:22:15"
+    }
+  }
+}

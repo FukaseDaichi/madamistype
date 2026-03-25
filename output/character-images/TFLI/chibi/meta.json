@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:30:38.822Z",
+  "typeCode": "TFLI",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TFLI.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402227597-znr972r2glt.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 尋問官. Archetype: 切れ味の鋭い女性尋問官. Character description: 瞬時に矛盾へ反応する、鋭い眼差しの女性。声は静かだが間合いが鋭く、一歩踏み込む質問で場を揺らす。. Outfit and props: チャコールグレーのロングジャケット、黒のハイネック、スリムパンツ、革手袋、細いイヤーカフ。機動力と緊張感のある都会的な装い。. Color palette: charcoal, black, silver. Make this a pol",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a sharp forward stride, long jacket swaying, one hand raised in the instant of a decisive question, the other arm pulling back to add tension",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "尋問官",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:30:38.822Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2949414
+}

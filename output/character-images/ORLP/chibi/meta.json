@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:25:02.301Z",
+  "typeCode": "ORLP",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/ORLP.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401894691-iftdb0yiet.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 安楽椅子探偵. Archetype: 椅子に座して全体を読む推理家. Character description: 一歩引いた位置から盤面全体を俯瞰し、見えない構造を見抜く落ち着いた男性。. Outfit and props: ダークネイビーのカーディガン、ベスト、白シャツ、丸眼鏡、膝に置いた本。書斎に似合う知的で柔らかな装い。. Color palette: dark navy, brown, ivory. Make this a polished anime chibi",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a relaxed backward lean with one leg crossed forward, open book balanced in one hand, the other hand at the chin in mid-deduction",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "安楽椅子探偵",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:25:02.301Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2463627
+}

@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:34:45.407Z",
+  "typeCode": "TREI",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TREI.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402471635-lx6n87p2wn.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 大女優. Archetype: 卓にドラマを起こす主演女優. Character description: 感情の起伏を恐れず、ひとたび動けば場の視線を一身に集める華やかな女性。. Outfit and props: 深いエメラルドのドレスに黒のショール、繊細なピアス、細い手袋。舞台の主役を思わせる気品ある装い。. Color palette: emerald, black, silver. Make this a polished anime chibi with abo",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a dramatic stage spin with the dress and shawl sweeping outward, one hand over the chest, one heel lifted, like the peak of an emotional performance",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "大女優",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:34:45.407Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2532879
+}

@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T01:40:29.221Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "2e1bd4954af95b059b5cb293128822a5"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "2e1bd4954af95b059b5cb293128822a5",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TRLP.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 黒幕参謀. Archetype: 盤面を俯瞰する戦略家. Character description: 全体像を一歩引いて見渡し、静かに勝ち筋を組み立てる青年。語るたびに卓の視界が広がる知将タイプ。. Outfit and props: ダークブラウンのロングコート、黒のベスト、深い緑のネクタイ、革の書類ケース。知略を感じさせるクラシック寄りの装い。. Color palette: dark brown, black, deep green. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a strategic long stride with the coat moving behind, one arm holding the document case low, the other hand indicating an unseen plan with quiet authority. Keep the expression 静かに思考している鋭い横顔. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 09:40:26",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402825450-tggsn0zqben.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 09:38:57"
+    }
+  }
+}

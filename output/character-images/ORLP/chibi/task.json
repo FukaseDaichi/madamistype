@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T01:24:58.095Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "7c307d1eec0dc9ef62bab52eca339629"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "7c307d1eec0dc9ef62bab52eca339629",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/ORLP.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 安楽椅子探偵. Archetype: 椅子に座して全体を読む推理家. Character description: 一歩引いた位置から盤面全体を俯瞰し、見えない構造を見抜く落ち着いた男性。. Outfit and props: ダークネイビーのカーディガン、ベスト、白シャツ、丸眼鏡、膝に置いた本。書斎に似合う知的で柔らかな装い。. Color palette: dark navy, brown, ivory. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a relaxed backward lean with one leg crossed forward, open book balanced in one hand, the other hand at the chin in mid-deduction. Keep the expression 深く思考に沈んだ落ち着いた顔. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 09:24:56",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401894691-iftdb0yiet.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 09:23:35"
+    }
+  }
+}

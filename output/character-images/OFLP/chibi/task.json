@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T01:16:24.830Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "b6947e9ac873a66f99f3fdf26bccfcba"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "b6947e9ac873a66f99f3fdf26bccfcba",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFLP.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 沈黙の鑑識官. Archetype: 静かに真実を検証する分析官. Character description: 口数は少ないが、見落としを許さない精度で盤面を見る男性。静かな一言が最終盤の重みになる。. Outfit and props: ダークグレーのタートルネックに黒のロングコート、薄い手袋、細い眼鏡。無駄のない鑑識官らしい装い。. Color palette: dark gray, black, ice blue. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a sharp side-step pivot with the long coat flaring, one gloved hand adjusting the thin glasses, the other hand extended as if quietly pinpointing decisive evidence. Keep the expression 感情を抑えた冷静な横顔. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 09:16:21",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401379746-ldaf1ergnbj.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 09:14:54"
+    }
+  }
+}

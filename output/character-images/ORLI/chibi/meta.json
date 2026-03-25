@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:23:34.661Z",
+  "typeCode": "ORLI",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/ORLI.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401801784-83mi86eh0px.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 潜伏スパイ. Archetype: 影に潜む情報工作員. Character description: 表情を多く見せず、必要な瞬間だけ急所へ踏み込む寡黙な青年。暗い場所ほど輪郭が際立つ。. Outfit and props: 黒のハイカラーコート、ダークグレーのシャツ、レザーグローブ、細いチェーン。隠密性と洗練が同居する装い。. Color palette: black, dark gray, steel blue. Make this a polished anime ",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a stealthy low landing pose, coat trailing behind, knees bent, one gloved hand close to the ground while the eyes glance sharply to the side",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "潜伏スパイ",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:23:34.661Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2699028
+}

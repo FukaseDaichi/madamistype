@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:28:13.944Z",
+  "typeCode": "TFEP",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TFEP.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402081769-5tm5zo9w8de.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 証言調律師. Archetype: 柔らかく場を整える交渉人. Character description: 穏やかな微笑みで緊張をほどきながら、本当に必要な話だけを自然に引き出す女性。. Outfit and props: アイボリーのブラウスにダークグリーンのベスト、ロングスカート、細いリボンタイ、小さなメモ帳。上品で親しみやすい装い。. Color palette: ivory, deep green, brown. Make this a polished anim",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a welcoming light twirl, skirt and vest swaying, memo pad held near the chest, free hand opening outward as if gently guiding the room",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "証言調律師",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:28:13.944Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2856644
+}

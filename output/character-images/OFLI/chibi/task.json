@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T01:14:50.393Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "5a2a9bc0d289bae8e2e7535e53df2b29"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "5a2a9bc0d289bae8e2e7535e53df2b29",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFLI.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 潜伏刑事. Archetype: 静かに追うアンダーカバー刑事. Character description: 人目を引かずに近づき、誰も気づかない違和感だけを確実に拾っていく青年。. Outfit and props: ブラウンのレザージャケット、ダークシャツ、細身のスラックス、ショルダーバッグ。現場を歩き回る刑事らしい実用的な装い。. Color palette: brown, black, copper. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a dynamic low tracking crouch, coat swinging, one knee bent deeply, body leaning forward as if following a clue, one hand brushing the shoulder bag while the other hand balances the motion. Keep the expression 控えめだが鋭い集中した目. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 09:14:49",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401287886-hclktui4ty7.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 09:11:52"
+    }
+  }
+}

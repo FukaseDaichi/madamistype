@@ -1,0 +1,10 @@
+{
+  "prompt": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 尋問官. Archetype: 切れ味の鋭い女性尋問官. Character description: 瞬時に矛盾へ反応する、鋭い眼差しの女性。声は静かだが間合いが鋭く、一歩踏み込む質問で場を揺らす。. Outfit and props: チャコールグレーのロングジャケット、黒のハイネック、スリムパンツ、革手袋、細いイヤーカフ。機動力と緊張感のある都会的な装い。. Color palette: charcoal, black, silver. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a sharp forward stride, long jacket swaying, one hand raised in the instant of a decisive question, the other arm pulling back to add tension. Keep the expression 静かな圧を感じる鋭い目. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.",
+  "imageUrls": [
+    "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TFLI.png"
+  ],
+  "aspectRatio": "1:1",
+  "resolution": "2K",
+  "googleSearch": false,
+  "outputFormat": "png"
+}

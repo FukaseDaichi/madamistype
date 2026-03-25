@@ -1,26 +1,186 @@
 {
   "skill": "madamistype-character-images",
-  "generatedAt": "2026-03-25T00:55:12.007Z",
+  "generatedAt": "2026-03-25T01:41:06.161Z",
   "repoRoot": "C:\\Users\\119003\\git\\madamistype",
-  "typesDir": "C:\\Users\\119003\\git\\madamistype\\data\\types",
   "outputDir": "C:\\Users\\119003\\git\\madamistype\\output\\character-images",
   "withTransparent": true,
   "dryRun": false,
-  "successCount": 2,
+  "successCount": 16,
   "failureCount": 0,
   "results": [
     {
       "typeCode": "OFEI",
       "variants": {
-        "standard": {
-          "status": "success",
-          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774259202976-jwx4imskds.png",
-          "referenceMode": "none"
-        },
         "chibi": {
           "status": "success",
           "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774400011629-10zhxkk0qbc.png",
-          "referenceMode": "github-raw-url"
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "OFEP",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774400628508-jrlrbuvbnd.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "OFLI",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401287886-hclktui4ty7.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "OFLP",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401379746-ldaf1ergnbj.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "OREI",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401460571-5w8ge14vgh.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "OREP",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401676200-l6bxtq29phe.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "ORLI",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401801784-83mi86eh0px.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "ORLP",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401894691-iftdb0yiet.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "TFEI",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401991144-ht8m9r7okp.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "TFEP",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402081769-5tm5zo9w8de.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "TFLI",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402227597-znr972r2glt.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "TFLP",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402316358-z0vfz26y5m.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "TREI",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402471635-lx6n87p2wn.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "TREP",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402581399-d2fqk7pto5.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "TRLI",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402722161-2l4stci84me.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
+        }
+      }
+    },
+    {
+      "typeCode": "TRLP",
+      "variants": {
+        "chibi": {
+          "status": "success",
+          "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402825450-tggsn0zqben.png",
+          "referenceMode": "github-raw-url",
+          "hasTransparent": true
         }
       }
     }

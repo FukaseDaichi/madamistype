@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T01:26:33.909Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "1509b4e98136928772ac6ccd6709acd4"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "1509b4e98136928772ac6ccd6709acd4",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TFEI.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 扇動役者. Archetype: 空気に火を入れるステージメーカー. Character description: 表情の切り替えが鮮やかで、ひと言で場の温度を変える華やかな女性。挑発と親しみやすさを同時に持つ。. Outfit and props: ワインレッドのショートジャケット、黒のシルクブラウス、細身のパンツ、大ぶりではないゴールドピアス。華やかだが動きやすい舞台感のある装い。. Color palette: wine red, black, gold. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a showman-like leap with one arm thrown wide, the other hand near the chest, one leg kicked outward, jacket and hair moving with energetic stage flair. Keep the expression いたずらっぽく熱を帯びた笑顔. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 09:26:32",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401991144-ht8m9r7okp.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 09:25:03"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:14:53.605Z",
+  "typeCode": "OFLI",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFLI.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401287886-hclktui4ty7.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 潜伏刑事. Archetype: 静かに追うアンダーカバー刑事. Character description: 人目を引かずに近づき、誰も気づかない違和感だけを確実に拾っていく青年。. Outfit and props: ブラウンのレザージャケット、ダークシャツ、細身のスラックス、ショルダーバッグ。現場を歩き回る刑事らしい実用的な装い。. Color palette: brown, black, copper. Make this a polished anime chib",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a dynamic low tracking crouch, coat swinging, one knee bent deeply, body leaning forward as if following a clue, one hand brushing the shoulder bag while the other hand balances the motion",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "潜伏刑事",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:14:53.605Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2691330
+}

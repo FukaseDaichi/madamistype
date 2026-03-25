@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:38:56.666Z",
+  "typeCode": "TRLI",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TRLI.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402722161-2l4stci84me.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 奇術師. Archetype: 予想外の一手を切るトリックスター. Character description: 挑発的な笑みを浮かべつつ、誰も思いつかない仮説を平然と差し込む女性。軽やかな身のこなしと知性が同居する。. Outfit and props: 黒のショートテーラードジャケット、紫がかったグレーのシャツ、細身のベルト、片手袋。舞台奇術師を思わせるシャープな装い。. Color palette: black, smoky purple, silver. Make ",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a playful magician-style spin, jacket sweeping outward, one arm lifted high in a teasing flourish, one foot flicked back, like revealing a trick at the perfect moment",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "奇術師",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:38:56.666Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2983523
+}

@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:03:58.747Z",
+  "typeCode": "OFEP",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFEP.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774400628508-jrlrbuvbnd.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same Japanese female maid observer character from the reference image, preserving her face impression, elegant pinned-up chestnut brown hair, classical black long dress, white apron collar, white apron, lace cuffs, and subdued maid headpiece. Make her a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the enti",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose, modern casual clothing",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "graceful turning curtsy",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "観測メイド",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:04:44.158Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 3134778
+}

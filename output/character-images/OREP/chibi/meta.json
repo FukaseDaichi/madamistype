@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:21:23.765Z",
+  "typeCode": "OREP",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OREP.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401676200-l6bxtq29phe.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 感情の翻訳者. Archetype: 気持ちの輪郭を描くリーディングガイド. Character description: 相手の感情を否定せず受け止め、丁寧に言葉へ変えていく落ち着いた女性。やわらかさと芯の強さが同居する。. Outfit and props: ラベンダーグレーのニットにネイビーのロングコート、細いネックレス、上質な手帳。親しみやすさと知性を両立した装い。. Color palette: lavender gray, navy, silver. Make ",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a gentle skipping turn, notebook held close to the chest, coat and hair swaying, free hand softly opening outward as if reading the room",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "感情の翻訳者",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:21:23.765Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 3081388
+}

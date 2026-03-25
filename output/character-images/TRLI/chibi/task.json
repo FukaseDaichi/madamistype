@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T01:38:49.705Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "f219852e707120d2691fe3b64e06a9a2"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "f219852e707120d2691fe3b64e06a9a2",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TRLI.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 奇術師. Archetype: 予想外の一手を切るトリックスター. Character description: 挑発的な笑みを浮かべつつ、誰も思いつかない仮説を平然と差し込む女性。軽やかな身のこなしと知性が同居する。. Outfit and props: 黒のショートテーラードジャケット、紫がかったグレーのシャツ、細身のベルト、片手袋。舞台奇術師を思わせるシャープな装い。. Color palette: black, smoky purple, silver. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a playful magician-style spin, jacket sweeping outward, one arm lifted high in a teasing flourish, one foot flicked back, like revealing a trick at the perfect moment. Keep the expression 余裕を感じる挑発的な笑み. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 09:38:44",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402722161-2l4stci84me.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 09:37:19"
+    }
+  }
+}

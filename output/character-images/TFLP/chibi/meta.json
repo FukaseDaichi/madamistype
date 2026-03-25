@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:32:07.251Z",
+  "typeCode": "TFLP",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TFLP.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402316358-z0vfz26y5m.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 名探偵. Archetype: 冷静なリードインベスティゲーター. Character description: 鋭い観察眼を持つ知的な青年。落ち着いた声で卓を仕切り、決定打になる事実を静かに積み上げていく。. Outfit and props: ネイビーのスリーピーススーツにえんじ色のネクタイ、白いシャツ、革の手帳と銀のペン。上品で無駄のない探偵風の装い。. Color palette: navy, burgundy, gold. Make this a polished",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a confident stepping pose, notebook and silver pen visible, one hand pointing ahead as if presenting the key deduction, suit tails moving slightly",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "名探偵",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:32:07.251Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 3256486
+}

@@ -1,0 +1,28 @@
+{
+  "submittedAt": "2026-03-25T01:34:39.703Z",
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "8d0ec00eba7b9d156e02057632537d42"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "8d0ec00eba7b9d156e02057632537d42",
+      "paramJson": "{\"aspectRatio\":\"1:1\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TREI.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 大女優. Archetype: 卓にドラマを起こす主演女優. Character description: 感情の起伏を恐れず、ひとたび動けば場の視線を一身に集める華やかな女性。. Outfit and props: 深いエメラルドのドレスに黒のショール、繊細なピアス、細い手袋。舞台の主役を思わせる気品ある装い。. Color palette: emerald, black, silver. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a dramatic stage spin with the dress and shawl sweeping outward, one hand over the chest, one heel lifted, like the peak of an emotional performance. Keep the expression 涙をこらえたような強いまなざし. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-25 09:34:33",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774402471635-lx6n87p2wn.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-25 09:32:08"
+    }
+  }
+}

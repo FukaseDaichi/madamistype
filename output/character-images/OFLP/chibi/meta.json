@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:16:28.422Z",
+  "typeCode": "OFLP",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFLP.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401379746-ldaf1ergnbj.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 沈黙の鑑識官. Archetype: 静かに真実を検証する分析官. Character description: 口数は少ないが、見落としを許さない精度で盤面を見る男性。静かな一言が最終盤の重みになる。. Outfit and props: ダークグレーのタートルネックに黒のロングコート、薄い手袋、細い眼鏡。無駄のない鑑識官らしい装い。. Color palette: dark gray, black, ice blue. Make this a polished anim",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a sharp side-step pivot with the long coat flaring, one gloved hand adjusting the thin glasses, the other hand extended as if quietly pinpointing decisive evidence",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "沈黙の鑑識官",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:16:28.422Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 2907441
+}

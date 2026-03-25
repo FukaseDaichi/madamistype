@@ -1,0 +1,29 @@
+{
+  "skill": "madamistype-character-images",
+  "generatedAt": "2026-03-25T01:17:48.531Z",
+  "typeCode": "OREI",
+  "variant": "chibi",
+  "status": "success",
+  "referenceMode": "github-raw-url",
+  "referenceUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OREI.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774401460571-5w8ge14vgh.png",
+  "promptPreview": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 余白の魔術師. Archetype: 沈黙を読み解くミステリアスな洞察者. Character description: 多くを語らず、相手の呼吸ひとつで本音を察する青年。柔らかさと不思議な存在感を持つ。. Outfit and props: プラム色のロングコート、黒のタートルネック、細いスカーフ、リング。ミステリアスで洗練された装い。. Color palette: plum, black, smoke gray. Make this a polished anime ",
+  "negativePromptPreview": "multiple characters, text, logo, watermark, speech bubble, cropped head, cropped feet, cut off limbs, broken hands, extra fingers, background clutter, baby proportions, realistic style, dull pose, static standing pose",
+  "requestSummary": {
+    "aspectRatio": "1:1",
+    "resolution": "2K",
+    "outputFormat": "png",
+    "imageUrlsCount": 1
+  },
+  "notes": {
+    "intendedUse": "LINE sticker chibi sample",
+    "pose": "a dramatic sideways floating lean, coat and scarf drifting, one leg lightly lifted, one hand near the lips as if guarding a secret",
+    "proportions": "about three heads tall"
+  },
+  "sourceTypeName": "余白の魔術師",
+  "withTransparent": true,
+  "transparentOutput": "transparent.png",
+  "transparentGeneratedAt": "2026-03-25T01:17:48.531Z",
+  "transparentMethod": "local flood fill background removal with sharp",
+  "transparentPixels": 3031705
+}

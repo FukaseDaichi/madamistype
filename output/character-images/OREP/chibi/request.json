@@ -1,0 +1,10 @@
+{
+  "prompt": "Create a catchy, adorable LINE sticker-ready chibi illustration based on the reference image. Use the exact same character from the reference image, preserving the face impression, hairstyle, outfit silhouette, color palette, and key props. Character identity: 感情の翻訳者. Archetype: 気持ちの輪郭を描くリーディングガイド. Character description: 相手の感情を否定せず受け止め、丁寧に言葉へ変えていく落ち着いた女性。やわらかさと芯の強さが同居する。. Outfit and props: ラベンダーグレーのニットにネイビーのロングコート、細いネックレス、上質な手帳。親しみやすさと知性を両立した装い。. Color palette: lavender gray, navy, silver. Make this a polished anime chibi with about three heads tall proportions, oversized head, compact body, and a clean readable silhouette. Show the entire full body completely inside a square 1:1 canvas with comfortable padding on all sides. Give the character a gentle skipping turn, notebook held close to the chest, coat and hair swaying, free hand softly opening outward as if reading the room. Keep the expression 思いやりと洞察を感じる穏やかな表情. Use exactly one character. Use a simple plain light cream background with minimal distraction. No text, no logo, no watermark, no speech bubble, no extra characters, no cropped head, no cropped feet, no cut-off limbs, no broken hands.",
+  "imageUrls": [
+    "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OREP.png"
+  ],
+  "aspectRatio": "1:1",
+  "resolution": "2K",
+  "googleSearch": false,
+  "outputFormat": "png"
+}
