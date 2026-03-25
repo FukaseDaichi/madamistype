@@ -11,7 +11,9 @@ import {
 } from "@/lib/diagnosis";
 import { readDiagnosisDraft, writeDiagnosisDraft } from "@/lib/draft-storage";
 import { createShareKey } from "@/lib/share-key";
-import type { AnswersRecord, QuestionMaster } from "@/lib/types";
+import type { AnswerValue, AnswersRecord, QuestionMaster } from "@/lib/types";
+
+import styles from "./diagnosis-flow.module.css";
 
 type DiagnosisFlowProps = {
   questionMaster: QuestionMaster;
@@ -20,6 +22,47 @@ type DiagnosisFlowProps = {
 type LocationState = {
   currentPage: number;
   hasPageQuery: boolean;
+};
+
+const ANSWER_PRESENTATIONS: Record<
+  AnswerValue,
+  {
+    tone: "rose-strong" | "rose-soft" | "neutral" | "teal-soft" | "teal-strong";
+    shortLabel: string;
+    caption: string;
+    size: number;
+  }
+> = {
+  5: {
+    tone: "rose-strong",
+    shortLabel: "とても",
+    caption: "そう思う",
+    size: 46,
+  },
+  4: {
+    tone: "rose-soft",
+    shortLabel: "やや",
+    caption: "そう思う",
+    size: 40,
+  },
+  3: {
+    tone: "neutral",
+    shortLabel: "中立",
+    caption: "どちらでもない",
+    size: 34,
+  },
+  2: {
+    tone: "teal-soft",
+    shortLabel: "やや",
+    caption: "そう思わない",
+    size: 40,
+  },
+  1: {
+    tone: "teal-strong",
+    shortLabel: "全く",
+    caption: "そう思わない",
+    size: 46,
+  },
 };
 
 export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
@@ -43,6 +86,13 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
   const firstQuestionNumber = pageQuestions[0]?.displayOrder ?? 1;
   const lastQuestionNumber =
     pageQuestions[pageQuestions.length - 1]?.displayOrder ?? firstQuestionNumber;
+  const answeredCount = activeQuestions.filter(
+    (question) => answers[question.questionId],
+  ).length;
+  const currentPageAnsweredCount = pageQuestions.filter(
+    (question) => answers[question.questionId],
+  ).length;
+  const progressRatio = totalQuestions > 0 ? answeredCount / totalQuestions : 0;
 
   useEffect(() => {
     const applyStateFromLocation = (showNotice: boolean) => {
@@ -114,7 +164,7 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
   function handleAnswerChange(questionId: string, value: number) {
     setAnswers((current) => ({
       ...current,
-      [questionId]: value as 1 | 2 | 3 | 4 | 5,
+      [questionId]: value as AnswerValue,
     }));
     setValidationError("");
     setRestoreNotice("");
@@ -170,23 +220,24 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
 
   if (!isHydrated) {
     return (
-      <section className="surface-panel flex min-h-[320px] items-center justify-center">
-        <p className="text-sm text-[color:var(--color-text-subtle)]">
-          診断の準備をしています…
-        </p>
+      <section className={`${styles.statusPanel} ${styles.statusPanelCentered}`}>
+        <div className={styles.loadingMark} aria-hidden="true" />
+        <p className={styles.statusEyebrow}>Preparing</p>
+        <h1 className={styles.statusTitle}>診断の準備をしています</h1>
+        <p className={styles.statusCopy}>前回の保存内容と表示ページを確認しています。</p>
       </section>
     );
   }
 
   if (!userName) {
     return (
-      <section className="surface-panel flex flex-col gap-4">
-        <p className="eyebrow">Diagnosis</p>
-        <h1 className="section-title">まずはお名前を入れて診断を始めます</h1>
-        <p className="text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          このページを直接開いた場合は、トップページから診断を開始してください。
+      <section className={styles.statusPanel}>
+        <p className={styles.statusEyebrow}>Diagnosis</p>
+        <h1 className={styles.statusTitle}>まずはお名前を入れて診断を始めます</h1>
+        <p className={styles.statusCopy}>
+          このページを直接開いた場合は、トップページの開始フォームから進んでください。
         </p>
-        <Link href="/" className="primary-button w-full justify-center sm:w-fit">
+        <Link href="/" className={`primary-button ${styles.actionButton}`}>
           トップページへ戻る
         </Link>
       </section>
@@ -195,99 +246,151 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
 
   if (isSubmitting) {
     return (
-      <section className="surface-panel flex min-h-[360px] flex-col items-center justify-center gap-4 text-center">
-        <div className="loading-mark" aria-hidden="true" />
-        <p className="eyebrow">Calculating</p>
-        <h1 className="section-title">診断結果を計算しています</h1>
-        <p className="text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          あなたの回答を4軸にまとめています。
-        </p>
+      <section className={`${styles.statusPanel} ${styles.statusPanelCentered}`}>
+        <div className={styles.loadingMark} aria-hidden="true" />
+        <p className={styles.statusEyebrow}>Calculating</p>
+        <h1 className={styles.statusTitle}>診断結果を計算しています</h1>
+        <p className={styles.statusCopy}>あなたの回答を4軸の記録にまとめています。</p>
       </section>
     );
   }
 
   return (
-    <section className="flex flex-col gap-5">
-      <div className="surface-panel flex flex-col gap-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-col gap-1">
-            <p className="eyebrow">Diagnosis</p>
-            <h1
-              ref={pageHeadingRef}
-              tabIndex={-1}
-              className="section-title outline-none"
-            >
+    <section className={styles.root}>
+      <div className={styles.headerPanel}>
+        <div className={styles.headerTop}>
+          <div className={styles.headerCopy}>
+            <p className={styles.fileMeta}>
+              Diagnosis File / Page {String(currentPage).padStart(2, "0")}
+            </p>
+            <h1 ref={pageHeadingRef} tabIndex={-1} className={styles.pageTitle}>
               {userName}さんの診断
             </h1>
+            <p className={styles.handNote}>
+              - ペン先で印をつけるように、迷いすぎずに選んでください
+            </p>
           </div>
-          <Link href="/" className="text-sm text-[color:var(--color-accent)] underline-offset-4 hover:underline">
+
+          <Link href="/" className={styles.backLink}>
             トップへ戻る
           </Link>
         </div>
 
-        <div aria-live="polite" className="flex flex-col gap-2">
-          <div className="flex items-center justify-between gap-4 text-sm">
-            <span>
-              ページ {currentPage} / {totalPages}
-            </span>
-            <span>
-              質問 {firstQuestionNumber}〜{lastQuestionNumber} / {totalQuestions}
-            </span>
+        <p className={styles.headerLead}>
+          事件メモを読むような感覚で、今の直感に近い方へ印をつけてください。
+          このページでは質問 {firstQuestionNumber} から {lastQuestionNumber} までを進めます。
+        </p>
+
+        <div className={styles.metaGrid}>
+          <div className={styles.metaCard}>
+            <span className={styles.metaLabel}>Page</span>
+            <strong className={styles.metaValue}>
+              {currentPage} / {totalPages}
+            </strong>
           </div>
-          <div className="progress-track" aria-hidden="true">
+          <div className={styles.metaCard}>
+            <span className={styles.metaLabel}>Questions</span>
+            <strong className={styles.metaValue}>
+              {firstQuestionNumber} - {lastQuestionNumber}
+            </strong>
+          </div>
+          <div className={styles.metaCard}>
+            <span className={styles.metaLabel}>Answered</span>
+            <strong className={styles.metaValue}>
+              {answeredCount} / {totalQuestions}
+            </strong>
+          </div>
+        </div>
+
+        <div aria-live="polite" className={styles.progressBlock}>
+          <div className={styles.progressHeader}>
+            <span>回答済み {answeredCount} / {totalQuestions}</span>
+            <span>このページ {currentPageAnsweredCount} / {pageQuestions.length}</span>
+          </div>
+          <div className={styles.progressTrack} aria-hidden="true">
             <div
-              className="progress-fill"
-              style={{ transform: `scaleX(${currentPage / totalPages})` }}
+              className={styles.progressFill}
+              style={{ transform: `scaleX(${progressRatio})` }}
             />
           </div>
         </div>
 
         {restoreNotice ? (
-          <p className="status-note" role="status">
+          <p className={styles.statusNote} role="status">
             {restoreNotice}
           </p>
         ) : null}
-
-        <p className="text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          直感で答えてください。あとから前のページへ戻って見直せます。
-        </p>
       </div>
 
-      <div className="surface-panel flex flex-col gap-6">
-        <div className="flex flex-col gap-2">
-          <p className="eyebrow">Questions</p>
-          <h2 className="section-title">
-            質問 {firstQuestionNumber}〜{lastQuestionNumber}
-          </h2>
+      <div className={styles.questionsPanel}>
+        <div className={styles.sectionHeader}>
+          <div>
+            <p className={styles.sectionEyebrow}>Question Sheet</p>
+            <h2 className={styles.sectionTitle}>
+              質問 {firstQuestionNumber}〜{lastQuestionNumber}
+            </h2>
+          </div>
+          <p className={styles.sectionCopy}>
+            5段階のペンスケールで、気持ちの強さに近いものを選んでください。
+          </p>
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className={styles.scaleGuide} aria-hidden="true">
+          <span className={`${styles.scaleLabel} ${styles.scaleLabelRose}`}>
+            とてもそう思う
+          </span>
+          <div className={styles.scalePreview}>
+            {ANSWER_OPTIONS.map((option) => {
+              const presentation = ANSWER_PRESENTATIONS[option.value];
+
+              return (
+                <div
+                  key={`guide-${option.value}`}
+                  className={styles.scalePreviewItem}
+                  data-tone={presentation.tone}
+                >
+                  <PenScaleIcon
+                    size={presentation.size}
+                    className={styles.scalePreviewIcon}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <span className={`${styles.scaleLabel} ${styles.scaleLabelTeal}`}>
+            全くそうは思わない
+          </span>
+        </div>
+
+        <div className={styles.questionList}>
           {pageQuestions.map((question) => {
             const selectedValue = answers[question.questionId];
 
             return (
-              <fieldset key={question.questionId} className="question-block">
+              <fieldset key={question.questionId} className={styles.questionCard}>
                 <legend
                   ref={(element) => {
                     questionRefs.current[question.questionId] = element;
                   }}
                   tabIndex={-1}
-                  className="question-legend"
+                  className={styles.questionLegend}
                 >
-                  <span className="question-number">
+                  <span className={styles.questionNumber}>
                     Q{String(question.displayOrder).padStart(2, "0")}
                   </span>
-                  <span>{question.questionText}</span>
+                  <span className={styles.questionText}>{question.questionText}</span>
                 </legend>
 
-                <div className="flex flex-col gap-3">
+                <div className={styles.answerScale}>
                   {ANSWER_OPTIONS.map((option) => {
+                    const presentation = ANSWER_PRESENTATIONS[option.value];
                     const checked = selectedValue === option.value;
 
                     return (
                       <label
                         key={option.value}
-                        className={`answer-option ${checked ? "answer-option-selected" : ""}`}
+                        className={`${styles.answerChoice} ${checked ? styles.answerChoiceSelected : ""}`}
+                        data-tone={presentation.tone}
                       >
                         <input
                           type="radio"
@@ -297,9 +400,25 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
                           onChange={() =>
                             handleAnswerChange(question.questionId, option.value)
                           }
-                          className="mt-1 size-4 accent-[color:var(--color-accent)]"
+                          className={styles.answerInput}
+                          aria-label={option.label}
                         />
-                        <span className="flex-1">{option.label}</span>
+                        {checked ? (
+                          <span className={styles.selectedBadge}>選択中</span>
+                        ) : null}
+                        <span className={styles.answerVisual} aria-hidden="true">
+                          <PenScaleIcon
+                            size={presentation.size}
+                            className={styles.answerIcon}
+                          />
+                        </span>
+                        <span className={styles.answerShort}>
+                          {presentation.shortLabel}
+                        </span>
+                        <span className={styles.answerCaption}>
+                          {presentation.caption}
+                        </span>
+                        <span className={styles.visuallyHidden}>{option.label}</span>
                       </label>
                     );
                   })}
@@ -310,16 +429,16 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
         </div>
 
         {validationError ? (
-          <p className="status-note status-note-error" role="alert">
+          <p className={`${styles.statusNote} ${styles.statusNoteError}`} role="alert">
             {validationError}
           </p>
         ) : null}
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
+        <div className={styles.actions}>
           <button
             type="button"
             onClick={handlePrevious}
-            className="secondary-button justify-center"
+            className={`secondary-button ${styles.actionButton}`}
             disabled={currentPage === 1}
           >
             前の8問へ戻る
@@ -327,13 +446,40 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
           <button
             type="button"
             onClick={handleNext}
-            className="primary-button justify-center"
+            className={`primary-button ${styles.actionButton}`}
           >
             {currentPage === totalPages ? "診断結果を見る" : "次の8問へ進む"}
           </button>
         </div>
       </div>
     </section>
+  );
+}
+
+function PenScaleIcon({
+  className,
+  size,
+}: {
+  className?: string;
+  size: number;
+}) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M32 8c1.3 0 2.5.5 3.4 1.4l12.2 12.2c1.2 1.2 1.6 2.9 1.1 4.4L43.2 43c-.3 1-.9 1.8-1.7 2.4L32 55l-9.5-9.6c-.8-.6-1.4-1.4-1.7-2.4L15.3 26c-.5-1.5-.1-3.2 1.1-4.4L28.6 9.4C29.5 8.5 30.7 8 32 8Z" />
+      <path d="M32 20.5a6.2 6.2 0 1 1 0 12.4a6.2 6.2 0 0 1 0-12.4Z" />
+      <path d="M32 32.9v14.6" />
+    </svg>
   );
 }
 

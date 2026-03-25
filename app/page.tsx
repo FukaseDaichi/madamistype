@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import Link from "next/link";
 
+import { AxisCompositionSection } from "@/components/axis-composition-section";
 import { SiteFooter } from "@/components/site-footer";
 import { StartDiagnosisForm } from "@/components/start-diagnosis-form";
 import { TypeArtwork } from "@/components/type-artwork";
@@ -135,6 +136,9 @@ export default async function HomePage() {
           </div>
           <nav aria-label="メインナビ">
             <ul className={styles.mastheadNav}>
+              <li>
+                <a href="#axes">Axes</a>
+              </li>
               <li>
                 <a href="#types">Types</a>
               </li>
@@ -266,6 +270,8 @@ export default async function HomePage() {
             </div>
           </div>
         </section>
+
+        <AxisCompositionSection />
 
         <section id="types" aria-labelledby="featured-heading">
           <div className={styles.sectionHeader}>

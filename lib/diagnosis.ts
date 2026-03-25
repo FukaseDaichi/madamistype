@@ -7,46 +7,7 @@ import type {
   Question,
   QuestionMaster,
 } from "@/lib/types";
-
-const AXIS_CONFIG: Record<
-  AxisCode,
-  {
-    positiveCode: string;
-    negativeCode: string;
-    positiveLabel: string;
-    negativeLabel: string;
-    defaultCode: string;
-  }
-> = {
-  A1: {
-    positiveCode: "T",
-    negativeCode: "O",
-    positiveLabel: "発言型",
-    negativeLabel: "観察型",
-    defaultCode: "O",
-  },
-  A2: {
-    positiveCode: "F",
-    negativeCode: "R",
-    positiveLabel: "事実重視",
-    negativeLabel: "推理重視",
-    defaultCode: "F",
-  },
-  A3: {
-    positiveCode: "L",
-    negativeCode: "E",
-    positiveLabel: "論理派",
-    negativeLabel: "感情派",
-    defaultCode: "L",
-  },
-  A4: {
-    positiveCode: "P",
-    negativeCode: "I",
-    positiveLabel: "計画型",
-    negativeLabel: "即興型",
-    defaultCode: "P",
-  },
-};
+import { AXIS_CONFIG } from "@/lib/axis";
 
 export const ANSWER_OPTIONS: Array<{ label: string; value: AnswerValue }> = [
   { label: "とてもそう思う", value: 5 },

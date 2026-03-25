@@ -16,7 +16,7 @@ export default async function DiagnosisPage() {
   const questionMaster = await getQuestionMaster();
 
   return (
-    <main id="main-content" className="page-shell py-8">
+    <main id="main-content" className="page-shell py-10">
       <DiagnosisFlow questionMaster={questionMaster} />
     </main>
   );
