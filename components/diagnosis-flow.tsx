@@ -8,7 +8,6 @@ import {
   ANSWER_OPTIONS,
   calculateDiagnosisResult,
   getQuestionsForPage,
-  normalizeUserName,
 } from "@/lib/diagnosis";
 import { readDiagnosisDraft, writeDiagnosisDraft } from "@/lib/draft-storage";
 import { createShareKey } from "@/lib/share-key";
@@ -19,8 +18,8 @@ type DiagnosisFlowProps = {
 };
 
 type LocationState = {
-  userName: string;
   currentPage: number;
+  hasPageQuery: boolean;
 };
 
 export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
@@ -49,30 +48,27 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
     const applyStateFromLocation = (showNotice: boolean) => {
       const locationState = readLocationState(totalPages);
       const draft = readDiagnosisDraft();
-      const nextName = locationState.userName || draft?.userName || "";
-      const sameName =
-        !locationState.userName ||
-        !draft?.userName ||
-        locationState.userName === draft.userName;
-      const nextAnswers = sameName ? draft?.answers ?? {} : {};
-      const nextPage = clampPage(
-        sameName
-          ? locationState.currentPage || draft?.currentPage || 1
-          : 1,
-        totalPages,
-      );
+      const nextName = draft?.userName ?? "";
+      const nextAnswers = draft?.answers ?? {};
+      const nextPage = nextName
+        ? clampPage(
+            locationState.hasPageQuery
+              ? locationState.currentPage
+              : draft?.currentPage ?? 1,
+            totalPages,
+          )
+        : 1;
 
       setUserName(nextName);
       setAnswers(nextAnswers);
       setCurrentPage(nextPage);
-      syncUrl(nextName, nextPage, "replace");
+      syncUrl(nextPage, "replace");
 
       if (
         showNotice &&
         draft &&
-        sameName &&
         Object.keys(draft.answers).length > 0 &&
-        !locationState.userName
+        !locationState.hasPageQuery
       ) {
         setRestoreNotice("保存していた回答を復元しました。");
       }
@@ -127,7 +123,7 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
   function moveToPage(nextPage: number, mode: "push" | "replace") {
     const clamped = clampPage(nextPage, totalPages);
     setCurrentPage(clamped);
-    syncUrl(userName, clamped, mode);
+    syncUrl(clamped, mode);
     setValidationError("");
     setRestoreNotice("");
   }
@@ -344,16 +340,16 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
 function readLocationState(totalPages: number): LocationState {
   if (typeof window === "undefined") {
     return {
-      userName: "",
       currentPage: 1,
+      hasPageQuery: false,
     };
   }
 
   const params = new URLSearchParams(window.location.search);
 
   return {
-    userName: normalizeUserName(params.get("name") ?? ""),
     currentPage: clampPage(Number(params.get("page") ?? "1"), totalPages),
+    hasPageQuery: params.has("page"),
   };
 }
 
@@ -365,12 +361,8 @@ function clampPage(value: number, totalPages: number) {
   return Math.max(1, Math.min(totalPages, value));
 }
 
-function buildDiagnosisUrl(userName: string, page: number) {
+function buildDiagnosisUrl(page: number) {
   const params = new URLSearchParams();
-
-  if (userName) {
-    params.set("name", userName);
-  }
 
   if (page > 1) {
     params.set("page", String(page));
@@ -380,12 +372,12 @@ function buildDiagnosisUrl(userName: string, page: number) {
   return query ? `/diagnosis?${query}` : "/diagnosis";
 }
 
-function syncUrl(userName: string, page: number, mode: "push" | "replace") {
+function syncUrl(page: number, mode: "push" | "replace") {
   if (typeof window === "undefined") {
     return;
   }
 
-  const url = buildDiagnosisUrl(userName, page);
+  const url = buildDiagnosisUrl(page);
   if (mode === "push") {
     window.history.pushState(null, "", url);
     return;

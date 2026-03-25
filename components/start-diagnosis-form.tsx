@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState, type FormEvent } from "react";
 
-import { readDiagnosisDraft } from "@/lib/draft-storage";
+import { normalizeUserName } from "@/lib/diagnosis";
+import { readDiagnosisDraft, writeDiagnosisDraft } from "@/lib/draft-storage";
 
 export function StartDiagnosisForm() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [resumeName, setResumeName] = useState<string | null>(null);
 
@@ -22,16 +25,36 @@ export function StartDiagnosisForm() {
   const normalizedName = name.trim();
   const isDisabled = normalizedName.length === 0 || normalizedName.length > 10;
 
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const userName = normalizeUserName(name);
+    if (!userName) {
+      return;
+    }
+
+    const draft = readDiagnosisDraft();
+    const isSameUser = draft?.userName === userName;
+
+    writeDiagnosisDraft({
+      userName,
+      answers: isSameUser ? draft?.answers ?? {} : {},
+      currentPage: isSameUser ? draft?.currentPage ?? 1 : 1,
+      updatedAt: new Date().toISOString(),
+    });
+
+    router.push("/diagnosis");
+  }
+
   return (
     <div className="flex flex-col gap-4">
-      <form action="/diagnosis" className="surface-panel flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="surface-panel flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="field-label" htmlFor="top-name">
             お名前
           </label>
           <input
             id="top-name"
-            name="name"
             maxLength={10}
             value={name}
             onChange={(event) => setName(event.target.value)}
