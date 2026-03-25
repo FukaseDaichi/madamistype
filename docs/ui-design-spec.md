@@ -114,18 +114,18 @@ UIは、以下の感情を順に生むことを目標とする。
 
 ### 5.1 基本パレット
 
-| 役割 | 色名 | HEX | 用途 |
-| ---- | ---- | --- | ---- |
-| 背景最暗部 | Noir Black | `#0D0B08` | 画面全体の暗部、ベース背景 |
-| 本文基調 | Sepia Ink | `#1A1208` | 紙面上の主要テキスト |
-| ベース紙面 | Case Paper | `#F0E8D5` | メインの用紙面、封筒、資料面 |
-| 補助紙面 | Aged Paper | `#E2D6BE` | サブカード、写真台紙、差し紙 |
-| 境界線 | File Edge | `#C4A96B` | 枠線、罫線、補助ラベル |
-| 補助色 | Evidence Sepia | `#8B6914` | メタ情報、説明線、手書き注記 |
-| 主アクセント | Stamp Red | `#C0392B` | 機密スタンプ、主要CTA、警戒感 |
-| 補助アクセント | Lead Amber | `#D4820A` | 数値強調、注目点、焦点誘導 |
-| 補助差分A | File Green | `#1A6B4A` | タイプ差分、二次装飾 |
-| 補助差分B | Case Blue | `#2A4A8B` | タイプ差分、二次装飾 |
+| 役割           | 色名           | HEX       | 用途                          |
+| -------------- | -------------- | --------- | ----------------------------- |
+| 背景最暗部     | Noir Black     | `#0D0B08` | 画面全体の暗部、ベース背景    |
+| 本文基調       | Sepia Ink      | `#1A1208` | 紙面上の主要テキスト          |
+| ベース紙面     | Case Paper     | `#F0E8D5` | メインの用紙面、封筒、資料面  |
+| 補助紙面       | Aged Paper     | `#E2D6BE` | サブカード、写真台紙、差し紙  |
+| 境界線         | File Edge      | `#C4A96B` | 枠線、罫線、補助ラベル        |
+| 補助色         | Evidence Sepia | `#8B6914` | メタ情報、説明線、手書き注記  |
+| 主アクセント   | Stamp Red      | `#C0392B` | 機密スタンプ、主要CTA、警戒感 |
+| 補助アクセント | Lead Amber     | `#D4820A` | 数値強調、注目点、焦点誘導    |
+| 補助差分A      | File Green     | `#1A6B4A` | タイプ差分、二次装飾          |
+| 補助差分B      | Case Blue      | `#2A4A8B` | タイプ差分、二次装飾          |
 
 ### 5.2 運用ルール
 
@@ -148,17 +148,17 @@ UIは、以下の感情を順に生むことを目標とする。
 
 ```css
 :root {
-  --primitive-noir-950: #0D0B08;
-  --primitive-ink-900: #1A1208;
-  --primitive-paper-50: #F7F2E8;
-  --primitive-paper-100: #F0E8D5;
-  --primitive-paper-200: #E2D6BE;
-  --primitive-sepia-500: #8B6914;
-  --primitive-sepia-300: #C4A96B;
-  --primitive-stamp-600: #C0392B;
-  --primitive-amber-500: #D4820A;
-  --primitive-green-700: #1A6B4A;
-  --primitive-blue-700: #2A4A8B;
+  --primitive-noir-950: #0d0b08;
+  --primitive-ink-900: #1a1208;
+  --primitive-paper-50: #f7f2e8;
+  --primitive-paper-100: #f0e8d5;
+  --primitive-paper-200: #e2d6be;
+  --primitive-sepia-500: #8b6914;
+  --primitive-sepia-300: #c4a96b;
+  --primitive-stamp-600: #c0392b;
+  --primitive-amber-500: #d4820a;
+  --primitive-green-700: #1a6b4a;
+  --primitive-blue-700: #2a4a8b;
 }
 ```
 
@@ -185,7 +185,7 @@ UIは、以下の感情を順に生むことを目標とする。
 ```css
 :root {
   --btn-primary-bg: var(--color-accent);
-  --btn-primary-text: #FFFFFF;
+  --btn-primary-text: #ffffff;
   --btn-primary-border: var(--color-accent);
 
   --btn-secondary-bg: transparent;
@@ -228,14 +228,14 @@ UIは、以下の感情を順に生むことを目標とする。
 
 ### 7.4 サイズ基準
 
-| 用途 | 推奨サイズ | 行間 | 備考 |
-| ---- | ---- | ---- | ---- |
-| ヒーロータイトル | 48〜96px | 0.9〜1.0 | Display |
-| セクション見出し | 28〜44px | 1.0〜1.2 | Display |
-| タイプ名 | 24〜36px | 1.2〜1.3 | Serif |
-| 本文 | 15〜17px | 1.7〜1.9 | Serif or Sans |
-| メタ情報 | 11〜13px | 1.6〜1.8 | Typewriter |
-| 注記 | 14〜18px | 1.3〜1.5 | Note |
+| 用途             | 推奨サイズ | 行間     | 備考          |
+| ---------------- | ---------- | -------- | ------------- |
+| ヒーロータイトル | 48〜96px   | 0.9〜1.0 | Display       |
+| セクション見出し | 28〜44px   | 1.0〜1.2 | Display       |
+| タイプ名         | 24〜36px   | 1.2〜1.3 | Serif         |
+| 本文             | 15〜17px   | 1.7〜1.9 | Serif or Sans |
+| メタ情報         | 11〜13px   | 1.6〜1.8 | Typewriter    |
+| 注記             | 14〜18px   | 1.3〜1.5 | Note          |
 
 ## 8. レイアウト原則
 

@@ -8,6 +8,7 @@ import {
 } from "next/font/google";
 import Link from "next/link";
 
+import { SiteFooter } from "@/components/site-footer";
 import { ShareActions } from "@/components/share-actions";
 import { TypeArtwork } from "@/components/type-artwork";
 import { stringifyJsonLd, getTypePageJsonLd } from "@/lib/json-ld";
@@ -98,11 +99,11 @@ export function TypeDetailPageContent({
   );
 
   const heroNote = isShared
-    ? "この共有URLでは個人名と回答パラメーターを表示していません"
+    ? "個人名と回答パラメーターを表示していません"
     : "この紙面は固定のタイプ公開ページとして共有できます";
   const signatureDescription = isShared
-    ? "共有URLではタイプそのものの特徴だけを見せています。個人名や回答由来の寄り方は表示しません。"
-    : "固定URLではタイプ全体の構成を確認できます。回答ごとの寄り方は診断直後の画面で確認してください。";
+    ? "タイプそのものの特徴"
+    : "タイプそのものの特徴";
   const shareDescription = isShared
     ? "共有リンクとしてそのまま送れます。個人名や回答パラメーターは表示しません。"
     : "X、LINE、OSの共有シートからそのまま送れます。";
@@ -124,7 +125,7 @@ export function TypeDetailPageContent({
       <div className={styles.shell}>
         <header className={styles.mast}>
           <Link href="/" className={styles.mastLogo}>
-            Romantic Case File
+            Murder Mystery Types
           </Link>
           <Link href={isShared ? publicUrl : "/"} className={styles.mastBack}>
             {"<-"} {isShared ? "タイプ公開ページへ" : "トップへ戻る"}
@@ -310,14 +311,7 @@ export function TypeDetailPageContent({
           className={styles.sharePanel}
         />
 
-        <footer className={styles.footer}>
-          <p className={styles.footerText}>
-            © Romantic Case File / Murder Mystery Behavioral Analysis System
-          </p>
-          <p className={styles.footerText}>
-            Powered by 4-Axis Personality Framework
-          </p>
-        </footer>
+        <SiteFooter className={styles.footer} />
       </div>
     </main>
   );

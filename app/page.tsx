@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import Link from "next/link";
 
+import { SiteFooter } from "@/components/site-footer";
 import { StartDiagnosisForm } from "@/components/start-diagnosis-form";
 import { TypeArtwork } from "@/components/type-artwork";
 import { getAllTypes, getQuestionMaster } from "@/lib/data";
@@ -51,7 +52,7 @@ const FEATURE_SUMMARIES = [
   {
     number: "01",
     title: "憑依のさせ方を分析",
-    copy: "あなた自身というより、プレイの仕方や考え方にフォーカス",
+    copy: "あなた自身というより、プレイの仕方や考え方に着目",
   },
   {
     number: "02",
@@ -127,7 +128,7 @@ export default async function HomePage() {
       <div className={styles.shell}>
         <header className={styles.masthead}>
           <div>
-            <div className={styles.mastheadLogo}>Romantic Case File</div>
+            <div className={styles.mastheadLogo}>Murder Mystery Types</div>
             <div className={styles.mastheadSub}>
               Murder Mystery Personality Diagnosis
             </div>
@@ -336,14 +337,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <footer className={styles.footer}>
-          <p className={styles.footerCopy}>
-            © Romantic Case File / Murder Mystery Behavioral Analysis System
-          </p>
-          <p className={styles.footerCopy}>
-            Powered by 4-Axis Personality Framework
-          </p>
-        </footer>
+        <SiteFooter />
       </div>
     </main>
   );
