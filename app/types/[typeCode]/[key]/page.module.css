@@ -233,7 +233,11 @@
   gap: 0.65rem;
   padding: 1rem;
   background:
-    radial-gradient(circle at top left, rgba(196, 169, 107, 0.12), transparent 34%),
+    radial-gradient(
+      circle at top left,
+      rgba(196, 169, 107, 0.12),
+      transparent 34%
+    ),
     linear-gradient(160deg, #241a0b 0%, #140f07 100%);
 }
 
@@ -267,6 +271,47 @@
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+}
+
+.typeNameRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chibiHero {
+  flex-shrink: 0;
+}
+
+.chibiHeroFrame {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(139, 105, 20, 0.3);
+  background: var(--rcf-paper);
+  padding: 6px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 0 12px rgba(139, 105, 20, 0.04);
+  transform: rotate(3deg);
+}
+
+.chibiHeroFrame::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 42px;
+  height: 14px;
+  background: var(--rcf-tape);
+  transform: translateX(-50%) rotate(-1.5deg);
+  z-index: 2;
+}
+
+.chibiHeroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .typeCode {
@@ -470,7 +515,11 @@
   gap: 0.85rem;
   border: 1px solid rgba(196, 169, 107, 0.2);
   background:
-    linear-gradient(180deg, rgba(240, 232, 213, 0.06), rgba(240, 232, 213, 0.03)),
+    linear-gradient(
+      180deg,
+      rgba(240, 232, 213, 0.06),
+      rgba(240, 232, 213, 0.03)
+    ),
     rgba(13, 11, 8, 0.28);
   padding: 1rem 1.25rem 1.1rem;
   text-align: center;
@@ -518,7 +567,11 @@
   min-height: 100%;
   border: 1px solid rgba(196, 169, 107, 0.16);
   background:
-    radial-gradient(circle at top right, rgba(192, 57, 43, 0.08), transparent 34%),
+    radial-gradient(
+      circle at top right,
+      rgba(192, 57, 43, 0.08),
+      transparent 34%
+    ),
     rgba(240, 232, 213, 0.05);
   padding: 1.2rem;
 }
@@ -757,6 +810,13 @@
   }
 }
 
+@media (max-width: 940px) {
+  .chibiHeroFrame {
+    width: 150px;
+    height: 150px;
+  }
+}
+
 @media (max-width: 640px) {
   .heroCols,
   .twoCol,
@@ -774,6 +834,23 @@
 
   .mast {
     align-items: flex-start;
+  }
+
+  .typeNameRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .chibiHero {
+    position: absolute;
+    bottom: 190px;
+    right: 0px;
+  }
+
+  .chibiHeroFrame {
+    width: 180px;
+    height: 180px;
   }
 }
 

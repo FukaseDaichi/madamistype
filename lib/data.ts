@@ -44,3 +44,12 @@ export const hasTypeImage = cache(async (typeCode: TypeCode) => {
     return false;
   }
 });
+
+export const hasChibiImage = cache(async (typeCode: TypeCode) => {
+  try {
+    await access(join(PUBLIC_TYPES_DIR, `${typeCode}_chibi.png`));
+    return true;
+  } catch {
+    return false;
+  }
+});

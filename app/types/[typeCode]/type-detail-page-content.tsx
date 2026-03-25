@@ -1,5 +1,6 @@
 import type { TypeData } from "@/lib/types";
 
+import Image from "next/image";
 import {
   Bebas_Neue,
   Caveat,
@@ -52,6 +53,7 @@ type TypeDetailPageContentProps = {
   typeData: TypeData;
   shareUrl: string;
   publicUrl: string;
+  hasChibi?: boolean;
 };
 
 export function TypeDetailPageContent({
@@ -59,6 +61,7 @@ export function TypeDetailPageContent({
   typeData,
   shareUrl,
   publicUrl,
+  hasChibi = false,
 }: TypeDetailPageContentProps) {
   const isShared = mode === "shared";
   const axisRows = [
@@ -126,12 +129,12 @@ export function TypeDetailPageContent({
     </>
   );
 
-  const heroNote = isShared
-    ? "個人名と回答パラメーターを表示していません"
-    : "この紙面は固定のタイプ公開ページとして共有できます";
+  const heroNote = "Image File";
   const signatureDescription = `${typeData.typeName}は「${axisRows
     .map((row) => row.dominant)
-    .join("・")}」が前に出やすいタイプです。卓で何を手がかりに動きやすいかを、4つの軸で読み解けます。`;
+    .join(
+      "・",
+    )}」が前に出やすいタイプです。卓で何を手がかりに動きやすいかを、4つの軸で読み解けます。`;
   const shareDescription = isShared
     ? "共有リンクとしてそのまま送れます。個人名や回答パラメーターは表示しません。"
     : "X、LINE、OSの共有シートからそのまま送れます。";
@@ -168,10 +171,7 @@ export function TypeDetailPageContent({
             {isShared ? "Shared URL" : "Public File"}
           </span>
 
-          <p className={styles.fileMeta}>
-            Case File #{typeData.typeCode} /{" "}
-            {isShared ? "Shared Type Detail" : "Public Type Detail"}
-          </p>
+          <p className={styles.fileMeta}>Case File #{typeData.typeCode}</p>
 
           <h1 id="result-heading" className={styles.suspectName}>
             {heroHeading}
@@ -194,7 +194,22 @@ export function TypeDetailPageContent({
 
             <div className={styles.typeInfo}>
               <p className={styles.typeCode}>{typeData.typeCode}</p>
-              <p className={styles.typeName}>{typeData.typeName}</p>
+              <div className={styles.typeNameRow}>
+                <p className={styles.typeName}>{typeData.typeName}</p>
+                {hasChibi ? (
+                  <div className={styles.chibiHero} aria-hidden="true">
+                    <div className={styles.chibiHeroFrame}>
+                      <Image
+                        src={`/types/${typeData.typeCode}_chibi.png`}
+                        alt=""
+                        width={100}
+                        height={100}
+                        className={styles.chibiHeroImage}
+                      />
+                    </div>
+                  </div>
+                ) : null}
+              </div>
               <p className={styles.typeTagline}>「{typeData.tagline}」</p>
               <p className={styles.typeSummary}>{typeData.summary}</p>
             </div>
@@ -204,9 +219,6 @@ export function TypeDetailPageContent({
             <Link href="/" className={styles.primaryButton}>
               自分でも診断する
             </Link>
-            <a href="#type-share-panel" className={styles.secondaryButton}>
-              {isShared ? "共有URLを送る" : "このページを共有する"}
-            </a>
           </div>
         </section>
 

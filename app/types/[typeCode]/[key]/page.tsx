@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { calculateDiagnosisResult } from "@/lib/diagnosis";
-import { getQuestionMaster, getTypeByCode } from "@/lib/data";
+import { getQuestionMaster, getTypeByCode, hasChibiImage } from "@/lib/data";
 import { decodeShareKey } from "@/lib/share-key";
 import { getAbsoluteUrl } from "@/lib/site";
 
@@ -29,10 +29,13 @@ async function getSharedPageData(typeCode: string, key: string) {
     }
   }
 
+  const hasChibi = await hasChibiImage(typeData.typeCode);
+
   return {
     typeData,
     publicUrl: `/types/${typeData.typeCode}`,
     shareUrl: getAbsoluteUrl(`/types/${typeData.typeCode}/${key}`),
+    hasChibi,
   };
 }
 
@@ -68,7 +71,7 @@ export async function generateMetadata({
 
 export default async function SharedResultPage({ params }: PageProps) {
   const { typeCode, key } = await params;
-  const { typeData, shareUrl, publicUrl } = await getSharedPageData(
+  const { typeData, shareUrl, publicUrl, hasChibi } = await getSharedPageData(
     typeCode,
     key,
   );
@@ -79,6 +82,7 @@ export default async function SharedResultPage({ params }: PageProps) {
       typeData={typeData}
       shareUrl={shareUrl}
       publicUrl={publicUrl}
+      hasChibi={hasChibi}
     />
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { getAllTypeCodes, getTypeByCode } from "@/lib/data";
+import { getAllTypeCodes, getTypeByCode, hasChibiImage } from "@/lib/data";
 import { getAbsoluteUrl } from "@/lib/site";
 
 import { TypeDetailPageContent } from "./type-detail-page-content";
@@ -52,6 +52,7 @@ export default async function TypeDetailPage({ params }: PageProps) {
   }
 
   const publicUrl = `/types/${typeData.typeCode}`;
+  const hasChibi = await hasChibiImage(typeData.typeCode);
 
   return (
     <TypeDetailPageContent
@@ -59,6 +60,7 @@ export default async function TypeDetailPage({ params }: PageProps) {
       typeData={typeData}
       shareUrl={getAbsoluteUrl(publicUrl)}
       publicUrl={publicUrl}
+      hasChibi={hasChibi}
     />
   );
 }
