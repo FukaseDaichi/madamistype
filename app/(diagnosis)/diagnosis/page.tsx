@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { DiagnosisFlow } from "@/components/diagnosis-flow";
+import { DiagnosisFlow } from "@/components/diagnosis/diagnosis-flow/diagnosis-flow";
 import { getQuestionMaster } from "@/lib/data";
 
 export const metadata: Metadata = {

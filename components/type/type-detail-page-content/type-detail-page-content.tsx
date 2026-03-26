@@ -9,12 +9,12 @@ import {
 } from "next/font/google";
 import Link from "next/link";
 
-import { SiteFooter } from "@/components/site-footer";
-import { ShareActions } from "@/components/share-actions";
-import { TypeArtwork } from "@/components/type-artwork";
-import { stringifyJsonLd, getTypePageJsonLd } from "@/lib/json-ld";
+import { SiteFooter } from "@/components/layout/site-footer/site-footer";
+import { ShareActions } from "@/components/type/share-actions/share-actions";
+import { TypeArtwork } from "@/components/type/type-artwork/type-artwork";
+import { getTypePageJsonLd, stringifyJsonLd } from "@/lib/json-ld";
 
-import styles from "./[key]/page.module.css";
+import styles from "./type-detail-page-content.module.css";
 
 const displayFont = Bebas_Neue({
   variable: "--rcf-font-display",
@@ -71,6 +71,7 @@ type TypeDetailPageContentProps = {
   sharedUserName?: string;
   hasChibi?: boolean;
   axisSummaries?: AxisSummary[];
+  compatibleTypes?: Array<{ typeCode: string; typeName: string }>;
 };
 
 export function TypeDetailPageContent({
@@ -81,8 +82,16 @@ export function TypeDetailPageContent({
   sharedUserName,
   hasChibi = false,
   axisSummaries,
+  compatibleTypes,
 }: TypeDetailPageContentProps) {
   const isShared = mode === "shared";
+  const resolvedCompatibleTypes =
+    compatibleTypes?.length
+      ? compatibleTypes
+      : (typeData.compatibility.goodWithTypeCodes ?? []).map((code) => ({
+          typeCode: code,
+          typeName: code,
+        }));
   const axisRows = [
     {
       dominant: typeData.axis.axis1,
@@ -370,15 +379,15 @@ export function TypeDetailPageContent({
             相性の傾向
           </h2>
           <p className={styles.compatText}>{typeData.compatibility.summary}</p>
-          {typeData.compatibility.goodWithTypeCodes?.length ? (
+          {resolvedCompatibleTypes.length ? (
             <div className={styles.compatLinks}>
-              {typeData.compatibility.goodWithTypeCodes.map((code) => (
+              {resolvedCompatibleTypes.map((compatibleType) => (
                 <Link
-                  key={code}
-                  href={`/types/${code}`}
+                  key={compatibleType.typeCode}
+                  href={`/types/${compatibleType.typeCode}`}
                   className={styles.compatLink}
                 >
-                  {code}
+                  {`${compatibleType.typeName} (${compatibleType.typeCode})`}
                 </Link>
               ))}
             </div>

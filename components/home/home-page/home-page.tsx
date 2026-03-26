@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { QuestionMaster, TypeData } from "@/lib/types";
 import {
   Bebas_Neue,
   Caveat,
@@ -7,20 +7,14 @@ import {
 } from "next/font/google";
 import Link from "next/link";
 
-import { AxisCompositionSection } from "@/components/axis-composition-section";
-import { SiteFooter } from "@/components/site-footer";
-import { StartDiagnosisForm } from "@/components/start-diagnosis-form";
-import { TypeArtwork } from "@/components/type-artwork";
-import { getAllTypes, getQuestionMaster } from "@/lib/data";
-import { stringifyJsonLd, getWebsiteJsonLd } from "@/lib/json-ld";
-import {
-  LINE_STAMP_URL,
-  SITE_DESCRIPTION,
-  SITE_NAME,
-  SITE_TAGLINE,
-} from "@/lib/site";
+import { StartDiagnosisForm } from "@/components/diagnosis/start-diagnosis-form/start-diagnosis-form";
+import { AxisCompositionSection } from "@/components/home/axis-composition-section/axis-composition-section";
+import { SiteFooter } from "@/components/layout/site-footer/site-footer";
+import { TypeArtwork } from "@/components/type/type-artwork/type-artwork";
+import { getWebsiteJsonLd, stringifyJsonLd } from "@/lib/json-ld";
+import { LINE_STAMP_URL, SITE_TAGLINE } from "@/lib/site";
 
-import styles from "./page.module.css";
+import styles from "./home-page.module.css";
 
 const displayFont = Bebas_Neue({
   variable: "--rcf-font-display",
@@ -74,16 +68,12 @@ const FEATURE_SUMMARIES = [
 
 const FEATURED_TYPE_CODES = new Set(["TFLP", "TRLP", "OREI", "OFEP"]);
 
-export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: SITE_DESCRIPTION,
+type HomePageProps = {
+  allTypes: TypeData[];
+  questionMaster: QuestionMaster;
 };
 
-export default async function HomePage() {
-  const [allTypes, questionMaster] = await Promise.all([
-    getAllTypes(),
-    getQuestionMaster(),
-  ]);
+export function HomePage({ allTypes, questionMaster }: HomePageProps) {
 
   const featuredTypes = allTypes.filter((type) =>
     FEATURED_TYPE_CODES.has(type.typeCode),
@@ -148,7 +138,7 @@ export default async function HomePage() {
                 <a href="#types">Types</a>
               </li>
               <li>
-                <Link href="/types">All 16</Link>
+                  <Link href="/types">All 16</Link>
               </li>
             </ul>
           </nav>

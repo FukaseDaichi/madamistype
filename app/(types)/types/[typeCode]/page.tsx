@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { getAllTypeCodes, getTypeByCode, hasChibiImage } from "@/lib/data";
+import {
+  getAllTypeCodes,
+  getTypeByCode,
+  getTypesByCodes,
+  hasChibiImage,
+} from "@/lib/data";
 import { getAbsoluteUrl } from "@/lib/site";
-
-import { TypeDetailPageContent } from "./type-detail-page-content";
+import { TypeDetailPageContent } from "@/components/type/type-detail-page-content/type-detail-page-content";
 
 type PageProps = {
   params: Promise<{ typeCode: string }>;
@@ -53,6 +57,9 @@ export default async function TypeDetailPage({ params }: PageProps) {
 
   const publicUrl = `/types/${typeData.typeCode}`;
   const hasChibi = await hasChibiImage(typeData.typeCode);
+  const compatibleTypes = await getTypesByCodes(
+    typeData.compatibility.goodWithTypeCodes ?? [],
+  );
 
   return (
     <TypeDetailPageContent
@@ -61,6 +68,10 @@ export default async function TypeDetailPage({ params }: PageProps) {
       shareUrl={getAbsoluteUrl(publicUrl)}
       publicUrl={publicUrl}
       hasChibi={hasChibi}
+      compatibleTypes={compatibleTypes.map(({ typeCode, typeName }) => ({
+        typeCode,
+        typeName,
+      }))}
     />
   );
 }

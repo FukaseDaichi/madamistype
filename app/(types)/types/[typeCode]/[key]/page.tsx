@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { calculateDiagnosisResult } from "@/lib/diagnosis";
-import { getQuestionMaster, getTypeByCode, hasChibiImage } from "@/lib/data";
+import { TypeDetailPageContent } from "@/components/type/type-detail-page-content/type-detail-page-content";
+import {
+  getQuestionMaster,
+  getTypeByCode,
+  getTypesByCodes,
+  hasChibiImage,
+} from "@/lib/data";
 import { decodeShareKey } from "@/lib/share-key";
 import { getAbsoluteUrl } from "@/lib/site";
-
-import { TypeDetailPageContent } from "../type-detail-page-content";
 
 type PageProps = {
   params: Promise<{ typeCode: string; key: string }>;
@@ -34,6 +38,9 @@ async function getSharedPageData(typeCode: string, key: string) {
   }
 
   const hasChibi = await hasChibiImage(typeData.typeCode);
+  const compatibleTypes = await getTypesByCodes(
+    typeData.compatibility.goodWithTypeCodes ?? [],
+  );
 
   return {
     typeData,
@@ -42,6 +49,10 @@ async function getSharedPageData(typeCode: string, key: string) {
     sharedUserName: payload.n,
     hasChibi,
     axisSummaries,
+    compatibleTypes: compatibleTypes.map(({ typeCode, typeName }) => ({
+      typeCode,
+      typeName,
+    })),
   };
 }
 
@@ -84,6 +95,7 @@ export default async function SharedResultPage({ params }: PageProps) {
     sharedUserName,
     hasChibi,
     axisSummaries,
+    compatibleTypes,
   } =
     await getSharedPageData(typeCode, key);
 
@@ -96,6 +108,7 @@ export default async function SharedResultPage({ params }: PageProps) {
       sharedUserName={sharedUserName}
       hasChibi={hasChibi}
       axisSummaries={axisSummaries}
+      compatibleTypes={compatibleTypes}
     />
   );
 }

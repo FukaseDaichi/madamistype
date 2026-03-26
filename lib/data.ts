@@ -36,6 +36,12 @@ export const getTypeByCode = cache(async (typeCode: TypeCode) => {
   }
 });
 
+export async function getTypesByCodes(typeCodes: TypeCode[]) {
+  const uniqueCodes = [...new Set(typeCodes)];
+  const types = await Promise.all(uniqueCodes.map((code) => getTypeByCode(code)));
+  return types.filter((type): type is TypeData => Boolean(type));
+}
+
 export const hasTypeImage = cache(async (typeCode: TypeCode) => {
   try {
     await access(join(PUBLIC_TYPES_DIR, `${typeCode}.png`));
