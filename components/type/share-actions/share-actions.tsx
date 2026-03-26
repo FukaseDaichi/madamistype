@@ -22,7 +22,6 @@ export function ShareActions({
   shareUrl,
   eyebrow = "Share",
   title = "結果をシェアする",
-  description = "X、LINE、OSの共有シートからそのまま送れます。",
   className = "",
 }: ShareActionsProps) {
   const [status, setStatus] = useState("");
