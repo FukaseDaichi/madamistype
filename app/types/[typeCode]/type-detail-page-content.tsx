@@ -68,6 +68,7 @@ type TypeDetailPageContentProps = {
   typeData: TypeData;
   shareUrl: string;
   publicUrl: string;
+  sharedUserName?: string;
   hasChibi?: boolean;
   axisSummaries?: AxisSummary[];
 };
@@ -77,6 +78,7 @@ export function TypeDetailPageContent({
   typeData,
   shareUrl,
   publicUrl,
+  sharedUserName,
   hasChibi = false,
   axisSummaries,
 }: TypeDetailPageContentProps) {
@@ -159,7 +161,15 @@ export function TypeDetailPageContent({
           <p className={styles.fileMeta}>Case File #{typeData.typeCode}</p>
 
           <h1 id="result-heading" className={styles.suspectName}>
-            {heroHeading}
+            {isShared && sharedUserName ? (
+              <>
+                <em>{sharedUserName}</em>さんの
+                <br />
+                診断結果
+              </>
+            ) : (
+              heroHeading
+            )}
           </h1>
 
           <p className={styles.sharedNote}>- {heroNote}</p>

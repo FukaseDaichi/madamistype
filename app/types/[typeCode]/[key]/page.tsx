@@ -39,6 +39,7 @@ async function getSharedPageData(typeCode: string, key: string) {
     typeData,
     publicUrl: `/types/${typeData.typeCode}`,
     shareUrl: getAbsoluteUrl(`/types/${typeData.typeCode}/${key}`),
+    sharedUserName: payload.n,
     hasChibi,
     axisSummaries,
   };
@@ -76,7 +77,14 @@ export async function generateMetadata({
 
 export default async function SharedResultPage({ params }: PageProps) {
   const { typeCode, key } = await params;
-  const { typeData, shareUrl, publicUrl, hasChibi, axisSummaries } =
+  const {
+    typeData,
+    shareUrl,
+    publicUrl,
+    sharedUserName,
+    hasChibi,
+    axisSummaries,
+  } =
     await getSharedPageData(typeCode, key);
 
   return (
@@ -85,6 +93,7 @@ export default async function SharedResultPage({ params }: PageProps) {
       typeData={typeData}
       shareUrl={shareUrl}
       publicUrl={publicUrl}
+      sharedUserName={sharedUserName}
       hasChibi={hasChibi}
       axisSummaries={axisSummaries}
     />
