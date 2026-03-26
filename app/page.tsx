@@ -13,7 +13,12 @@ import { StartDiagnosisForm } from "@/components/start-diagnosis-form";
 import { TypeArtwork } from "@/components/type-artwork";
 import { getAllTypes, getQuestionMaster } from "@/lib/data";
 import { stringifyJsonLd, getWebsiteJsonLd } from "@/lib/json-ld";
-import { LINE_STAMP_URL, SITE_DESCRIPTION, SITE_TAGLINE } from "@/lib/site";
+import {
+  LINE_STAMP_URL,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+} from "@/lib/site";
 
 import styles from "./page.module.css";
 
@@ -70,7 +75,7 @@ const FEATURE_SUMMARIES = [
 const FEATURED_TYPE_CODES = new Set(["TFLP", "TRLP", "OREI", "OFEP"]);
 
 export const metadata: Metadata = {
-  title: "トップ",
+  title: SITE_NAME,
   description: SITE_DESCRIPTION,
 };
 
