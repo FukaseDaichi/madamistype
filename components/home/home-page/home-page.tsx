@@ -5,14 +5,13 @@ import {
   Noto_Serif_JP,
   Special_Elite,
 } from "next/font/google";
-import Link from "next/link";
 
-import { StartDiagnosisForm } from "@/components/diagnosis/start-diagnosis-form/start-diagnosis-form";
 import { AxisCompositionSection } from "@/components/home/axis-composition-section/axis-composition-section";
+import { AllTypesSection } from "@/components/home/home-page/all-types-section";
+import { FeaturedTypesSection } from "@/components/home/home-page/featured-types-section";
+import { HomeHeroSection } from "@/components/home/home-page/home-hero-section";
 import { SiteFooter } from "@/components/layout/site-footer/site-footer";
-import { TypeArtwork } from "@/components/type/type-artwork/type-artwork";
 import { getWebsiteJsonLd, stringifyJsonLd } from "@/lib/json-ld";
-import { LINE_STAMP_URL, SITE_TAGLINE } from "@/lib/site";
 
 import styles from "./home-page.module.css";
 
@@ -48,24 +47,6 @@ const noteFont = Caveat({
   preload: false,
 });
 
-const FEATURE_SUMMARIES = [
-  {
-    number: "01",
-    title: "憑依のさせ方を分析",
-    copy: "あなた自身というより、プレイの仕方や考え方に着目",
-  },
-  {
-    number: "02",
-    title: "分析手法は統計心理学ベースのAI",
-    copy: "質問内容や傾向もAIによる分析結果",
-  },
-  {
-    number: "03",
-    title: "結果ページと共有",
-    copy: "強み・注意点・相性・向いている役回りまで一気に",
-  },
-] as const;
-
 const FEATURED_TYPE_CODES = new Set(["TFLP", "TRLP", "OREI", "OFEP"]);
 
 type HomePageProps = {
@@ -74,7 +55,6 @@ type HomePageProps = {
 };
 
 export function HomePage({ allTypes, questionMaster }: HomePageProps) {
-
   const featuredTypes = allTypes.filter((type) =>
     FEATURED_TYPE_CODES.has(type.typeCode),
   );
@@ -122,222 +102,10 @@ export function HomePage({ allTypes, questionMaster }: HomePageProps) {
       />
 
       <div className={styles.shell}>
-        <header className={styles.masthead}>
-          <div>
-            <div className={styles.mastheadLogo}>Murder Mystery Types</div>
-            <div className={styles.mastheadSub}>
-              Murder Mystery Personality Diagnosis
-            </div>
-          </div>
-          <nav aria-label="メインナビ">
-            <ul className={styles.mastheadNav}>
-              <li>
-                <a href="#axes">Axes</a>
-              </li>
-              <li>
-                <a href="#types">Types</a>
-              </li>
-              <li>
-                  <Link href="/types">All 16</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
-
-        <section className={styles.hero} aria-labelledby="hero-heading">
-          <div className={styles.caseEnvelope}>
-            <span className={styles.stampConfidential}>Confidential</span>
-
-            <p className={styles.fileMeta}>
-              Case File #RCF-2025 / Murder Mystery Behavioral Analysis
-            </p>
-
-            <h1 id="hero-heading" className={styles.caseTitle}>
-              <em>あなたの</em>
-              <br />
-              {SITE_TAGLINE}
-            </h1>
-
-            <p className={styles.handnote}>- 卓上での立ち回りを解析せよ</p>
-
-            <p className={styles.caseBody}>
-              32問の答えから、マーダーミステリー卓での発言・推理・感情・進め方のクセを
-              4軸で見立てます。一般的な性格診断ではなく、卓上での立ち回りに特化した
-              16タイプ診断です。
-            </p>
-
-            <div className={styles.statsRow}>
-              <div className={styles.statBadge}>
-                <strong>{questionMaster.meta.questionCount}</strong>
-                Questions
-              </div>
-              <div className={styles.statBadge}>
-                <strong>{questionMaster.meta.pageCount}</strong>
-                Pages
-              </div>
-              <div className={styles.statBadge}>
-                <strong>16</strong>
-                Types
-              </div>
-              <div className={styles.statBadge}>
-                <strong>4</strong>
-                Axes
-              </div>
-            </div>
-
-            <a href="#start" className={styles.ctaPrimary}>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-              診断を始める
-            </a>
-
-            <div className={styles.features}>
-              {FEATURE_SUMMARIES.map((feature) => (
-                <div key={feature.number} className={styles.featureItem}>
-                  <span className={styles.featureNum}>{feature.number}</span>
-                  <h2 className={styles.featureTitle}>{feature.title}</h2>
-                  <p className={styles.featureCopy}>{feature.copy}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <aside className={styles.sidebar}>
-            <div className={styles.photoCard}>
-              <TypeArtwork
-                typeCode={heroType.typeCode}
-                typeName={heroType.typeName}
-                palette={heroType.visualProfile.colorPalette}
-                priority
-                className={styles.heroArtwork}
-              />
-
-              <p className={styles.cardTypeCode}>
-                Preview Type / {heroType.typeCode}
-              </p>
-              <p className={styles.cardTypeName}>{heroType.typeName}</p>
-              <p className={styles.cardTagline}>{heroType.tagline}</p>
-              <p className={styles.cardSummary}>{heroType.summary}</p>
-              <Link
-                href={`/types/${heroType.typeCode}`}
-                className={styles.cardLink}
-              >
-                ファイルを開く →
-              </Link>
-            </div>
-
-            <div className={styles.lineCard}>
-              <p className={styles.lineLabel}>Line Stickers</p>
-              <p className={styles.lineTitle}>LINEスタンプ展開予定</p>
-              {LINE_STAMP_URL ? (
-                <a
-                  href={LINE_STAMP_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.lineBtn}
-                >
-                  LINEスタンプを見る
-                </a>
-              ) : (
-                <span className={`${styles.lineBtn} ${styles.lineBtnDisabled}`}>
-                  準備中
-                </span>
-              )}
-            </div>
-          </aside>
-
-          <div id="start" className={styles.formZone}>
-            <div>
-              <p className={styles.formLabel}>Start Diagnosis</p>
-              <p className={styles.formSub}>診断スタート / 所要時間 約5分</p>
-            </div>
-            <div className={styles.formSlot}>
-              <StartDiagnosisForm />
-            </div>
-          </div>
-        </section>
-
+        <HomeHeroSection heroType={heroType} questionMaster={questionMaster} />
         <AxisCompositionSection />
-
-        <section id="types" aria-labelledby="featured-heading">
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Featured</span>
-            <h2 id="featured-heading" className={styles.sectionTitle}>
-              人気になりやすい4タイプ
-            </h2>
-          </div>
-          <p className={styles.sectionCopy}>
-            16タイプすべてに固有の名称とキャッチコピーがあります。まずは代表的な4タイプから世界観をご覧ください。
-          </p>
-
-          <div className={styles.featuredGrid}>
-            {spotlightTypes.map((type) => (
-              <Link
-                key={type.typeCode}
-                href={`/types/${type.typeCode}`}
-                className={styles.typeCard}
-              >
-                <div
-                  className={styles.typeCardVisual}
-                  data-code={type.typeCode}
-                  aria-hidden="true"
-                >
-                  <TypeArtwork
-                    typeCode={type.typeCode}
-                    typeName={type.typeName}
-                    palette={type.visualProfile.colorPalette}
-                    className={styles.typeArtwork}
-                  />
-                </div>
-
-                <div className={styles.typeCardBody}>
-                  <p className={styles.typeCardCode}>{type.typeCode}</p>
-                  <h3 className={styles.typeCardName}>{type.typeName}</h3>
-                  <p className={styles.typeCardTagline}>{type.tagline}</p>
-                  <p className={styles.typeCardArrow}>
-                    <span>Open file</span>
-                    <span>→</span>
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section
-          className={styles.allTypes}
-          aria-labelledby="all-types-heading"
-        >
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Index</span>
-            <h2 id="all-types-heading" className={styles.sectionTitle}>
-              16タイプ一覧
-            </h2>
-          </div>
-
-          <div className={styles.typeChipGrid}>
-            {allTypes.map((type) => (
-              <Link
-                key={type.typeCode}
-                href={`/types/${type.typeCode}`}
-                className={styles.typeChip}
-              >
-                <span className={styles.typeChipCode}>{type.typeCode}</span>
-                <span className={styles.typeChipName}>{type.typeName}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
+        <FeaturedTypesSection spotlightTypes={spotlightTypes} />
+        <AllTypesSection allTypes={allTypes} />
         <SiteFooter />
       </div>
     </main>
