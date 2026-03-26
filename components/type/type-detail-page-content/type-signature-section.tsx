@@ -1,5 +1,10 @@
 import type { AxisSummary, TypeData } from "@/lib/types";
 
+import {
+  TypeSectionFrame,
+  type TypeSectionHeading,
+} from "@/components/type/type-detail-page-content/type-section-frame";
+
 import styles from "./type-detail-page-content.module.css";
 
 const AXIS_LETTER_MAP: Record<string, { letter: string; english: string }> = {
@@ -14,11 +19,13 @@ const AXIS_LETTER_MAP: Record<string, { letter: string; english: string }> = {
 };
 
 type TypeSignatureSectionProps = {
+  heading: TypeSectionHeading;
   typeData: TypeData;
   axisSummaries?: AxisSummary[];
 };
 
 export function TypeSignatureSection({
+  heading,
   typeData,
   axisSummaries,
 }: TypeSignatureSectionProps) {
@@ -48,17 +55,11 @@ export function TypeSignatureSection({
     : null;
 
   return (
-    <section
-      className={`${styles.section} ${styles.signatureSection}`}
-      aria-labelledby="signature-heading"
+    <TypeSectionFrame
+      heading={heading}
+      className={styles.signatureSection}
+      headerAlign="center"
     >
-      <div className={styles.sectionHeaderCentered}>
-        <span className={styles.sectionEyebrow}>Type Signature</span>
-        <h2 id="signature-heading" className={styles.sectionTitle}>
-          タイプコードの読み方
-        </h2>
-      </div>
-
       <div className={styles.sigCodeDisplay}>
         {axisRows.map((row, index) => {
           const dominantMeta = AXIS_LETTER_MAP[row.dominant];
@@ -132,6 +133,6 @@ export function TypeSignatureSection({
         {typeData.typeCode} ={" "}
         {axisRows.map((row) => AXIS_LETTER_MAP[row.dominant]?.english).join(" + ")}
       </p>
-    </section>
+    </TypeSectionFrame>
   );
 }

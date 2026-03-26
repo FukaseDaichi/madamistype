@@ -2,6 +2,11 @@ import type { TypeData } from "@/lib/types";
 
 import Link from "next/link";
 
+import {
+  TypeSectionFrame,
+  type TypeSectionHeading,
+} from "@/components/type/type-detail-page-content/type-section-frame";
+
 import styles from "./type-detail-page-content.module.css";
 
 type CompatibleType = {
@@ -10,11 +15,13 @@ type CompatibleType = {
 };
 
 type TypeCompatibilitySectionProps = {
+  heading: TypeSectionHeading;
   compatibility: TypeData["compatibility"];
   compatibleTypes?: CompatibleType[];
 };
 
 export function TypeCompatibilitySection({
+  heading,
   compatibility,
   compatibleTypes,
 }: TypeCompatibilitySectionProps) {
@@ -27,11 +34,7 @@ export function TypeCompatibilitySection({
         }));
 
   return (
-    <section className={styles.section} aria-labelledby="compat-heading">
-      <span className={styles.sectionEyebrow}>Compatibility</span>
-      <h2 id="compat-heading" className={styles.sectionTitle}>
-        相性の傾向
-      </h2>
+    <TypeSectionFrame heading={heading}>
       <p className={styles.compatText}>{compatibility.summary}</p>
       {resolvedCompatibleTypes.length ? (
         <div className={styles.compatLinks}>
@@ -49,6 +52,6 @@ export function TypeCompatibilitySection({
       {compatibility.goodWithDescription ? (
         <p className={styles.compatText}>{compatibility.goodWithDescription}</p>
       ) : null}
-    </section>
+    </TypeSectionFrame>
   );
 }

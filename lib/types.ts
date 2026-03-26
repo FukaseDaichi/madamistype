@@ -94,7 +94,15 @@ export type ShareKeyPayloadV2 = {
   a: AnswersRecord;
 };
 
-export type ShareKeyPayload = ShareKeyPayloadV1 | ShareKeyPayloadV2;
+export type ShareKeyTrendStates = [number, number, number, number];
+
+export type ShareKeyPayloadV3 = {
+  v: 3;
+  n: string;
+  t: ShareKeyTrendStates;
+};
+
+export type ShareKeyPayload = ShareKeyPayloadV1 | ShareKeyPayloadV2 | ShareKeyPayloadV3;
 
 export type AxisSummary = {
   axis: AxisCode;

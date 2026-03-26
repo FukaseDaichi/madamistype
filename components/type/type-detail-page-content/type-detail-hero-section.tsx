@@ -58,9 +58,9 @@ export function TypeDetailHeroSection({
         <h1 id="result-heading" className={styles.suspectName}>
           {isShared && sharedUserName ? (
             <>
-              <em>{sharedUserName}</em>さんの
+              <em>{sharedUserName}</em>
               <br />
-              診断結果
+              さんの診断結果
             </>
           ) : (
             heroHeading
@@ -83,9 +83,11 @@ export function TypeDetailHeroSection({
           </div>
 
           <div className={styles.typeInfo}>
-            <p className={styles.typeCode}>{typeData.typeCode}</p>
             <div className={styles.typeNameRow}>
-              <p className={styles.typeName}>{typeData.typeName}</p>
+              <div>
+                <p className={styles.typeCode}>{typeData.typeCode}</p>
+                <p className={styles.typeName}>{typeData.typeName}</p>
+              </div>
               {hasChibi ? (
                 <div className={styles.chibiHero} aria-hidden="true">
                   <div className={styles.chibiHeroFrame}>
@@ -106,9 +108,16 @@ export function TypeDetailHeroSection({
         </div>
 
         <div className={styles.heroActions}>
-          <Link href="/" className={styles.primaryButton}>
-            自分でも診断する
-          </Link>
+          {isShared && (
+            <Link href="/" className={styles.primaryButton}>
+              自分でも診断する
+            </Link>
+          )}
+          {!isShared && (
+            <a href="#type-share-panel" className={styles.primaryButton}>
+              共有する
+            </a>
+          )}
         </div>
       </section>
     </>

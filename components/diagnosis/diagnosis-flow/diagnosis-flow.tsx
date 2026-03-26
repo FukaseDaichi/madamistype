@@ -214,7 +214,7 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
     setIsSubmitting(true);
 
     const result = calculateDiagnosisResult(questionMaster, answers);
-    const key = createShareKey(userName, answers);
+    const key = createShareKey(userName, result.axisSummaries);
     router.push(`/types/${result.typeCode}/${key}`);
   }
 

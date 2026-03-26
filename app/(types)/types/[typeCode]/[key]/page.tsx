@@ -9,7 +9,7 @@ import {
   getTypesByCodes,
   hasChibiImage,
 } from "@/lib/data";
-import { decodeShareKey } from "@/lib/share-key";
+import { decodeShareKey, expandShareKeyAxisSummaries } from "@/lib/share-key";
 import { getAbsoluteUrl } from "@/lib/site";
 
 type PageProps = {
@@ -35,6 +35,14 @@ async function getSharedPageData(typeCode: string, key: string) {
     }
 
     axisSummaries = result.axisSummaries;
+  }
+
+  if (payload.v === 3) {
+    axisSummaries = expandShareKeyAxisSummaries(payload);
+
+    if (axisSummaries.map((summary) => summary.resolvedCode).join("") !== typeCode) {
+      notFound();
+    }
   }
 
   const hasChibi = await hasChibiImage(typeData.typeCode);

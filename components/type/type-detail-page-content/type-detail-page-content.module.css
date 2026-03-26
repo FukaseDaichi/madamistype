@@ -275,7 +275,7 @@
 
 .typeNameRow {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 1rem;
 }
 
@@ -623,7 +623,11 @@
 }
 
 .sigBarStatic .sigBarFillLeft {
-  background: linear-gradient(90deg, rgba(192, 57, 43, 0.5), rgba(212, 130, 10, 0.35));
+  background: linear-gradient(
+    90deg,
+    rgba(192, 57, 43, 0.5),
+    rgba(212, 130, 10, 0.35)
+  );
 }
 
 .sigCaption {

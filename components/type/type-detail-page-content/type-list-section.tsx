@@ -1,29 +1,23 @@
+import {
+  TypeSectionFrame,
+  type TypeSectionHeading,
+} from "@/components/type/type-detail-page-content/type-section-frame";
+
 import styles from "./type-detail-page-content.module.css";
 
 type TypeListSectionProps = {
-  eyebrow: string;
-  title: string;
-  headingId: string;
+  heading: TypeSectionHeading;
   items: string[];
 };
 
-export function TypeListSection({
-  eyebrow,
-  title,
-  headingId,
-  items,
-}: TypeListSectionProps) {
+export function TypeListSection({ heading, items }: TypeListSectionProps) {
   return (
-    <section className={styles.section} aria-labelledby={headingId}>
-      <span className={styles.sectionEyebrow}>{eyebrow}</span>
-      <h2 id={headingId} className={styles.sectionTitle}>
-        {title}
-      </h2>
+    <TypeSectionFrame heading={heading}>
       <ul className={styles.list}>
         {items.map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
-    </section>
+    </TypeSectionFrame>
   );
 }

@@ -14,6 +14,7 @@ import { TypeCompatibilitySection } from "@/components/type/type-detail-page-con
 import { TypeDetailHeroSection } from "@/components/type/type-detail-page-content/type-detail-hero-section";
 import { TypeListSection } from "@/components/type/type-detail-page-content/type-list-section";
 import { TypeOverviewSection } from "@/components/type/type-detail-page-content/type-overview-section";
+import { type TypeSectionHeading } from "@/components/type/type-detail-page-content/type-section-frame";
 import { TypeSignatureSection } from "@/components/type/type-detail-page-content/type-signature-section";
 
 import styles from "./type-detail-page-content.module.css";
@@ -61,6 +62,44 @@ type TypeDetailPageContentProps = {
   compatibleTypes?: Array<{ typeCode: string; typeName: string }>;
 };
 
+const SECTION_HEADINGS: Record<string, TypeSectionHeading> = {
+  signature: {
+    eyebrow: "Type Signature",
+    title: "タイプコードの読み方",
+    headingId: "signature-heading",
+  },
+  strengths: {
+    eyebrow: "Strengths",
+    title: "強み",
+    headingId: "strengths-heading",
+  },
+  cautions: {
+    eyebrow: "Cautions",
+    title: "注意したい点",
+    headingId: "cautions-heading",
+  },
+  overview: {
+    eyebrow: "Overview",
+    title: "詳しい見立て",
+    headingId: "overview-heading",
+  },
+  playstyle: {
+    eyebrow: "Playstyle",
+    title: "向いている立ち回り",
+    headingId: "playstyle-heading",
+  },
+  roles: {
+    eyebrow: "Roles",
+    title: "向いている役回り",
+    headingId: "roles-heading",
+  },
+  compatibility: {
+    eyebrow: "Compatibility",
+    title: "相性の傾向",
+    headingId: "compat-heading",
+  },
+};
+
 export function TypeDetailPageContent({
   mode,
   typeData,
@@ -72,9 +111,6 @@ export function TypeDetailPageContent({
   compatibleTypes,
 }: TypeDetailPageContentProps) {
   const isShared = mode === "shared";
-  const shareDescription = isShared
-    ? "共有リンクとしてそのまま送れます。個人名や回答パラメーターは表示しません。"
-    : "X、LINE、OSの共有シートからそのまま送れます。";
 
   return (
     <main
@@ -99,43 +135,40 @@ export function TypeDetailPageContent({
           hasChibi={hasChibi}
         />
         <TypeSignatureSection
+          heading={SECTION_HEADINGS.signature}
           typeData={typeData}
           axisSummaries={axisSummaries}
         />
 
         <div className={styles.twoCol}>
           <TypeListSection
-            eyebrow="Strengths"
-            title="強み"
-            headingId="strengths-heading"
+            heading={SECTION_HEADINGS.strengths}
             items={typeData.strengths}
           />
           <TypeListSection
-            eyebrow="Cautions"
-            title="注意したい点"
-            headingId="cautions-heading"
+            heading={SECTION_HEADINGS.cautions}
             items={typeData.cautions}
           />
         </div>
 
-        <TypeOverviewSection detailDescription={typeData.detailDescription} />
+        <TypeOverviewSection
+          heading={SECTION_HEADINGS.overview}
+          content={typeData.detailDescription}
+        />
 
         <div className={styles.twoCol}>
           <TypeListSection
-            eyebrow="Playstyle"
-            title="向いている立ち回り"
-            headingId="playstyle-heading"
+            heading={SECTION_HEADINGS.playstyle}
             items={typeData.recommendedPlaystyle}
           />
           <TypeListSection
-            eyebrow="Roles"
-            title="向いている役回り"
-            headingId="roles-heading"
+            heading={SECTION_HEADINGS.roles}
             items={typeData.suitableRoles}
           />
         </div>
 
         <TypeCompatibilitySection
+          heading={SECTION_HEADINGS.compatibility}
           compatibility={typeData.compatibility}
           compatibleTypes={compatibleTypes}
         />
@@ -148,7 +181,6 @@ export function TypeDetailPageContent({
           shareUrl={shareUrl}
           eyebrow="Share"
           title={isShared ? "この共有URLを送る" : "このページを共有する"}
-          description={shareDescription}
           className={styles.sharePanel}
         />
 

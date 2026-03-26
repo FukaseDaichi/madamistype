@@ -71,13 +71,14 @@ export function ShareActions({
       <div className="flex flex-col gap-2">
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="section-title">{title}</h2>
-        <p className="text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          {description}
-        </p>
       </div>
 
       <div className="flex flex-col gap-3">
-        <button type="button" onClick={handleNativeShare} className="primary-button">
+        <button
+          type="button"
+          onClick={handleNativeShare}
+          className="primary-button"
+        >
           共有する
         </button>
 
@@ -108,7 +109,10 @@ export function ShareActions({
         </div>
       </div>
 
-      <p aria-live="polite" className="text-sm text-[color:var(--color-text-subtle)]">
+      <p
+        aria-live="polite"
+        className="text-sm text-[color:var(--color-text-subtle)]"
+      >
         {status}
       </p>
     </div>
