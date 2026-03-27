@@ -1,0 +1,16 @@
+{
+  "candidateIndex": 1,
+  "variantId": "action-forward",
+  "titlePlacement": "left",
+  "selectionHint": "Best when the type should feel explosive, surprising, and instantly clickable.",
+  "status": "success",
+  "referenceMode": "type-chibi-url",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774590387856-jlluig9vnh8.png",
+  "paths": {
+    "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLI\\candidates\\prompt-01.txt",
+    "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLI\\candidates\\negative_prompt-01.txt",
+    "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLI\\candidates\\request-01.json",
+    "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLI\\candidates\\task-01.json",
+    "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLI\\candidates\\candidate-01.png"
+  }
+}
