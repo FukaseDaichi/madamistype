@@ -109,7 +109,9 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
   const router = useRouter();
   const totalPages = questionMaster.meta.pageCount;
   const totalQuestions = questionMaster.meta.questionCount;
-  const activeQuestions = questionMaster.questions.filter((question) => question.isActive);
+  const activeQuestions = questionMaster.questions.filter(
+    (question) => question.isActive,
+  );
 
   const [isHydrated, setIsHydrated] = useState(false);
   const [userName, setUserName] = useState("");
@@ -125,7 +127,8 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
   const pageQuestions = getQuestionsForPage(questionMaster, currentPage);
   const firstQuestionNumber = pageQuestions[0]?.displayOrder ?? 1;
   const lastQuestionNumber =
-    pageQuestions[pageQuestions.length - 1]?.displayOrder ?? firstQuestionNumber;
+    pageQuestions[pageQuestions.length - 1]?.displayOrder ??
+    firstQuestionNumber;
   const answeredCount = activeQuestions.filter(
     (question) => answers[question.questionId],
   ).length;
@@ -144,7 +147,7 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
         ? clampPage(
             locationState.hasPageQuery
               ? locationState.currentPage
-              : draft?.currentPage ?? 1,
+              : (draft?.currentPage ?? 1),
             totalPages,
           )
         : 1;
@@ -244,7 +247,9 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
 
     if (unansweredOverall) {
       moveToPage(unansweredOverall.pageNo, "push");
-      setValidationError("未回答の質問があります。抜けているページへ戻しました。");
+      setValidationError(
+        "未回答の質問があります。抜けているページへ戻しました。",
+      );
       requestAnimationFrame(() => {
         questionRefs.current[unansweredOverall.questionId]?.focus();
       });
@@ -263,11 +268,15 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
       <main id="main-content" className={`${fontVars} ${styles.page}`}>
         <div aria-hidden="true" className={styles.backdrop} />
         <div className={styles.shell}>
-          <section className={`${styles.statusPanel} ${styles.statusPanelCentered}`}>
+          <section
+            className={`${styles.statusPanel} ${styles.statusPanelCentered}`}
+          >
             <div className={styles.loadingMark} aria-hidden="true" />
             <p className={styles.eyebrow}>Preparing</p>
             <h1 className={styles.statusTitle}>診断の準備をしています</h1>
-            <p className={styles.statusCopy}>前回の保存内容と表示ページを確認しています。</p>
+            <p className={styles.statusCopy}>
+              前回の保存内容と表示ページを確認しています。
+            </p>
           </section>
         </div>
       </main>
@@ -281,7 +290,9 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
         <div className={styles.shell}>
           <section className={styles.statusPanel}>
             <p className={styles.eyebrow}>Diagnosis</p>
-            <h1 className={styles.statusTitle}>まずはお名前を入れて診断を始めます</h1>
+            <h1 className={styles.statusTitle}>
+              まずはお名前を入れて診断を始めます
+            </h1>
             <p className={styles.statusCopy}>
               このページを直接開いた場合は、トップページの開始フォームから進んでください。
             </p>
@@ -299,11 +310,15 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
       <main id="main-content" className={`${fontVars} ${styles.page}`}>
         <div aria-hidden="true" className={styles.backdrop} />
         <div className={styles.shell}>
-          <section className={`${styles.statusPanel} ${styles.statusPanelCentered}`}>
+          <section
+            className={`${styles.statusPanel} ${styles.statusPanelCentered}`}
+          >
             <div className={styles.loadingMark} aria-hidden="true" />
             <p className={styles.eyebrow}>Calculating</p>
             <h1 className={styles.statusTitle}>診断結果を計算しています</h1>
-            <p className={styles.statusCopy}>あなたの回答を4軸の記録にまとめています。</p>
+            <p className={styles.statusCopy}>
+              あなたの回答を4軸の記録にまとめています。
+            </p>
           </section>
         </div>
       </main>
@@ -322,7 +337,11 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
               <p className={styles.fileMeta}>
                 Diagnosis File / Page {String(currentPage).padStart(2, "0")}
               </p>
-              <h1 ref={pageHeadingRef} tabIndex={-1} className={styles.pageTitle}>
+              <h1
+                ref={pageHeadingRef}
+                tabIndex={-1}
+                className={styles.pageTitle}
+              >
                 {userName}さんの診断
               </h1>
               <p className={styles.handNote} aria-hidden="true">
@@ -335,12 +354,7 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
             </Link>
           </div>
 
-          <p className={styles.headerLead}>
-            事件メモを読むような感覚で、今の直感に近い方へ印をつけてください。
-            このページでは質問 {firstQuestionNumber} から {lastQuestionNumber} までを進めます。
-          </p>
-
-          <div className={styles.metaGrid}>
+          <div className={`hidden md:grid ${styles.metaGrid}`}>
             <div className={styles.metaCard}>
               <span className={styles.metaLabel}>Page</span>
               <strong className={styles.metaValue}>
@@ -363,8 +377,12 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
 
           <div aria-live="polite" className={styles.progressBlock}>
             <div className={styles.progressHeader}>
-              <span>回答済み {answeredCount} / {totalQuestions}</span>
-              <span>このページ {currentPageAnsweredCount} / {pageQuestions.length}</span>
+              <span>
+                回答済み {answeredCount} / {totalQuestions}
+              </span>
+              <span>
+                このページ {currentPageAnsweredCount} / {pageQuestions.length}
+              </span>
             </div>
             <div className={styles.progressTrack} aria-hidden="true">
               <div
@@ -391,12 +409,14 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
               </h2>
             </div>
             <p className={styles.sectionCopy}>
-              5段階のスケールで、気持ちの強さに近いものを選んでください。
+              気持ちの強さに近いものを選んでください。
             </p>
           </div>
 
           <div className={styles.scaleGuide} aria-hidden="true">
-            <span className={`${styles.scaleLabel} ${styles.scaleLabelRed}`}>
+            <span
+              className={`hidden md:inline ${styles.scaleLabel} ${styles.scaleLabelRed}`}
+            >
               とてもそう思う
             </span>
             <div className={styles.scalePreview}>
@@ -417,9 +437,19 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
                 );
               })}
             </div>
-            <span className={`${styles.scaleLabel} ${styles.scaleLabelTeal}`}>
+            <span
+              className={`hidden md:inline ${styles.scaleLabel} ${styles.scaleLabelTeal}`}
+            >
               全くそうは思わない
             </span>
+            <div className="flex justify-between w-full md:hidden">
+              <span className={`${styles.scaleLabel} ${styles.scaleLabelRed}`}>
+                とてもそう思う
+              </span>
+              <span className={`${styles.scaleLabel} ${styles.scaleLabelTeal}`}>
+                全くそうは思わない
+              </span>
+            </div>
           </div>
 
           <div className={styles.questionList}>
@@ -427,7 +457,10 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
               const selectedValue = answers[question.questionId];
 
               return (
-                <fieldset key={question.questionId} className={styles.questionCard}>
+                <fieldset
+                  key={question.questionId}
+                  className={styles.questionCard}
+                >
                   <legend
                     ref={(element) => {
                       questionRefs.current[question.questionId] = element;
@@ -438,10 +471,17 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
                     <span className={styles.questionNumber}>
                       Q{String(question.displayOrder).padStart(2, "0")}
                     </span>
-                    <span className={styles.questionText}>{question.questionText}</span>
+                    <span className={styles.questionText}>
+                      {question.questionText}
+                    </span>
                   </legend>
 
-                  <div className={styles.answerScale}>
+                  <div className={styles.answerScaleRow}>
+                    <span
+                      className={`${styles.scaleEdgeLabel} ${styles.scaleLabelRed}`}
+                    >
+                      そう思う
+                    </span>
                     {ANSWER_OPTIONS.map((option) => {
                       const presentation = ANSWER_PRESENTATIONS[option.value];
                       const checked = selectedValue === option.value;
@@ -458,30 +498,46 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
                             value={option.value}
                             checked={checked}
                             onChange={() =>
-                              handleAnswerChange(question.questionId, option.value)
+                              handleAnswerChange(
+                                question.questionId,
+                                option.value,
+                              )
                             }
                             className={styles.answerInput}
                             aria-label={option.label}
                           />
-                          {checked ? (
-                            <span className={styles.selectedBadge}>選択中</span>
-                          ) : null}
-                          <span className={styles.answerVisual} aria-hidden="true">
+                          <span
+                            className={styles.answerVisual}
+                            aria-hidden="true"
+                          >
                             <PenScaleIcon
                               size={presentation.size}
                               className={styles.answerIcon}
                             />
                           </span>
-                          <span className={styles.answerShort}>
-                            {presentation.shortLabel}
+                          <span className={styles.visuallyHidden}>
+                            {option.label}
                           </span>
-                          <span className={styles.answerCaption}>
-                            {presentation.caption}
-                          </span>
-                          <span className={styles.visuallyHidden}>{option.label}</span>
                         </label>
                       );
                     })}
+                    <span
+                      className={`${styles.scaleEdgeLabel} ${styles.scaleLabelTeal}`}
+                    >
+                      思わない
+                    </span>
+                  </div>
+                  <div className={styles.answerSelectedArea}>
+                    {selectedValue ? (
+                      <span
+                        className={`${styles.answerSelectedLabel} ${styles.answerSelectedLabelVisible}`}
+                      >
+                        {
+                          ANSWER_OPTIONS.find((o) => o.value === selectedValue)
+                            ?.label
+                        }
+                      </span>
+                    ) : null}
                   </div>
                 </fieldset>
               );
@@ -489,7 +545,10 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
           </div>
 
           {validationError ? (
-            <p className={`${styles.statusNote} ${styles.statusNoteError}`} role="alert">
+            <p
+              className={`${styles.statusNote} ${styles.statusNoteError}`}
+              role="alert"
+            >
               {validationError}
             </p>
           ) : null}

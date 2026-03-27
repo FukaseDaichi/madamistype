@@ -196,7 +196,6 @@
 
 /* ── Meta badges ── */
 .metaGrid {
-  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.6rem;
   margin-top: 1rem;
@@ -495,50 +494,65 @@
 }
 
 /* ── 5-point answer scale ── */
-.answerScale {
+.answerScaleRow {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: auto repeat(5, minmax(0, 1fr)) auto;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.scaleEdgeLabel {
+  font-family: var(--rcf-font-typewriter);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  padding: 0 0.3rem;
 }
 
 .answerChoice {
   position: relative;
   display: flex;
-  min-height: 8.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
-  border: 1px solid var(--choice-border);
-  border-radius: 0.35rem;
-  background: var(--choice-bg);
-  padding: 0.75rem 0.35rem 0.7rem;
-  color: var(--rcf-paper-text);
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.4rem 0.2rem;
   cursor: pointer;
   text-align: center;
-  transition:
-    transform 120ms ease,
-    border-color 200ms ease,
-    background-color 200ms ease,
-    box-shadow 200ms ease;
+  outline: none;
+  transition: transform 150ms ease;
 }
 
 .answerChoice:hover {
-  transform: translateY(-1px);
-  border-color: var(--choice-color);
+  transform: translateY(-2px);
 }
 
-.answerChoice:focus-within {
-  outline: 2px solid var(--choice-color);
-  outline-offset: 2px;
+/* dedicated area below the icon row for the selected label */
+.answerSelectedArea {
+  min-height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.15rem;
 }
 
-.answerChoiceSelected {
-  border-color: var(--choice-color);
-  background: var(--choice-bg);
-  box-shadow:
-    0 0 16px var(--choice-bg),
-    0 8px 20px rgba(0, 0, 0, 0.25);
+.answerSelectedLabel {
+  font-family: var(--rcf-font-typewriter);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  color: var(--rcf-sepia-light);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease;
+}
+
+.answerSelectedLabelVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .answerInput {
@@ -548,55 +562,26 @@
   cursor: pointer;
 }
 
-.selectedBadge {
-  position: absolute;
-  top: 0.4rem;
-  right: 0.4rem;
-  border: 1px solid var(--choice-color);
-  border-radius: 0.15rem;
-  background: rgba(10, 8, 5, 0.85);
-  padding: 0.1rem 0.35rem;
-  font-family: var(--rcf-font-typewriter);
-  font-size: 0.55rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--choice-color);
-}
-
 .answerVisual {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 3.2rem;
+  min-height: 3rem;
+  color: var(--pen-idle);
+  transition:
+    color 350ms ease,
+    transform 250ms ease,
+    filter 350ms ease;
+}
+
+.answerChoice:hover .answerVisual {
   color: var(--choice-color);
-  transition: transform 120ms ease;
 }
 
 .answerChoiceSelected .answerVisual {
-  transform: translateY(-2px) scale(1.08);
-}
-
-.answerShort {
-  font-family: var(--rcf-font-serif);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--rcf-paper-text);
-}
-
-.answerCaption {
-  font-family: var(--rcf-font-typewriter);
-  font-size: 0.62rem;
-  line-height: 1.4;
-  color: var(--rcf-muted);
-}
-
-.answerChoiceSelected .answerShort {
-  color: rgba(240, 232, 213, 1);
-}
-
-.answerChoiceSelected .answerCaption {
-  color: var(--rcf-sepia-light);
+  color: var(--choice-color);
+  transform: scale(1.18);
+  filter: drop-shadow(0 0 8px var(--choice-color));
 }
 
 .visuallyHidden {
@@ -784,7 +769,6 @@
   }
 
   .progressHeader {
-    flex-direction: column;
     align-items: flex-start;
   }
 
@@ -814,28 +798,21 @@
     padding: 0.85rem 0.75rem;
   }
 
-  .answerScale {
-    gap: 0.35rem;
+  .answerScaleRow {
+    gap: 0.1rem;
   }
 
   .answerChoice {
-    min-height: 7.8rem;
-    padding-inline: 0.25rem;
+    padding: 0.3rem 0.15rem 0.5rem;
   }
 
-  .answerShort {
-    font-size: 0.72rem;
-  }
-
-  .answerCaption {
-    font-size: 0.58rem;
-  }
-
-  .selectedBadge {
-    top: 0.3rem;
-    right: 0.3rem;
-    padding-inline: 0.25rem;
+  .scaleEdgeLabel {
     font-size: 0.5rem;
+    padding: 0 0.15rem;
+  }
+
+  .answerSelectedLabel {
+    font-size: 0.48rem;
   }
 }
 
@@ -844,7 +821,8 @@
   .answerChoice,
   .answerVisual,
   .ctaPrimary,
-  .ctaSecondary {
+  .ctaSecondary,
+  .progressFill {
     transition: none;
   }
 
