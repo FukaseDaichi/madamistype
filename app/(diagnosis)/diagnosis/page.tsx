@@ -15,9 +15,5 @@ export const metadata: Metadata = {
 export default async function DiagnosisPage() {
   const questionMaster = await getQuestionMaster();
 
-  return (
-    <main id="main-content" className="page-shell py-8">
-      <DiagnosisFlow questionMaster={questionMaster} />
-    </main>
-  );
+  return <DiagnosisFlow questionMaster={questionMaster} />;
 }

@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  Bebas_Neue,
+  Caveat,
+  Noto_Serif_JP,
+  Special_Elite,
+} from "next/font/google";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -15,6 +21,40 @@ import type { AnswerValue, AnswersRecord, QuestionMaster } from "@/lib/types";
 
 import styles from "./diagnosis-flow.module.css";
 
+const displayFont = Bebas_Neue({
+  variable: "--rcf-font-display",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+});
+
+const typewriterFont = Special_Elite({
+  variable: "--rcf-font-typewriter",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+});
+
+const serifFont = Noto_Serif_JP({
+  variable: "--rcf-font-serif",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  preload: false,
+});
+
+const noteFont = Caveat({
+  variable: "--rcf-font-note",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  preload: false,
+});
+
+const fontVars = `${displayFont.variable} ${typewriterFont.variable} ${serifFont.variable} ${noteFont.variable}`;
+
 type DiagnosisFlowProps = {
   questionMaster: QuestionMaster;
 };
@@ -27,20 +67,20 @@ type LocationState = {
 const ANSWER_PRESENTATIONS: Record<
   AnswerValue,
   {
-    tone: "rose-strong" | "rose-soft" | "neutral" | "teal-soft" | "teal-strong";
+    tone: "red-strong" | "red-soft" | "neutral" | "teal-soft" | "teal-strong";
     shortLabel: string;
     caption: string;
     size: number;
   }
 > = {
   5: {
-    tone: "rose-strong",
+    tone: "red-strong",
     shortLabel: "とても",
     caption: "そう思う",
     size: 46,
   },
   4: {
-    tone: "rose-soft",
+    tone: "red-soft",
     shortLabel: "やや",
     caption: "そう思う",
     size: 40,
@@ -220,239 +260,260 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
 
   if (!isHydrated) {
     return (
-      <section className={`${styles.statusPanel} ${styles.statusPanelCentered}`}>
-        <div className={styles.loadingMark} aria-hidden="true" />
-        <p className={styles.statusEyebrow}>Preparing</p>
-        <h1 className={styles.statusTitle}>診断の準備をしています</h1>
-        <p className={styles.statusCopy}>前回の保存内容と表示ページを確認しています。</p>
-      </section>
+      <main id="main-content" className={`${fontVars} ${styles.page}`}>
+        <div aria-hidden="true" className={styles.backdrop} />
+        <div className={styles.shell}>
+          <section className={`${styles.statusPanel} ${styles.statusPanelCentered}`}>
+            <div className={styles.loadingMark} aria-hidden="true" />
+            <p className={styles.eyebrow}>Preparing</p>
+            <h1 className={styles.statusTitle}>診断の準備をしています</h1>
+            <p className={styles.statusCopy}>前回の保存内容と表示ページを確認しています。</p>
+          </section>
+        </div>
+      </main>
     );
   }
 
   if (!userName) {
     return (
-      <section className={styles.statusPanel}>
-        <p className={styles.statusEyebrow}>Diagnosis</p>
-        <h1 className={styles.statusTitle}>まずはお名前を入れて診断を始めます</h1>
-        <p className={styles.statusCopy}>
-          このページを直接開いた場合は、トップページの開始フォームから進んでください。
-        </p>
-        <Link href="/" className={`primary-button ${styles.actionButton}`}>
-          トップページへ戻る
-        </Link>
-      </section>
+      <main id="main-content" className={`${fontVars} ${styles.page}`}>
+        <div aria-hidden="true" className={styles.backdrop} />
+        <div className={styles.shell}>
+          <section className={styles.statusPanel}>
+            <p className={styles.eyebrow}>Diagnosis</p>
+            <h1 className={styles.statusTitle}>まずはお名前を入れて診断を始めます</h1>
+            <p className={styles.statusCopy}>
+              このページを直接開いた場合は、トップページの開始フォームから進んでください。
+            </p>
+            <Link href="/" className={styles.ctaPrimary}>
+              トップページへ戻る
+            </Link>
+          </section>
+        </div>
+      </main>
     );
   }
 
   if (isSubmitting) {
     return (
-      <section className={`${styles.statusPanel} ${styles.statusPanelCentered}`}>
-        <div className={styles.loadingMark} aria-hidden="true" />
-        <p className={styles.statusEyebrow}>Calculating</p>
-        <h1 className={styles.statusTitle}>診断結果を計算しています</h1>
-        <p className={styles.statusCopy}>あなたの回答を4軸の記録にまとめています。</p>
-      </section>
+      <main id="main-content" className={`${fontVars} ${styles.page}`}>
+        <div aria-hidden="true" className={styles.backdrop} />
+        <div className={styles.shell}>
+          <section className={`${styles.statusPanel} ${styles.statusPanelCentered}`}>
+            <div className={styles.loadingMark} aria-hidden="true" />
+            <p className={styles.eyebrow}>Calculating</p>
+            <h1 className={styles.statusTitle}>診断結果を計算しています</h1>
+            <p className={styles.statusCopy}>あなたの回答を4軸の記録にまとめています。</p>
+          </section>
+        </div>
+      </main>
     );
   }
 
   return (
-    <section className={styles.root}>
-      <div className={styles.headerPanel}>
-        <div className={styles.headerTop}>
-          <div className={styles.headerCopy}>
-            <p className={styles.fileMeta}>
-              Diagnosis File / Page {String(currentPage).padStart(2, "0")}
-            </p>
-            <h1 ref={pageHeadingRef} tabIndex={-1} className={styles.pageTitle}>
-              {userName}さんの診断
-            </h1>
-            <p className={styles.handNote}>
-              - ペン先で印をつけるように、迷いすぎずに選んでください
-            </p>
+    <main id="main-content" className={`${fontVars} ${styles.page}`}>
+      <div aria-hidden="true" className={styles.backdrop} />
+
+      <div className={styles.shell}>
+        {/* ── 古紙ヘッダーパネル ── */}
+        <div className={styles.headerPanel}>
+          <div className={styles.headerTop}>
+            <div className={styles.headerCopy}>
+              <p className={styles.fileMeta}>
+                Diagnosis File / Page {String(currentPage).padStart(2, "0")}
+              </p>
+              <h1 ref={pageHeadingRef} tabIndex={-1} className={styles.pageTitle}>
+                {userName}さんの診断
+              </h1>
+              <p className={styles.handNote} aria-hidden="true">
+                - ペン先で印をつけるように、迷いすぎずに選んでください
+              </p>
+            </div>
+
+            <Link href="/" className={styles.backLink}>
+              トップへ戻る
+            </Link>
           </div>
 
-          <Link href="/" className={styles.backLink}>
-            トップへ戻る
-          </Link>
-        </div>
-
-        <p className={styles.headerLead}>
-          事件メモを読むような感覚で、今の直感に近い方へ印をつけてください。
-          このページでは質問 {firstQuestionNumber} から {lastQuestionNumber} までを進めます。
-        </p>
-
-        <div className={styles.metaGrid}>
-          <div className={styles.metaCard}>
-            <span className={styles.metaLabel}>Page</span>
-            <strong className={styles.metaValue}>
-              {currentPage} / {totalPages}
-            </strong>
-          </div>
-          <div className={styles.metaCard}>
-            <span className={styles.metaLabel}>Questions</span>
-            <strong className={styles.metaValue}>
-              {firstQuestionNumber} - {lastQuestionNumber}
-            </strong>
-          </div>
-          <div className={styles.metaCard}>
-            <span className={styles.metaLabel}>Answered</span>
-            <strong className={styles.metaValue}>
-              {answeredCount} / {totalQuestions}
-            </strong>
-          </div>
-        </div>
-
-        <div aria-live="polite" className={styles.progressBlock}>
-          <div className={styles.progressHeader}>
-            <span>回答済み {answeredCount} / {totalQuestions}</span>
-            <span>このページ {currentPageAnsweredCount} / {pageQuestions.length}</span>
-          </div>
-          <div className={styles.progressTrack} aria-hidden="true">
-            <div
-              className={styles.progressFill}
-              style={{ transform: `scaleX(${progressRatio})` }}
-            />
-          </div>
-        </div>
-
-        {restoreNotice ? (
-          <p className={styles.statusNote} role="status">
-            {restoreNotice}
+          <p className={styles.headerLead}>
+            事件メモを読むような感覚で、今の直感に近い方へ印をつけてください。
+            このページでは質問 {firstQuestionNumber} から {lastQuestionNumber} までを進めます。
           </p>
-        ) : null}
-      </div>
 
-      <div className={styles.questionsPanel}>
-        <div className={styles.sectionHeader}>
-          <div>
-            <p className={styles.sectionEyebrow}>Question Sheet</p>
-            <h2 className={styles.sectionTitle}>
-              質問 {firstQuestionNumber}〜{lastQuestionNumber}
-            </h2>
+          <div className={styles.metaGrid}>
+            <div className={styles.metaCard}>
+              <span className={styles.metaLabel}>Page</span>
+              <strong className={styles.metaValue}>
+                {currentPage} / {totalPages}
+              </strong>
+            </div>
+            <div className={styles.metaCard}>
+              <span className={styles.metaLabel}>Questions</span>
+              <strong className={styles.metaValue}>
+                {firstQuestionNumber} - {lastQuestionNumber}
+              </strong>
+            </div>
+            <div className={styles.metaCard}>
+              <span className={styles.metaLabel}>Answered</span>
+              <strong className={styles.metaValue}>
+                {answeredCount} / {totalQuestions}
+              </strong>
+            </div>
           </div>
-          <p className={styles.sectionCopy}>
-            5段階のペンスケールで、気持ちの強さに近いものを選んでください。
-          </p>
+
+          <div aria-live="polite" className={styles.progressBlock}>
+            <div className={styles.progressHeader}>
+              <span>回答済み {answeredCount} / {totalQuestions}</span>
+              <span>このページ {currentPageAnsweredCount} / {pageQuestions.length}</span>
+            </div>
+            <div className={styles.progressTrack} aria-hidden="true">
+              <div
+                className={styles.progressFill}
+                style={{ transform: `scaleX(${progressRatio})` }}
+              />
+            </div>
+          </div>
+
+          {restoreNotice ? (
+            <p className={styles.statusNote} role="status">
+              {restoreNotice}
+            </p>
+          ) : null}
         </div>
 
-        <div className={styles.scaleGuide} aria-hidden="true">
-          <span className={`${styles.scaleLabel} ${styles.scaleLabelRose}`}>
-            とてもそう思う
-          </span>
-          <div className={styles.scalePreview}>
-            {ANSWER_OPTIONS.map((option) => {
-              const presentation = ANSWER_PRESENTATIONS[option.value];
+        {/* ── 黒質問パネル ── */}
+        <div className={styles.questionsPanel}>
+          <div className={styles.sectionHeader}>
+            <div>
+              <p className={styles.eyebrow}>Question Sheet</p>
+              <h2 className={styles.sectionTitle}>
+                質問 {firstQuestionNumber}〜{lastQuestionNumber}
+              </h2>
+            </div>
+            <p className={styles.sectionCopy}>
+              5段階のスケールで、気持ちの強さに近いものを選んでください。
+            </p>
+          </div>
+
+          <div className={styles.scaleGuide} aria-hidden="true">
+            <span className={`${styles.scaleLabel} ${styles.scaleLabelRed}`}>
+              とてもそう思う
+            </span>
+            <div className={styles.scalePreview}>
+              {ANSWER_OPTIONS.map((option) => {
+                const presentation = ANSWER_PRESENTATIONS[option.value];
+
+                return (
+                  <div
+                    key={`guide-${option.value}`}
+                    className={styles.scalePreviewItem}
+                    data-tone={presentation.tone}
+                  >
+                    <PenScaleIcon
+                      size={presentation.size}
+                      className={styles.scalePreviewIcon}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <span className={`${styles.scaleLabel} ${styles.scaleLabelTeal}`}>
+              全くそうは思わない
+            </span>
+          </div>
+
+          <div className={styles.questionList}>
+            {pageQuestions.map((question) => {
+              const selectedValue = answers[question.questionId];
 
               return (
-                <div
-                  key={`guide-${option.value}`}
-                  className={styles.scalePreviewItem}
-                  data-tone={presentation.tone}
-                >
-                  <PenScaleIcon
-                    size={presentation.size}
-                    className={styles.scalePreviewIcon}
-                  />
-                </div>
+                <fieldset key={question.questionId} className={styles.questionCard}>
+                  <legend
+                    ref={(element) => {
+                      questionRefs.current[question.questionId] = element;
+                    }}
+                    tabIndex={-1}
+                    className={styles.questionLegend}
+                  >
+                    <span className={styles.questionNumber}>
+                      Q{String(question.displayOrder).padStart(2, "0")}
+                    </span>
+                    <span className={styles.questionText}>{question.questionText}</span>
+                  </legend>
+
+                  <div className={styles.answerScale}>
+                    {ANSWER_OPTIONS.map((option) => {
+                      const presentation = ANSWER_PRESENTATIONS[option.value];
+                      const checked = selectedValue === option.value;
+
+                      return (
+                        <label
+                          key={option.value}
+                          className={`${styles.answerChoice} ${checked ? styles.answerChoiceSelected : ""}`}
+                          data-tone={presentation.tone}
+                        >
+                          <input
+                            type="radio"
+                            name={question.questionId}
+                            value={option.value}
+                            checked={checked}
+                            onChange={() =>
+                              handleAnswerChange(question.questionId, option.value)
+                            }
+                            className={styles.answerInput}
+                            aria-label={option.label}
+                          />
+                          {checked ? (
+                            <span className={styles.selectedBadge}>選択中</span>
+                          ) : null}
+                          <span className={styles.answerVisual} aria-hidden="true">
+                            <PenScaleIcon
+                              size={presentation.size}
+                              className={styles.answerIcon}
+                            />
+                          </span>
+                          <span className={styles.answerShort}>
+                            {presentation.shortLabel}
+                          </span>
+                          <span className={styles.answerCaption}>
+                            {presentation.caption}
+                          </span>
+                          <span className={styles.visuallyHidden}>{option.label}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </fieldset>
               );
             })}
           </div>
-          <span className={`${styles.scaleLabel} ${styles.scaleLabelTeal}`}>
-            全くそうは思わない
-          </span>
-        </div>
 
-        <div className={styles.questionList}>
-          {pageQuestions.map((question) => {
-            const selectedValue = answers[question.questionId];
+          {validationError ? (
+            <p className={`${styles.statusNote} ${styles.statusNoteError}`} role="alert">
+              {validationError}
+            </p>
+          ) : null}
 
-            return (
-              <fieldset key={question.questionId} className={styles.questionCard}>
-                <legend
-                  ref={(element) => {
-                    questionRefs.current[question.questionId] = element;
-                  }}
-                  tabIndex={-1}
-                  className={styles.questionLegend}
-                >
-                  <span className={styles.questionNumber}>
-                    Q{String(question.displayOrder).padStart(2, "0")}
-                  </span>
-                  <span className={styles.questionText}>{question.questionText}</span>
-                </legend>
-
-                <div className={styles.answerScale}>
-                  {ANSWER_OPTIONS.map((option) => {
-                    const presentation = ANSWER_PRESENTATIONS[option.value];
-                    const checked = selectedValue === option.value;
-
-                    return (
-                      <label
-                        key={option.value}
-                        className={`${styles.answerChoice} ${checked ? styles.answerChoiceSelected : ""}`}
-                        data-tone={presentation.tone}
-                      >
-                        <input
-                          type="radio"
-                          name={question.questionId}
-                          value={option.value}
-                          checked={checked}
-                          onChange={() =>
-                            handleAnswerChange(question.questionId, option.value)
-                          }
-                          className={styles.answerInput}
-                          aria-label={option.label}
-                        />
-                        {checked ? (
-                          <span className={styles.selectedBadge}>選択中</span>
-                        ) : null}
-                        <span className={styles.answerVisual} aria-hidden="true">
-                          <PenScaleIcon
-                            size={presentation.size}
-                            className={styles.answerIcon}
-                          />
-                        </span>
-                        <span className={styles.answerShort}>
-                          {presentation.shortLabel}
-                        </span>
-                        <span className={styles.answerCaption}>
-                          {presentation.caption}
-                        </span>
-                        <span className={styles.visuallyHidden}>{option.label}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </fieldset>
-            );
-          })}
-        </div>
-
-        {validationError ? (
-          <p className={`${styles.statusNote} ${styles.statusNoteError}`} role="alert">
-            {validationError}
-          </p>
-        ) : null}
-
-        <div className={styles.actions}>
-          <button
-            type="button"
-            onClick={handlePrevious}
-            className={`secondary-button ${styles.actionButton}`}
-            disabled={currentPage === 1}
-          >
-            前の8問へ戻る
-          </button>
-          <button
-            type="button"
-            onClick={handleNext}
-            className={`primary-button ${styles.actionButton}`}
-          >
-            {currentPage === totalPages ? "診断結果を見る" : "次の8問へ進む"}
-          </button>
+          <div className={styles.actions}>
+            <button
+              type="button"
+              onClick={handlePrevious}
+              className={styles.ctaSecondary}
+              disabled={currentPage === 1}
+            >
+              前の8問へ戻る
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              className={styles.ctaPrimary}
+            >
+              {currentPage === totalPages ? "診断結果を見る" : "次の8問へ進む"}
+            </button>
+          </div>
         </div>
       </div>
-    </section>
+    </main>
   );
 }
 
