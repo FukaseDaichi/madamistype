@@ -359,6 +359,16 @@
   margin-top: 1.5rem;
 }
 
+.heroActionNote {
+  position: relative;
+  z-index: 1;
+  margin: 0.85rem 0 0;
+  color: rgba(61, 46, 16, 0.82);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.72rem;
+  line-height: 1.8;
+}
+
 .primaryButton,
 .secondaryButton {
   display: inline-flex;

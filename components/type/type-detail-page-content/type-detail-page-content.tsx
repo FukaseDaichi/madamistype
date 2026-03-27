@@ -54,12 +54,14 @@ const noteFont = Caveat({
 type TypeDetailPageContentProps = {
   mode: "public" | "shared";
   typeData: TypeData;
+  shareKey?: string;
   shareUrl: string;
   publicUrl: string;
   sharedUserName?: string;
   hasChibi?: boolean;
   axisSummaries?: AxisSummary[];
   compatibleTypes?: Array<{ typeCode: string; typeName: string }>;
+  isPostDiagnosisResult?: boolean;
 };
 
 const SECTION_HEADINGS: Record<string, TypeSectionHeading> = {
@@ -103,12 +105,14 @@ const SECTION_HEADINGS: Record<string, TypeSectionHeading> = {
 export function TypeDetailPageContent({
   mode,
   typeData,
+  shareKey,
   shareUrl,
   publicUrl,
   sharedUserName,
   hasChibi = false,
   axisSummaries,
   compatibleTypes,
+  isPostDiagnosisResult = false,
 }: TypeDetailPageContentProps) {
   const isShared = mode === "shared";
 
@@ -130,9 +134,11 @@ export function TypeDetailPageContent({
         <TypeDetailHeroSection
           mode={mode}
           typeData={typeData}
+          shareKey={shareKey}
           publicUrl={publicUrl}
           sharedUserName={sharedUserName}
           hasChibi={hasChibi}
+          isPostDiagnosisResult={isPostDiagnosisResult}
         />
         <TypeSignatureSection
           heading={SECTION_HEADINGS.signature}

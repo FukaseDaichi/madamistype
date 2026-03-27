@@ -1,0 +1,108 @@
+{
+  "skill": "madamistype-type-ogp-images",
+  "generatedAt": "2026-03-27T04:46:11.620284+00:00",
+  "typeCode": "OFEI",
+  "typeName": "潜入記者",
+  "referenceImagePath": "C:\\Users\\119003\\git\\madamistype\\public\\types\\OFEI_chibi.png",
+  "referenceImageUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFEI_chibi.png",
+  "candidateCountRequested": 4,
+  "dryRun": false,
+  "candidates": [
+    {
+      "candidateIndex": 1,
+      "variantId": "action-forward",
+      "titlePlacement": "left",
+      "selectionHint": "Best when the type should feel assertive and immediately clickable.",
+      "status": "success",
+      "referenceMode": "type-chibi-url",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774586342920-bl8nmo8tq35.png",
+      "paths": {
+        "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\prompt-01.txt",
+        "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\negative_prompt-01.txt",
+        "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\request-01.json",
+        "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\task-01.json",
+        "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\candidate-01.png"
+      }
+    },
+    {
+      "candidateIndex": 2,
+      "variantId": "reaction-side",
+      "titlePlacement": "right",
+      "selectionHint": "Best when the type reads through quick instincts or observation.",
+      "status": "success",
+      "referenceMode": "type-chibi-url",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774586497130-itj3i8iw06i.png",
+      "paths": {
+        "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\prompt-02.txt",
+        "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\negative_prompt-02.txt",
+        "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\request-02.json",
+        "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\task-02.json",
+        "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\candidate-02.png"
+      }
+    },
+    {
+      "candidateIndex": 3,
+      "variantId": "secretive-turn",
+      "titlePlacement": "left",
+      "selectionHint": "Best when the type benefits from mystery, stealth, or tension.",
+      "status": "success",
+      "referenceMode": "type-chibi-url",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774586632283-54z3lcygii3.png",
+      "paths": {
+        "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\prompt-03.txt",
+        "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\negative_prompt-03.txt",
+        "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\request-03.json",
+        "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\task-03.json",
+        "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\candidate-03.png"
+      }
+    },
+    {
+      "candidateIndex": 4,
+      "variantId": "prop-led",
+      "titlePlacement": "right",
+      "selectionHint": "Best when the type identity is inseparable from its tool or role.",
+      "status": "success",
+      "referenceMode": "type-chibi-url",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774586764754-qa0b8ji277p.png",
+      "paths": {
+        "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\prompt-04.txt",
+        "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\negative_prompt-04.txt",
+        "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\request-04.json",
+        "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\task-04.json",
+        "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\candidate-04.png"
+      }
+    }
+  ],
+  "status": "success",
+  "selectedCandidate": {
+    "candidateIndex": 1,
+    "variantId": "action-forward",
+    "titlePlacement": "left",
+    "selectionHint": "Best when the type should feel assertive and immediately clickable.",
+    "status": "success",
+    "referenceMode": "type-chibi-url",
+    "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774586342920-bl8nmo8tq35.png",
+    "paths": {
+      "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\prompt-01.txt",
+      "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\negative_prompt-01.txt",
+      "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\request-01.json",
+      "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\task-01.json",
+      "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\candidate-01.png"
+    }
+  },
+  "selectionNote": "Selected candidate 1 by default. Prioritized bold pose families and earliest successful result.",
+  "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\final\\ogp.png",
+  "publishedPath": "C:\\Users\\119003\\git\\madamistype\\public\\ogp\\types\\OFEI.png",
+  "compositor": {
+    "targetSize": {
+      "width": 1200,
+      "height": 630
+    },
+    "titlePlacement": "left",
+    "accentColor": "#D6B68A",
+    "fonts": {
+      "title": "C:\\Windows\\Fonts\\NotoSansJP-VF.ttf",
+      "code": "C:\\Windows\\Fonts\\NotoSansJP-VF.ttf"
+    }
+  }
+}

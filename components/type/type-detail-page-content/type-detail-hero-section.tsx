@@ -3,26 +3,34 @@ import type { TypeData } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 
+import { PostDiagnosisResultCookieCleanup } from "@/components/type/type-detail-page-content/post-diagnosis-result-cookie-cleanup";
 import { TypeArtwork } from "@/components/type/type-artwork/type-artwork";
+import { RECOMMENDATION_FEEDBACK_FORM_URL } from "@/lib/post-diagnosis-result";
 
 import styles from "./type-detail-page-content.module.css";
 
 type TypeDetailHeroSectionProps = {
   mode: "public" | "shared";
   typeData: TypeData;
+  shareKey?: string;
   publicUrl: string;
   sharedUserName?: string;
   hasChibi?: boolean;
+  isPostDiagnosisResult?: boolean;
 };
 
 export function TypeDetailHeroSection({
   mode,
   typeData,
+  shareKey,
   publicUrl,
   sharedUserName,
   hasChibi = false,
+  isPostDiagnosisResult = false,
 }: TypeDetailHeroSectionProps) {
   const isShared = mode === "shared";
+  const shouldShowPostDiagnosisActions =
+    isShared && isPostDiagnosisResult && Boolean(shareKey);
   const heroHeading = isShared ? (
     <>
       共有された
@@ -108,17 +116,41 @@ export function TypeDetailHeroSection({
         </div>
 
         <div className={styles.heroActions}>
-          {isShared && (
+          {shouldShowPostDiagnosisActions ? (
+            <>
+              <a href="#type-share-panel" className={styles.primaryButton}>
+                共有
+              </a>
+              <a
+                href={RECOMMENDATION_FEEDBACK_FORM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.secondaryButton}
+              >
+                ご意見
+              </a>
+            </>
+          ) : isShared ? (
             <Link href="/" className={styles.primaryButton}>
               自分でも診断する
             </Link>
-          )}
-          {!isShared && (
+          ) : (
             <a href="#type-share-panel" className={styles.primaryButton}>
               共有する
             </a>
           )}
         </div>
+        {shouldShowPostDiagnosisActions ? (
+          <p className={styles.heroActionNote}>
+            タイプごとのおすすめマダミスを集計したいので、よければフォームで教えてください。
+          </p>
+        ) : null}
+        {shouldShowPostDiagnosisActions && shareKey ? (
+          <PostDiagnosisResultCookieCleanup
+            typeCode={typeData.typeCode}
+            shareKey={shareKey}
+          />
+        ) : null}
       </section>
     </>
   );

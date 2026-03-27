@@ -1,0 +1,26 @@
+{
+  "skill": "madamistype-type-ogp-images",
+  "generatedAt": "2026-03-27T04:46:12.989609+00:00",
+  "repoRoot": "C:\\Users\\119003\\git\\madamistype",
+  "typesDir": "C:\\Users\\119003\\git\\madamistype\\data\\types",
+  "outputDir": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp",
+  "publishDir": "C:\\Users\\119003\\git\\madamistype\\public\\ogp\\types",
+  "publish": true,
+  "dryRun": false,
+  "aspectRatio": "16:9",
+  "resolution": "2K",
+  "referenceUrlBase": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types",
+  "successCount": 1,
+  "failureCount": 0,
+  "results": [
+    {
+      "typeCode": "OFEI",
+      "typeName": "潜入記者",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\final\\ogp.png",
+      "publishedPath": "C:\\Users\\119003\\git\\madamistype\\public\\ogp\\types\\OFEI.png",
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\final\\meta.json"
+    }
+  ]
+}

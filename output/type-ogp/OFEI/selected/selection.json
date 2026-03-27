@@ -1,0 +1,16 @@
+{
+  "candidateIndex": 1,
+  "variantId": "action-forward",
+  "titlePlacement": "left",
+  "selectionHint": "Best when the type should feel assertive and immediately clickable.",
+  "status": "success",
+  "referenceMode": "type-chibi-url",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774586342920-bl8nmo8tq35.png",
+  "paths": {
+    "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\prompt-01.txt",
+    "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\negative_prompt-01.txt",
+    "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\request-01.json",
+    "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\task-01.json",
+    "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\candidates\\candidate-01.png"
+  }
+}

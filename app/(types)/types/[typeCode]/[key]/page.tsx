@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { calculateDiagnosisResult } from "@/lib/diagnosis";
@@ -11,6 +12,10 @@ import {
 } from "@/lib/data";
 import { decodeShareKey, expandShareKeyAxisSummaries } from "@/lib/share-key";
 import { getAbsoluteUrl } from "@/lib/site";
+import {
+  getPostDiagnosisResultCookieValue,
+  POST_DIAGNOSIS_RESULT_COOKIE_NAME,
+} from "@/lib/post-diagnosis-result";
 
 type PageProps = {
   params: Promise<{ typeCode: string; key: string }>;
@@ -96,6 +101,7 @@ export async function generateMetadata({
 
 export default async function SharedResultPage({ params }: PageProps) {
   const { typeCode, key } = await params;
+  const cookieStore = await cookies();
   const {
     typeData,
     shareUrl,
@@ -106,17 +112,22 @@ export default async function SharedResultPage({ params }: PageProps) {
     compatibleTypes,
   } =
     await getSharedPageData(typeCode, key);
+  const isPostDiagnosisResult =
+    cookieStore.get(POST_DIAGNOSIS_RESULT_COOKIE_NAME)?.value ===
+    getPostDiagnosisResultCookieValue(typeCode, key);
 
   return (
     <TypeDetailPageContent
       mode="shared"
       typeData={typeData}
+      shareKey={key}
       shareUrl={shareUrl}
       publicUrl={publicUrl}
       sharedUserName={sharedUserName}
       hasChibi={hasChibi}
       axisSummaries={axisSummaries}
       compatibleTypes={compatibleTypes}
+      isPostDiagnosisResult={isPostDiagnosisResult}
     />
   );
 }
