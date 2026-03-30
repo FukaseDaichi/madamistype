@@ -25,7 +25,7 @@
 *.pem
 
 # output
-/output/*png
+/output/*
 
 # debug
 npm-debug.log*
