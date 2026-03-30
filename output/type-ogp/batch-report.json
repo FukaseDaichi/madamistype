@@ -1,16 +1,16 @@
 {
   "skill": "madamistype-type-ogp-images",
-  "generatedAt": "2026-03-27T04:46:12.989609+00:00",
+  "generatedAt": "2026-03-27T06:00:04.604994+00:00",
   "repoRoot": "C:\\Users\\119003\\git\\madamistype",
   "typesDir": "C:\\Users\\119003\\git\\madamistype\\data\\types",
-  "outputDir": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp",
+  "outputDir": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all",
   "publishDir": "C:\\Users\\119003\\git\\madamistype\\public\\ogp\\types",
-  "publish": true,
+  "publish": false,
   "dryRun": false,
   "aspectRatio": "16:9",
   "resolution": "2K",
   "referenceUrlBase": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types",
-  "successCount": 1,
+  "successCount": 16,
   "failureCount": 0,
   "results": [
     {
@@ -18,9 +18,144 @@
       "typeName": "潜入記者",
       "status": "success",
       "selectedCandidateIndex": 1,
-      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\final\\ogp.png",
-      "publishedPath": "C:\\Users\\119003\\git\\madamistype\\public\\ogp\\types\\OFEI.png",
-      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp\\OFEI\\final\\meta.json"
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OFEI\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OFEI\\final\\meta.json"
+    },
+    {
+      "typeCode": "OFEP",
+      "typeName": "観測メイド",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OFEP\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OFEP\\final\\meta.json"
+    },
+    {
+      "typeCode": "OFLI",
+      "typeName": "潜伏刑事",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OFLI\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OFLI\\final\\meta.json"
+    },
+    {
+      "typeCode": "OFLP",
+      "typeName": "沈黙の鑑識官",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OFLP\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OFLP\\final\\meta.json"
+    },
+    {
+      "typeCode": "OREI",
+      "typeName": "余白の魔術師",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREI\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREI\\final\\meta.json"
+    },
+    {
+      "typeCode": "OREP",
+      "typeName": "感情の翻訳者",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\final\\meta.json"
+    },
+    {
+      "typeCode": "ORLI",
+      "typeName": "潜伏スパイ",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLI\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLI\\final\\meta.json"
+    },
+    {
+      "typeCode": "ORLP",
+      "typeName": "安楽椅子探偵",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\final\\meta.json"
+    },
+    {
+      "typeCode": "TFEI",
+      "typeName": "扇動役者",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFEI\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFEI\\final\\meta.json"
+    },
+    {
+      "typeCode": "TFEP",
+      "typeName": "証言調律師",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFEP\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFEP\\final\\meta.json"
+    },
+    {
+      "typeCode": "TFLI",
+      "typeName": "尋問官",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLI\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLI\\final\\meta.json"
+    },
+    {
+      "typeCode": "TFLP",
+      "typeName": "名探偵",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLP\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TFLP\\final\\meta.json"
+    },
+    {
+      "typeCode": "TREI",
+      "typeName": "大女優",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREI\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREI\\final\\meta.json"
+    },
+    {
+      "typeCode": "TREP",
+      "typeName": "動機脚本家",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\final\\meta.json"
+    },
+    {
+      "typeCode": "TRLI",
+      "typeName": "奇術師",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TRLI\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TRLI\\final\\meta.json"
+    },
+    {
+      "typeCode": "TRLP",
+      "typeName": "黒幕参謀",
+      "status": "success",
+      "selectedCandidateIndex": 1,
+      "finalOgpPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TRLP\\final\\ogp.png",
+      "publishedPath": null,
+      "metaPath": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TRLP\\final\\meta.json"
     }
   ]
 }
