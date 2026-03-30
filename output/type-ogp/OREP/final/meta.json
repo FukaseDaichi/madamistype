@@ -1,11 +1,11 @@
 {
   "skill": "madamistype-type-ogp-images",
-  "generatedAt": "2026-03-27T05:38:38.710790+00:00",
+  "generatedAt": "2026-03-30T02:38:37.028010+00:00",
   "typeCode": "OREP",
   "typeName": "感情の翻訳者",
   "referenceImagePath": "C:\\Users\\119003\\git\\madamistype\\public\\types\\OREP_chibi.png",
   "referenceImageUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OREP_chibi.png",
-  "candidateCountRequested": 1,
+  "candidateCountRequested": 2,
   "dryRun": false,
   "candidates": [
     {
@@ -13,15 +13,31 @@
       "variantId": "action-forward",
       "titlePlacement": "left",
       "selectionHint": "Best when the type should feel explosive, surprising, and instantly clickable.",
-      "status": "success",
+      "status": "reused",
       "referenceMode": "type-chibi-url",
-      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774589907705-dtwcyr6h0k6.png",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774837437374-x1nyeyiw87.png",
       "paths": {
         "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\prompt-01.txt",
         "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\negative_prompt-01.txt",
         "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\request-01.json",
         "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\task-01.json",
         "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\candidate-01.png"
+      }
+    },
+    {
+      "candidateIndex": 2,
+      "variantId": "reaction-side",
+      "titlePlacement": "right",
+      "selectionHint": "Best when the type reads through quick instincts or observation.",
+      "status": "reused",
+      "referenceMode": "type-chibi-url",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774837512373-3v5baumued7.png",
+      "paths": {
+        "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\prompt-02.txt",
+        "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\negative_prompt-02.txt",
+        "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\request-02.json",
+        "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\task-02.json",
+        "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\candidate-02.png"
       }
     }
   ],
@@ -31,9 +47,9 @@
     "variantId": "action-forward",
     "titlePlacement": "left",
     "selectionHint": "Best when the type should feel explosive, surprising, and instantly clickable.",
-    "status": "success",
+    "status": "reused",
     "referenceMode": "type-chibi-url",
-    "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774589907705-dtwcyr6h0k6.png",
+    "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774837437374-x1nyeyiw87.png",
     "paths": {
       "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\prompt-01.txt",
       "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\negative_prompt-01.txt",

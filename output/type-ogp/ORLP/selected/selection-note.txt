@@ -1,1 +1,1 @@
-Selected candidate 1 by default. Prioritized bold pose families and earliest successful result.
+Selected candidate 2 via manual override. Variant: reaction-side.

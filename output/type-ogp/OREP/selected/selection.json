@@ -3,9 +3,9 @@
   "variantId": "action-forward",
   "titlePlacement": "left",
   "selectionHint": "Best when the type should feel explosive, surprising, and instantly clickable.",
-  "status": "success",
+  "status": "reused",
   "referenceMode": "type-chibi-url",
-  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774589907705-dtwcyr6h0k6.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774837437374-x1nyeyiw87.png",
   "paths": {
     "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\prompt-01.txt",
     "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\OREP\\candidates\\negative_prompt-01.txt",

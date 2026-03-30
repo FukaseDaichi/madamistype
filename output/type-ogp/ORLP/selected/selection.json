@@ -1,16 +1,16 @@
 {
-  "candidateIndex": 1,
-  "variantId": "action-forward",
-  "titlePlacement": "left",
-  "selectionHint": "Best when the type should feel explosive, surprising, and instantly clickable.",
-  "status": "success",
+  "candidateIndex": 2,
+  "variantId": "reaction-side",
+  "titlePlacement": "right",
+  "selectionHint": "Best when the type reads through quick instincts or observation.",
+  "status": "reused",
   "referenceMode": "type-chibi-url",
-  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774590131780-isodwsj0j7.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774837706550-zs2axofy5om.png",
   "paths": {
-    "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\prompt-01.txt",
-    "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\negative_prompt-01.txt",
-    "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\request-01.json",
-    "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\task-01.json",
-    "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\candidate-01.png"
+    "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\prompt-02.txt",
+    "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\negative_prompt-02.txt",
+    "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\request-02.json",
+    "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\task-02.json",
+    "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\ORLP\\candidates\\candidate-02.png"
   }
 }

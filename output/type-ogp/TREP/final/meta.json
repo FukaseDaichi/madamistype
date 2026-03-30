@@ -1,11 +1,11 @@
 {
   "skill": "madamistype-type-ogp-images",
-  "generatedAt": "2026-03-27T05:53:06.587698+00:00",
+  "generatedAt": "2026-03-30T02:38:38.409576+00:00",
   "typeCode": "TREP",
   "typeName": "動機脚本家",
   "referenceImagePath": "C:\\Users\\119003\\git\\madamistype\\public\\types\\TREP_chibi.png",
   "referenceImageUrl": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TREP_chibi.png",
-  "candidateCountRequested": 1,
+  "candidateCountRequested": 2,
   "dryRun": false,
   "candidates": [
     {
@@ -13,15 +13,31 @@
       "variantId": "action-forward",
       "titlePlacement": "left",
       "selectionHint": "Best when the type should feel explosive, surprising, and instantly clickable.",
-      "status": "success",
+      "status": "reused",
       "referenceMode": "type-chibi-url",
-      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774590782229-y6b9h6vqsp.png",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774838160313-93if2ei6ep.png",
       "paths": {
         "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\prompt-01.txt",
         "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\negative_prompt-01.txt",
         "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\request-01.json",
         "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\task-01.json",
         "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\candidate-01.png"
+      }
+    },
+    {
+      "candidateIndex": 2,
+      "variantId": "reaction-side",
+      "titlePlacement": "right",
+      "selectionHint": "Best when the type reads through quick instincts or observation.",
+      "status": "reused",
+      "referenceMode": "type-chibi-url",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774838243637-iftdlclrojp.png",
+      "paths": {
+        "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\prompt-02.txt",
+        "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\negative_prompt-02.txt",
+        "request": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\request-02.json",
+        "task": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\task-02.json",
+        "image": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\candidate-02.png"
       }
     }
   ],
@@ -31,9 +47,9 @@
     "variantId": "action-forward",
     "titlePlacement": "left",
     "selectionHint": "Best when the type should feel explosive, surprising, and instantly clickable.",
-    "status": "success",
+    "status": "reused",
     "referenceMode": "type-chibi-url",
-    "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774590782229-y6b9h6vqsp.png",
+    "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774838160313-93if2ei6ep.png",
     "paths": {
       "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\prompt-01.txt",
       "negativePrompt": "C:\\Users\\119003\\git\\madamistype\\output\\type-ogp-dynamic-all\\TREP\\candidates\\negative_prompt-01.txt",
