@@ -181,22 +181,20 @@ export function TypeDetailPageContent({
           compatibleTypes={compatibleTypes}
         />
 
-        <ShareActions
-          id="type-share-panel"
-          typeCode={typeData.typeCode}
-          typeName={typeData.typeName}
-          shareText={typeData.shareText}
-          shareUrl={shareUrl}
-          copyUrl={resultUrl}
-          eyebrow="Share"
-          title={isShared ? "このタイプページを共有する" : "このページを共有する"}
-          description={
-            isShared
-              ? "SNS共有はタイプ公開ページへ集約し、この診断結果URLはコピーで送れます。"
-              : undefined
-          }
-          className={styles.sharePanel}
-        />
+        {isShared ? (
+          <ShareActions
+            id="type-share-panel"
+            typeCode={typeData.typeCode}
+            typeName={typeData.typeName}
+            shareText={typeData.shareText}
+            shareUrl={shareUrl}
+            copyUrl={resultUrl}
+            eyebrow="Share"
+            title="このタイプページを共有する"
+            description="SNS共有はタイプ公開ページへ集約し、この診断結果URLはコピーで送れます。"
+            className={styles.sharePanel}
+          />
+        ) : null}
 
         <SiteFooter className={styles.footer} />
       </div>

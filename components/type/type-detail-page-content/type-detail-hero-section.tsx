@@ -135,9 +135,9 @@ export function TypeDetailHeroSection({
               自分でも診断する
             </Link>
           ) : (
-            <a href="#type-share-panel" className={styles.primaryButton}>
-              共有する
-            </a>
+            <Link href="/" className={styles.primaryButton}>
+              自分でも診断する
+            </Link>
           )}
         </div>
         {shouldShowPostDiagnosisActions ? (
