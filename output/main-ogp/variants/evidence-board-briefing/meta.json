@@ -1,0 +1,16 @@
+{
+  "slug": "evidence-board-briefing",
+  "name": "Evidence Board Briefing",
+  "scene": "a giant evidence board with pinned photos, suspect notes, and case documents, four characters actively briefing each other, one pins a clue onto the board, one turns to argue a theory, one crosses arms and responds, one holds files and leans forward, dramatic side light, strong depth, investigation room atmosphere",
+  "titleStyle": "design the title as a dramatic ivory and crimson mystery plaque with metallic inlay, ornamental borders, subtle embossed texture, and elegant Japanese poster typography",
+  "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\prompt.txt",
+  "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\request.json",
+  "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\task.json",
+  "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\raw.png",
+  "final": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\final.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849377836-xlecgyifovd.png",
+  "size": {
+    "width": 1200,
+    "height": 630
+  }
+}

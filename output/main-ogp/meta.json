@@ -1,0 +1,21 @@
+{
+  "asset": "C:\\Users\\119003\\git\\madamistype\\public\\main-ogp.png",
+  "working": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\main-ogp.png",
+  "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\nanobanana\\raw.png",
+  "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\nanobanana\\prompt.txt",
+  "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\nanobanana\\request.json",
+  "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\nanobanana\\task.json",
+  "sourceSkill": "madamistype-type-ogp-images",
+  "sourceTypeCodes": [
+    "TFLP",
+    "TRLP",
+    "OREI",
+    "OFEP"
+  ],
+  "referenceUrlBase": "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774846840550-r9btdacyayg.png",
+  "size": {
+    "width": 1200,
+    "height": 630
+  }
+}

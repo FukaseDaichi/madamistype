@@ -44,12 +44,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
+    images: ["/main-ogp.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: ["/opengraph-image"],
+    images: ["/main-ogp.png"],
   },
 };
 

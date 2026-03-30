@@ -1,0 +1,16 @@
+{
+  "slug": "secret-library-strategy",
+  "name": "Secret Library Strategy",
+  "scene": "a hidden library war room with maps, stacked files, hanging lamps, and open reference books, four characters mid-conversation during a high-stakes strategy talk, one flips open a file, one points toward a marked map, one reacts with a sharp counterpoint, one observes while preparing to speak, deep perspective, cinematic lighting, serious collaborative tension",
+  "titleStyle": "design the title as a bold bronze-and-gold mystery logo with layered drop shadows, ornamental filigree, engraved serif strokes, and a high-end Japanese movie-poster look",
+  "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\prompt.txt",
+  "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\request.json",
+  "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\task.json",
+  "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\raw.png",
+  "final": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\final.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849582713-2242iefrh3x.png",
+  "size": {
+    "width": 1200,
+    "height": 630
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "variants": [
+    {
+      "slug": "roundtable-debate",
+      "name": "Roundtable Debate",
+      "scene": "a circular evidence table covered with photos, notebooks, and red-string clue cards, four characters leaning inward in the middle of an intense deduction meeting, one points to the center of the table, one speaks with an open dossier, one replies with a skeptical gesture, one listens while taking notes, oblique cinematic angle, warm desk lamps, layered depth, visible conversation energy",
+      "titleStyle": "design the title as a luxurious gold-foil art-deco logotype with engraved shadow depth, thin crimson ornament lines, refined framing, and a polished mystery-poster finish",
+      "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\prompt.txt",
+      "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\request.json",
+      "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\task.json",
+      "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\raw.png",
+      "final": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\final.png",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849271615-x6bgyb0xdc9.png",
+      "size": {
+        "width": 1200,
+        "height": 630
+      }
+    },
+    {
+      "slug": "evidence-board-briefing",
+      "name": "Evidence Board Briefing",
+      "scene": "a giant evidence board with pinned photos, suspect notes, and case documents, four characters actively briefing each other, one pins a clue onto the board, one turns to argue a theory, one crosses arms and responds, one holds files and leans forward, dramatic side light, strong depth, investigation room atmosphere",
+      "titleStyle": "design the title as a dramatic ivory and crimson mystery plaque with metallic inlay, ornamental borders, subtle embossed texture, and elegant Japanese poster typography",
+      "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\prompt.txt",
+      "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\request.json",
+      "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\task.json",
+      "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\raw.png",
+      "final": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\evidence-board-briefing\\final.png",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849377836-xlecgyifovd.png",
+      "size": {
+        "width": 1200,
+        "height": 630
+      }
+    },
+    {
+      "slug": "velvet-salon-conference",
+      "name": "Velvet Salon Conference",
+      "scene": "a late-night velvet lounge with a low coffee table covered in dossiers, glasses, and torn notes, four characters in an intimate conspiratorial discussion, they lean toward each other, exchange glances, gesture over documents, the mood is suspicious, intelligent, and theatrical, soft lamp glow, rich shadows, premium editorial composition",
+      "titleStyle": "design the title as luminous antique serif lettering with layered paper-cut ornament, subtle gilded edges, elegant flourishes, and a premium stage-poster feeling",
+      "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\prompt.txt",
+      "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\request.json",
+      "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\task.json",
+      "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\raw.png",
+      "final": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\final.png",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849465828-9gqjqd84v96.png",
+      "size": {
+        "width": 1200,
+        "height": 630
+      }
+    },
+    {
+      "slug": "secret-library-strategy",
+      "name": "Secret Library Strategy",
+      "scene": "a hidden library war room with maps, stacked files, hanging lamps, and open reference books, four characters mid-conversation during a high-stakes strategy talk, one flips open a file, one points toward a marked map, one reacts with a sharp counterpoint, one observes while preparing to speak, deep perspective, cinematic lighting, serious collaborative tension",
+      "titleStyle": "design the title as a bold bronze-and-gold mystery logo with layered drop shadows, ornamental filigree, engraved serif strokes, and a high-end Japanese movie-poster look",
+      "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\prompt.txt",
+      "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\request.json",
+      "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\task.json",
+      "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\raw.png",
+      "final": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\secret-library-strategy\\final.png",
+      "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849582713-2242iefrh3x.png",
+      "size": {
+        "width": 1200,
+        "height": 630
+      }
+    }
+  ]
+}

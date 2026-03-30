@@ -1,0 +1,27 @@
+{
+  "submitResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "8a08b5a52f619c07302182159c26f58d"
+    }
+  },
+  "finalTaskResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "taskId": "8a08b5a52f619c07302182159c26f58d",
+      "paramJson": "{\"aspectRatio\":\"16:9\",\"googleSearch\":false,\"imageUrls\":[\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TFLP.png\",\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/TRLP.png\",\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OREI.png\",\"https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types/OFEP.png\"],\"outputFormat\":\"png\",\"prompt\":\"Create a premium anime-style key visual for the website \\\"Madamis Type\\\", a murder mystery play-style diagnosis service.\\nUse the four reference characters only as visual inspiration for a representative ensemble cast.\\nPreserve the feeling of four distinct mystery-archetype characters with different silhouettes, outfits, and palettes inspired by the references.\\nShow exactly four characters total in one coherent scene.\\n\\nCore story direction:\\nthe four characters are actively discussing a case,\\nthey should be making eye contact, reacting to each other, interrupting, leaning in, and gesturing over evidence,\\nit must feel like a live deduction meeting in progress instead of a static lineup,\\nnot everyone faces the camera,\\nnot a hero pose poster,\\nnot an action battle scene,\\nthe energy is intelligent, tense, collaborative, and suspicious.\\n\\nScene direction:\\na circular evidence table covered with photos, notebooks, and red-string clue cards, four characters leaning inward in the middle of an intense deduction meeting, one points to the center of the table, one speaks with an open dossier, one replies with a skeptical gesture, one listens while taking notes, oblique cinematic angle, warm desk lamps, layered depth, visible conversation energy\\n\\nComposition requirements:\\nbuild a strong conversation arc with overlapping poses and expressive hands,\\nkeep the title integrated into the scene as part of the poster design,\\npreserve enough open structure so the title remains clean and readable,\\nlet props, paper layers, red string, lamps, files, and atmospheric details support the composition,\\nkeep the image thumbnail-readable and not cluttered.\\n\\nTitle requirements:\\nrender the exact Japanese title \\\"マダミスタイプ診断\\\" exactly once,\\nmake it very large, iconic, stylish, and highly legible,\\ndesign the title as a luxurious gold-foil art-deco logotype with engraved shadow depth, thin crimson ornament lines, refined framing, and a polished mystery-poster finish,\\nthe title should feel like a premium Japanese mystery movie logo,\\nprioritize elegant readable Japanese characters over excessive effects,\\nno missing characters, no swapped characters, no gibberish, no fake text, no extra words.\\n\\nCharacter direction:\\nmystery, deduction, observation, performance, psychological tension,\\nstylish investigative fashion,\\nvaried poses with clear motion,\\neach character should feel intelligent, theatrical, and suspicious in a different way,\\nno comedic expression,\\nno mascot look,\\nno chibi proportions.\\n\\nVisual style:\\npremium,\\ndramatic,\\nclean,\\neditorial,\\nnoir case file,\\nelegant anime poster art,\\nluxurious finish,\\nthumbnail-readable.\\n\\nStrict constraints:\\nno extra text beyond the exact title \\\"マダミスタイプ診断\\\",\\nno logo,\\nno watermark,\\nno UI,\\nno speech bubbles,\\nno extra fifth character,\\nno split-panel comic layout,\\nno collage borders.\",\"resolution\":\"2K\"}",
+      "completeTime": "2026-03-30 13:41:13",
+      "response": {
+        "originImageUrl": null,
+        "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849271615-x6bgyb0xdc9.png"
+      },
+      "successFlag": 1,
+      "errorCode": null,
+      "errorMessage": null,
+      "operationType": "nano-banana-2_2k",
+      "createTime": "2026-03-30 13:40:00"
+    }
+  }
+}

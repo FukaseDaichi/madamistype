@@ -1,0 +1,60 @@
+Create a premium anime-style key visual for the website "Madamis Type", a murder mystery play-style diagnosis service.
+Use the four reference characters only as visual inspiration for a representative ensemble cast.
+Preserve the feeling of four distinct mystery-archetype characters with different silhouettes, outfits, and palettes inspired by the references.
+Show exactly four characters total in one coherent scene.
+
+Core story direction:
+the four characters are actively discussing a case,
+they should be making eye contact, reacting to each other, interrupting, leaning in, and gesturing over evidence,
+it must feel like a live deduction meeting in progress instead of a static lineup,
+not everyone faces the camera,
+not a hero pose poster,
+not an action battle scene,
+the energy is intelligent, tense, collaborative, and suspicious.
+
+Scene direction:
+a hidden library war room with maps, stacked files, hanging lamps, and open reference books, four characters mid-conversation during a high-stakes strategy talk, one flips open a file, one points toward a marked map, one reacts with a sharp counterpoint, one observes while preparing to speak, deep perspective, cinematic lighting, serious collaborative tension
+
+Composition requirements:
+build a strong conversation arc with overlapping poses and expressive hands,
+keep the title integrated into the scene as part of the poster design,
+preserve enough open structure so the title remains clean and readable,
+let props, paper layers, red string, lamps, files, and atmospheric details support the composition,
+keep the image thumbnail-readable and not cluttered.
+
+Title requirements:
+render the exact Japanese title "マダミスタイプ診断" exactly once,
+make it very large, iconic, stylish, and highly legible,
+design the title as a bold bronze-and-gold mystery logo with layered drop shadows, ornamental filigree, engraved serif strokes, and a high-end Japanese movie-poster look,
+the title should feel like a premium Japanese mystery movie logo,
+prioritize elegant readable Japanese characters over excessive effects,
+no missing characters, no swapped characters, no gibberish, no fake text, no extra words.
+
+Character direction:
+mystery, deduction, observation, performance, psychological tension,
+stylish investigative fashion,
+varied poses with clear motion,
+each character should feel intelligent, theatrical, and suspicious in a different way,
+no comedic expression,
+no mascot look,
+no chibi proportions.
+
+Visual style:
+premium,
+dramatic,
+clean,
+editorial,
+noir case file,
+elegant anime poster art,
+luxurious finish,
+thumbnail-readable.
+
+Strict constraints:
+no extra text beyond the exact title "マダミスタイプ診断",
+no logo,
+no watermark,
+no UI,
+no speech bubbles,
+no extra fifth character,
+no split-panel comic layout,
+no collage borders.

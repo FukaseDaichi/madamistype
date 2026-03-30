@@ -1,0 +1,16 @@
+{
+  "slug": "roundtable-debate",
+  "name": "Roundtable Debate",
+  "scene": "a circular evidence table covered with photos, notebooks, and red-string clue cards, four characters leaning inward in the middle of an intense deduction meeting, one points to the center of the table, one speaks with an open dossier, one replies with a skeptical gesture, one listens while taking notes, oblique cinematic angle, warm desk lamps, layered depth, visible conversation energy",
+  "titleStyle": "design the title as a luxurious gold-foil art-deco logotype with engraved shadow depth, thin crimson ornament lines, refined framing, and a polished mystery-poster finish",
+  "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\prompt.txt",
+  "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\request.json",
+  "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\task.json",
+  "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\raw.png",
+  "final": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\roundtable-debate\\final.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849271615-x6bgyb0xdc9.png",
+  "size": {
+    "width": 1200,
+    "height": 630
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "velvet-salon-conference",
+  "name": "Velvet Salon Conference",
+  "scene": "a late-night velvet lounge with a low coffee table covered in dossiers, glasses, and torn notes, four characters in an intimate conspiratorial discussion, they lean toward each other, exchange glances, gesture over documents, the mood is suspicious, intelligent, and theatrical, soft lamp glow, rich shadows, premium editorial composition",
+  "titleStyle": "design the title as luminous antique serif lettering with layered paper-cut ornament, subtle gilded edges, elegant flourishes, and a premium stage-poster feeling",
+  "prompt": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\prompt.txt",
+  "request": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\request.json",
+  "task": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\task.json",
+  "raw": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\raw.png",
+  "final": "C:\\Users\\119003\\git\\madamistype\\output\\main-ogp\\variants\\velvet-salon-conference\\final.png",
+  "resultImageUrl": "https://tempfile.aiquickdraw.com/images/1774849465828-9gqjqd84v96.png",
+  "size": {
+    "width": 1200,
+    "height": 630
+  }
+}
