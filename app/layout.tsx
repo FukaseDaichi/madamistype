@@ -1,7 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP, Shippori_Mincho_B1 } from "next/font/google";
 
-import { SITE_DESCRIPTION, SITE_NAME, getMetadataBase } from "@/lib/site";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_THEME_COLOR,
+  getMetadataBase,
+} from "@/lib/site";
 
 import "./globals.css";
 
@@ -46,6 +51,10 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: ["/opengraph-image"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: SITE_THEME_COLOR,
 };
 
 export default function RootLayout({

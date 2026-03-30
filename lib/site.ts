@@ -1,7 +1,10 @@
 export const SITE_NAME = "マダミスタイプ診断";
+export const SITE_SHORT_NAME = "マダミスタイプ";
 export const SITE_DESCRIPTION =
   "マーダーミステリーでの立ち回りを、32問の診断から4軸16タイプで見える化する診断サービス。";
 export const SITE_TAGLINE = "立ち回りを、16タイプで見える化する。";
+export const SITE_THEME_COLOR = "#f7f2ed";
+export const SITE_BACKGROUND_COLOR = "#f7f2ed";
 export const SITE_ORIGIN =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const LINE_STAMP_URL = process.env.NEXT_PUBLIC_LINE_STAMP_URL ?? "";
