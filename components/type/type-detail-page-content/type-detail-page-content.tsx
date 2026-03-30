@@ -68,7 +68,7 @@ type TypeDetailPageContentProps = {
 const SECTION_HEADINGS: Record<string, TypeSectionHeading> = {
   signature: {
     eyebrow: "Type Signature",
-    title: "タイプコードの読み方",
+    title: "傾向",
     headingId: "signature-heading",
   },
   strengths: {
@@ -142,11 +142,13 @@ export function TypeDetailPageContent({
           hasChibi={hasChibi}
           isPostDiagnosisResult={isPostDiagnosisResult}
         />
-        <TypeSignatureSection
-          heading={SECTION_HEADINGS.signature}
-          typeData={typeData}
-          axisSummaries={axisSummaries}
-        />
+        {(isPostDiagnosisResult || isShared) && (
+          <TypeSignatureSection
+            heading={SECTION_HEADINGS.signature}
+            typeData={typeData}
+            axisSummaries={axisSummaries}
+          />
+        )}
 
         <div className={styles.twoCol}>
           <TypeListSection

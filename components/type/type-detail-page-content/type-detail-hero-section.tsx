@@ -3,7 +3,6 @@ import type { TypeData } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 
-import { PostDiagnosisResultCookieCleanup } from "@/components/type/type-detail-page-content/post-diagnosis-result-cookie-cleanup";
 import { TypeArtwork } from "@/components/type/type-artwork/type-artwork";
 import { RECOMMENDATION_FEEDBACK_FORM_URL } from "@/lib/post-diagnosis-result";
 
@@ -144,12 +143,6 @@ export function TypeDetailHeroSection({
           <p className={styles.heroActionNote}>
             タイプごとのおすすめマダミスを集計したいので、よければフォームで教えてください。
           </p>
-        ) : null}
-        {shouldShowPostDiagnosisActions && shareKey ? (
-          <PostDiagnosisResultCookieCleanup
-            typeCode={typeData.typeCode}
-            shareKey={shareKey}
-          />
         ) : null}
       </section>
     </>

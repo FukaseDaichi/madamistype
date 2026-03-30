@@ -151,14 +151,14 @@ OGP は静的アセットを参照する。
 - `currentPage`
 - `updatedAt`
 
-### 6.2 診断直後だけの状態
+### 6.2 shared result 判定状態
 
 `lib/post-diagnosis-result.ts` で cookie を扱う。
 
 用途:
 
-- shared result page を「診断直後の本人着地かどうか」で分岐する
-- shared page 初回表示後に cookie を消す
+- shared result page を「本人の結果URLかどうか」で分岐する
+- 診断完了時に結果URL単位の cookie を保存し、再訪やリロードでも同じ URL なら判定を維持する
 
 ## 7. スタイリング
 

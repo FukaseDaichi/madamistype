@@ -2,7 +2,7 @@ export const POST_DIAGNOSIS_RESULT_COOKIE_NAME = "madamistype-post-diagnosis";
 export const RECOMMENDATION_FEEDBACK_FORM_URL =
   "https://forms.gle/7NFV8uz2WahKkroTA";
 
-const POST_DIAGNOSIS_RESULT_COOKIE_MAX_AGE = 180;
+const POST_DIAGNOSIS_RESULT_COOKIE_MAX_AGE = 60 * 60 * 24 * 365 * 10;
 
 export function getPostDiagnosisResultCookieValue(typeCode: string, key: string) {
   return `${typeCode}:${key}`;
