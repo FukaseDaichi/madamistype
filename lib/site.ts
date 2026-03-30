@@ -51,6 +51,10 @@ export function getAbsoluteUrl(pathname = "/") {
   return new URL(pathname, getMetadataBase()).toString();
 }
 
+export function getTypeOgpImagePath(typeCode: string) {
+  return `/types/${typeCode}-ogp.png`;
+}
+
 export function resolvePalette(colors: string[]) {
   const resolved = colors
     .map((color) => PALETTE_COLOR_MAP[color.toLowerCase()])

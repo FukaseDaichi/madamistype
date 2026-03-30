@@ -11,7 +11,7 @@ import {
   hasChibiImage,
 } from "@/lib/data";
 import { decodeShareKey, expandShareKeyAxisSummaries } from "@/lib/share-key";
-import { getAbsoluteUrl } from "@/lib/site";
+import { getAbsoluteUrl, getTypeOgpImagePath } from "@/lib/site";
 import {
   getPostDiagnosisResultCookieValue,
   POST_DIAGNOSIS_RESULT_COOKIE_NAME,
@@ -58,7 +58,8 @@ async function getSharedPageData(typeCode: string, key: string) {
   return {
     typeData,
     publicUrl: `/types/${typeData.typeCode}`,
-    shareUrl: getAbsoluteUrl(`/types/${typeData.typeCode}/${key}`),
+    shareUrl: getAbsoluteUrl(`/types/${typeData.typeCode}`),
+    resultUrl: getAbsoluteUrl(`/types/${typeData.typeCode}/${key}`),
     sharedUserName: payload.n,
     hasChibi,
     axisSummaries,
@@ -74,6 +75,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { typeCode, key } = await params;
   const { typeData } = await getSharedPageData(typeCode, key);
+  const ogImagePath = getTypeOgpImagePath(typeData.typeCode);
 
   return {
     title: `共有された結果: ${typeData.typeName} (${typeData.typeCode})`,
@@ -89,12 +91,13 @@ export async function generateMetadata({
       title: `共有結果: ${typeData.typeName} (${typeData.typeCode})`,
       description: typeData.tagline,
       url: `/types/${typeData.typeCode}/${key}`,
+      images: [ogImagePath],
     },
     twitter: {
       card: "summary_large_image",
       title: `共有結果: ${typeData.typeName}`,
       description: typeData.tagline,
-      images: [`/types/${typeData.typeCode}/opengraph-image`],
+      images: [ogImagePath],
     },
   };
 }
@@ -105,6 +108,7 @@ export default async function SharedResultPage({ params }: PageProps) {
   const {
     typeData,
     shareUrl,
+    resultUrl,
     publicUrl,
     sharedUserName,
     hasChibi,
@@ -122,6 +126,7 @@ export default async function SharedResultPage({ params }: PageProps) {
       typeData={typeData}
       shareKey={key}
       shareUrl={shareUrl}
+      resultUrl={resultUrl}
       publicUrl={publicUrl}
       sharedUserName={sharedUserName}
       hasChibi={hasChibi}

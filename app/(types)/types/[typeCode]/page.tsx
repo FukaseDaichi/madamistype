@@ -7,7 +7,7 @@ import {
   getTypesByCodes,
   hasChibiImage,
 } from "@/lib/data";
-import { getAbsoluteUrl } from "@/lib/site";
+import { getAbsoluteUrl, getTypeOgpImagePath } from "@/lib/site";
 import { TypeDetailPageContent } from "@/components/type/type-detail-page-content/type-detail-page-content";
 
 type PageProps = {
@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     notFound();
   }
 
+  const ogImagePath = getTypeOgpImagePath(typeData.typeCode);
+
   return {
     title: `${typeData.typeName} (${typeData.typeCode})`,
     description: typeData.summary,
@@ -37,12 +39,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${typeData.typeName} (${typeData.typeCode})`,
       description: typeData.tagline,
       url: `/types/${typeData.typeCode}`,
+      images: [ogImagePath],
     },
     twitter: {
       card: "summary_large_image",
       title: `${typeData.typeName} (${typeData.typeCode})`,
       description: typeData.tagline,
-      images: [`/types/${typeData.typeCode}/opengraph-image`],
+      images: [ogImagePath],
     },
   };
 }

@@ -56,6 +56,7 @@ type TypeDetailPageContentProps = {
   typeData: TypeData;
   shareKey?: string;
   shareUrl: string;
+  resultUrl?: string;
   publicUrl: string;
   sharedUserName?: string;
   hasChibi?: boolean;
@@ -107,6 +108,7 @@ export function TypeDetailPageContent({
   typeData,
   shareKey,
   shareUrl,
+  resultUrl,
   publicUrl,
   sharedUserName,
   hasChibi = false,
@@ -185,8 +187,14 @@ export function TypeDetailPageContent({
           typeName={typeData.typeName}
           shareText={typeData.shareText}
           shareUrl={shareUrl}
+          copyUrl={resultUrl}
           eyebrow="Share"
-          title={isShared ? "この共有URLを送る" : "このページを共有する"}
+          title={isShared ? "このタイプページを共有する" : "このページを共有する"}
+          description={
+            isShared
+              ? "SNS共有はタイプ公開ページへ集約し、この診断結果URLはコピーで送れます。"
+              : undefined
+          }
           className={styles.sharePanel}
         />
 

@@ -8,6 +8,7 @@ type ShareActionsProps = {
   typeName: string;
   shareText: string;
   shareUrl: string;
+  copyUrl?: string;
   eyebrow?: string;
   title?: string;
   description?: string;
@@ -20,8 +21,10 @@ export function ShareActions({
   typeName,
   shareText,
   shareUrl,
+  copyUrl,
   eyebrow = "Share",
   title = "結果をシェアする",
+  description,
   className = "",
 }: ShareActionsProps) {
   const [status, setStatus] = useState("");
@@ -55,10 +58,14 @@ export function ShareActions({
 
   async function handleCopy() {
     try {
-      await navigator.clipboard.writeText(shareUrl);
-      setStatus("リンクをコピーしました。");
+      await navigator.clipboard.writeText(copyUrl ?? shareUrl);
+      setStatus(copyUrl ? "結果URLをコピーしました。" : "リンクをコピーしました。");
     } catch {
-      setStatus("リンクをコピーできませんでした。");
+      setStatus(
+        copyUrl
+          ? "結果URLをコピーできませんでした。"
+          : "リンクをコピーできませんでした。",
+      );
     }
   }
 
@@ -70,6 +77,11 @@ export function ShareActions({
       <div className="flex flex-col gap-2">
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="section-title">{title}</h2>
+        {description ? (
+          <p className="text-sm text-[color:var(--color-text-subtle)]">
+            {description}
+          </p>
+        ) : null}
       </div>
 
       <div className="flex flex-col gap-3">
@@ -103,7 +115,7 @@ export function ShareActions({
             onClick={handleCopy}
             className="secondary-button justify-center"
           >
-            リンクをコピー
+            {copyUrl ? "結果URLをコピー" : "リンクをコピー"}
           </button>
         </div>
       </div>
