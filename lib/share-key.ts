@@ -1,7 +1,6 @@
 import { AXIS_CONFIG } from "@/lib/axis";
-import { normalizeUserName, toAnswerValue } from "@/lib/diagnosis";
+import { normalizeUserName } from "@/lib/diagnosis";
 import type {
-  AnswersRecord,
   AxisCode,
   AxisSummary,
   ShareKeyPayload,
@@ -25,59 +24,13 @@ export function createShareKey(userName: string, axisSummaries: AxisSummary[]) {
 }
 
 export function encodeShareKey(payload: ShareKeyPayload) {
-  if (payload.v === 3) {
-    return encodeCompactShareKey(payload);
-  }
-
-  return encodeBase64UrlBytes(encodeUtf8(JSON.stringify(payload)));
+  return encodeCompactShareKey(payload);
 }
 
 export function decodeShareKey(key: string) {
   try {
     const bytes = decodeBase64UrlToBytes(key);
-    const compactPayload = decodeCompactShareKey(bytes);
-
-    if (compactPayload) {
-      return compactPayload;
-    }
-
-    const parsed = JSON.parse(decodeUtf8(bytes)) as ShareKeyPayload;
-
-    if (parsed.v === 1 && typeof parsed.n === "string") {
-      return {
-        v: 1 as const,
-        n: normalizeUserName(parsed.n),
-      };
-    }
-
-    if (parsed.v === 2 && typeof parsed.n === "string" && parsed.a) {
-      return {
-        v: 2 as const,
-        n: normalizeUserName(parsed.n),
-        a: sanitizeAnswers(parsed.a),
-      };
-    }
-
-    if (
-      parsed.v === 3 &&
-      typeof parsed.n === "string" &&
-      Array.isArray(parsed.t) &&
-      parsed.t.length === SHARE_AXIS_ORDER.length
-    ) {
-      const trendStates = toTrendStates(parsed.t);
-
-      if (!trendStates) {
-        return null;
-      }
-
-      return {
-        v: 3 as const,
-        n: normalizeUserName(parsed.n),
-        t: trendStates,
-      };
-    }
-
-    return null;
+    return decodeCompactShareKey(bytes);
   } catch {
     return null;
   }
@@ -228,19 +181,6 @@ function toTrendStates(states: number[]) {
   }
 
   return [...states] as ShareKeyTrendStates;
-}
-
-function sanitizeAnswers(answers: AnswersRecord) {
-  return Object.entries(answers).reduce<AnswersRecord>((accumulator, entry) => {
-    const [questionId, value] = entry;
-    const answerValue = toAnswerValue(value);
-
-    if (answerValue) {
-      accumulator[questionId] = answerValue;
-    }
-
-    return accumulator;
-  }, {});
 }
 
 function encodeUtf8(input: string) {

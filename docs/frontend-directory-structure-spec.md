@@ -87,7 +87,6 @@ components/
   layout/
     site-footer/
   type/
-    axis-balance-bars/
     share-actions/
     type-artwork/
     type-detail-page-content/
@@ -214,6 +213,5 @@ lib/
 
 ## 10. 現行構成の注意点
 
-- `components/type/axis-balance-bars/axis-balance-bars.tsx` は現行 UI で未使用
 - `/types` 一覧ページを前提にしたリンクや文書は現行構成と齟齬が出る
 - shared page は cookie 利用のため動的ルートになる

@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 
-import { calculateDiagnosisResult } from "@/lib/diagnosis";
 import { TypeDetailPageContent } from "@/components/type/type-detail-page-content/type-detail-page-content";
 import {
-  getQuestionMaster,
   getTypeByCode,
   getTypesByCodes,
   hasChibiImage,
@@ -29,25 +27,10 @@ async function getSharedPageData(typeCode: string, key: string) {
     notFound();
   }
 
-  let axisSummaries;
+  const axisSummaries = expandShareKeyAxisSummaries(payload);
 
-  if (payload.v === 2) {
-    const questionMaster = await getQuestionMaster();
-    const result = calculateDiagnosisResult(questionMaster, payload.a);
-
-    if (result.typeCode !== typeCode) {
-      notFound();
-    }
-
-    axisSummaries = result.axisSummaries;
-  }
-
-  if (payload.v === 3) {
-    axisSummaries = expandShareKeyAxisSummaries(payload);
-
-    if (axisSummaries.map((summary) => summary.resolvedCode).join("") !== typeCode) {
-      notFound();
-    }
+  if (axisSummaries.map((summary) => summary.resolvedCode).join("") !== typeCode) {
+    notFound();
   }
 
   const hasChibi = await hasChibiImage(typeData.typeCode);

@@ -136,7 +136,6 @@ OGP は静的アセットを参照する。
 `lib/share-key.ts` が担当する。
 
 - `v3` compact key の生成
-- `v1` / `v2` / `v3` のデコード
 - shared page 用の axis summary 展開
 
 ## 6. クライアント状態管理

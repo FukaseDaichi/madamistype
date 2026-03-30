@@ -83,17 +83,6 @@ export type DiagnosisDraft = {
   updatedAt: string;
 };
 
-export type ShareKeyPayloadV1 = {
-  v: 1;
-  n: string;
-};
-
-export type ShareKeyPayloadV2 = {
-  v: 2;
-  n: string;
-  a: AnswersRecord;
-};
-
 export type ShareKeyTrendStates = [number, number, number, number];
 
 export type ShareKeyPayloadV3 = {
@@ -102,7 +91,7 @@ export type ShareKeyPayloadV3 = {
   t: ShareKeyTrendStates;
 };
 
-export type ShareKeyPayload = ShareKeyPayloadV1 | ShareKeyPayloadV2 | ShareKeyPayloadV3;
+export type ShareKeyPayload = ShareKeyPayloadV3;
 
 export type AxisSummary = {
   axis: AxisCode;
