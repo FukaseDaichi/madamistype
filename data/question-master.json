@@ -21,7 +21,7 @@
     },
     {
       "questionId": "Q002",
-      "questionText": "アリバイや行動時間のズレは、動機より重く見る。",
+      "questionText": "発言でのアリバイや行動時間のズレは、動機より重く見る。",
       "axis": "A2",
       "direction": "forward",
       "displayOrder": 2,
@@ -76,7 +76,7 @@
     },
     {
       "questionId": "Q007",
-      "questionText": "真相の正確さと同じくらい、全員が物語に没入できたかを大事にしたい。",
+      "questionText": "真相の正確さよりも、全員が物語に没入できたかを大事にしたい。",
       "axis": "A3",
       "direction": "reverse",
       "displayOrder": 7,
@@ -120,7 +120,7 @@
     },
     {
       "questionId": "Q011",
-      "questionText": "泣きや怒りの強い感情表現が出ても、まずは事実関係と矛盾を切り分けて考える。",
+      "questionText": "泣きや怒りの強い感情表現が出ても、犯人投票への影響はほとんどない。",
       "axis": "A3",
       "direction": "forward",
       "displayOrder": 11,
@@ -241,7 +241,7 @@
     },
     {
       "questionId": "Q022",
-      "questionText": "犯人投票の前は、証拠が足りなくても「物語として自然か」を重視することがある。",
+      "questionText": "犯人投票の前は、証拠が足りなくても「物語として自然か」を重視することが多い。",
       "axis": "A2",
       "direction": "reverse",
       "displayOrder": 22,
@@ -340,7 +340,7 @@
     },
     {
       "questionId": "Q031",
-      "questionText": "子供役のように普段の自分とかけ離れた役でも、感情の芯があれば抵抗なく演じられる。",
+      "questionText": "子供役のように普段の自分とかけ離れた役でも、抵抗なく演じられる。",
       "axis": "A3",
       "direction": "reverse",
       "displayOrder": 31,
