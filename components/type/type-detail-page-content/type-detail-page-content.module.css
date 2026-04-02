@@ -1269,7 +1269,12 @@ a.secondaryButton {
   .signatureBoardRadar {
     width: clamp(7rem, 40vw, 10.25rem);
   }
-
+  .signatureBoardCase {
+    display: none;
+  }
+  .signatureBoardCaptionName {
+    display: none;
+  }
   .radarGrid {
     grid-template-columns: minmax(2rem, auto) 1fr minmax(2rem, auto);
     gap: 0.1rem;
