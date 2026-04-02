@@ -650,9 +650,16 @@ a.secondaryButton {
 }
 
 .signatureBoardMetricLetter {
-  color: rgba(240, 232, 213, 0.94);
+  color: var(--rcf-amber);
   font-family: var(--rcf-font-display), sans-serif;
   font-size: clamp(1.05rem, 2vw, 1.55rem);
+  line-height: 1;
+}
+.signatureBoardDomain {
+  margin: 0 0 0 10px;
+  color: #f0e8d5cc;
+  font-family: var(--rcf-font-serif), serif;
+  font-size: clamp(1.05rem, 1vw, 1.55rem);
   line-height: 1;
 }
 
@@ -695,7 +702,7 @@ a.secondaryButton {
   flex-direction: column;
   align-items: flex-end;
   gap: 0.25rem;
-  max-width: min(16rem, 34%);
+  max-width: min(20rem, 40%);
   text-align: right;
 }
 
@@ -1225,6 +1232,19 @@ a.secondaryButton {
 }
 
 @media (max-width: 940px) {
+  .signatureBoardPlate {
+    display: none;
+  }
+
+  .signatureBoardMetrics {
+    width: 90%;
+    top: clamp(1rem, 2.6vw, 1.6rem);
+    bottom: auto;
+    gap: 0 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
   .chibiHeroFrame {
     width: 150px;
     height: 150px;
@@ -1246,16 +1266,6 @@ a.secondaryButton {
     border-radius: 1.2rem;
   }
 
-  .signatureBoardPlate {
-    width: 7.75rem;
-    padding: 0.72rem 0.8rem;
-  }
-
-  .signatureBoardMetrics,
-  .signatureBoardCaption {
-    display: none;
-  }
-
   .signatureBoardRadar {
     width: clamp(7rem, 40vw, 10.25rem);
   }
@@ -1275,10 +1285,6 @@ a.secondaryButton {
 
   .radarPercent {
     font-size: 0.46rem;
-  }
-
-  .radarAxisOther {
-    display: none;
   }
 
   .signatureGrid {

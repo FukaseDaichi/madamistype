@@ -126,7 +126,7 @@ export function TypeDetailHeroSection({
                 rel="noreferrer"
                 className={styles.secondaryButton}
               >
-                ご意見
+                おすすめマダミス
               </a>
             </>
           ) : isShared ? (

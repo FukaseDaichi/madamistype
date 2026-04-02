@@ -47,13 +47,13 @@ export function HomeHeroSection({
         <nav aria-label="メインナビ">
           <ul className={styles.mastheadNav}>
             <li>
-              <a href="#axes">Axes</a>
+              <Link href="#axes">Axes</Link>
             </li>
             <li>
-              <a href="#types">Types</a>
+              <Link href="#types">Types</Link>
             </li>
             <li>
-              <Link href="/types">All 16</Link>
+              <Link href="#all-types-heading">All 16</Link>
             </li>
           </ul>
         </nav>
