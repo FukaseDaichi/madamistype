@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+const X_SHARE_HASHTAGS = ["マダミスタイプ診断"] as const;
+
 type ShareActionsProps = {
   id?: string;
   typeCode: string;
@@ -32,6 +34,7 @@ export function ShareActions({
   const encodedXUrl = `https://x.com/intent/tweet?${new URLSearchParams({
     text: shareText,
     url: shareUrl,
+    hashtags: X_SHARE_HASHTAGS.join(","),
   }).toString()}`;
 
   const encodedLineUrl = `https://line.me/R/share?${new URLSearchParams({

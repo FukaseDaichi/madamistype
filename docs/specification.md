@@ -148,6 +148,7 @@ SEO / シェア方針:
 
 - 診断直後の URL は `/types/[typeCode]/[key]`
 - SNS 共有 URL は `/types/[typeCode]`
+- X 共有時は `#マダミスタイプ診断` を付与する
 - トップページ OGP は `/main-ogp.png`
 - タイプ別 OGP は `/types/{typeCode}-ogp.png`
 
