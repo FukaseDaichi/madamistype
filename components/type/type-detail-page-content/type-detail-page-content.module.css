@@ -415,7 +415,6 @@ a.secondaryButton {
 }
 
 .section,
-.axisPanel,
 .sharePanel {
   position: relative;
   margin-bottom: 1.25rem;
@@ -432,31 +431,17 @@ a.secondaryButton {
   gap: 1rem;
 }
 
-.signatureSection {
-  gap: 1.5rem;
-}
-
-.axisPanel,
 .sharePanel {
   border-radius: 0;
   backdrop-filter: none;
+  animation-delay: 0.08s;
 }
 
-.axisPanel::after,
 .sharePanel::after {
   content: none;
 }
 
-.axisPanel {
-  animation-delay: 0.05s;
-}
-
-.sharePanel {
-  animation-delay: 0.08s;
-}
-
 .sectionEyebrow,
-.axisPanel :global(.eyebrow),
 .sharePanel :global(.eyebrow) {
   display: block;
   margin: 0 0 0.5rem;
@@ -468,7 +453,6 @@ a.secondaryButton {
 }
 
 .sectionTitle,
-.axisPanel :global(.section-title),
 .sharePanel :global(.section-title) {
   margin: 0 0 1rem;
   color: rgba(240, 232, 213, 0.9);
@@ -480,8 +464,6 @@ a.secondaryButton {
 
 .detailText,
 .compatText,
-.axisUnavailable,
-.axisPanel :global(.text-sm),
 .sharePanel :global(.text-sm),
 .sharePanel :global(.secondary-button span) {
   margin: 0;
@@ -504,10 +486,6 @@ a.secondaryButton {
 .sectionHeaderCentered .sectionEyebrow,
 .sectionHeaderCentered .sectionTitle {
   margin-bottom: 0;
-}
-
-.signatureIntro {
-  max-width: 40rem;
 }
 
 .signatureShowcase {
@@ -574,7 +552,6 @@ a.secondaryButton {
 }
 
 .signatureBoardPlate,
-.signatureBoardRadar,
 .signatureBoardMetrics,
 .signatureBoardCaption {
   position: absolute;
@@ -620,13 +597,6 @@ a.secondaryButton {
   font-family: var(--rcf-font-serif), serif;
   font-size: 0.96rem;
   line-height: 1.35;
-}
-
-.signatureBoardRadar {
-  top: 50%;
-  left: 50%;
-  width: clamp(7.5rem, 31vw, 18rem);
-  transform: translate(-50%, -50%);
 }
 
 .signatureBoardMetrics {
@@ -729,370 +699,6 @@ a.secondaryButton {
   font-family: var(--rcf-font-serif), serif;
   font-size: 0.88rem;
   line-height: 1.35;
-}
-
-/* ── Radar chart ── */
-
-.radarGrid {
-  display: grid;
-  grid-template-columns: minmax(2.75rem, auto) 1fr minmax(2.75rem, auto);
-  grid-template-rows: auto 1fr auto;
-  align-items: center;
-  justify-items: center;
-  gap: 0.2rem;
-  width: 100%;
-}
-
-.radarSvg {
-  grid-column: 2;
-  grid-row: 2;
-  width: 100%;
-  aspect-ratio: 1;
-  overflow: visible;
-  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.24));
-}
-
-.radarLabel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.06rem;
-}
-
-.radarLabelTop {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.radarLabelRight {
-  grid-column: 3;
-  grid-row: 2;
-  align-items: flex-start;
-}
-
-.radarLabelBottom {
-  grid-column: 2;
-  grid-row: 3;
-}
-
-.radarLabelLeft {
-  grid-column: 1;
-  grid-row: 2;
-  align-items: flex-end;
-}
-
-.radarLetter {
-  color: rgba(241, 228, 198, 0.96);
-  font-family: var(--rcf-font-display), sans-serif;
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  letter-spacing: 0.04em;
-  line-height: 1;
-}
-
-.radarAxisName {
-  color: rgba(240, 232, 213, 0.84);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: clamp(0.5rem, 0.9vw, 0.68rem);
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.radarPercent {
-  color: rgba(225, 193, 129, 0.88);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: clamp(0.48rem, 0.9vw, 0.74rem);
-  letter-spacing: 0.06em;
-  line-height: 1;
-}
-
-.radarAxisOther {
-  color: rgba(196, 169, 107, 0.4);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: clamp(0.44rem, 0.75vw, 0.58rem);
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.signatureCardGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.signatureAxisCard {
-  border: 1px solid rgba(17, 13, 10, 0.08);
-  border-radius: 1.35rem;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 250, 245, 0.98),
-    rgba(244, 238, 231, 0.98)
-  );
-  padding: 1.15rem 1.2rem 1.1rem;
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
-}
-
-.signatureAxisCardHeader {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.signatureAxisCardTitle {
-  margin: 0;
-  color: #2a221b;
-  font-family: var(--rcf-font-serif), serif;
-  font-size: clamp(1rem, 2.1vw, 1.35rem);
-  line-height: 1.35;
-}
-
-.signatureAxisCardValue {
-  flex-shrink: 0;
-  color: #1f1a16;
-  font-family: var(--rcf-font-display), sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  letter-spacing: 0.02em;
-  line-height: 1;
-}
-
-.signatureAxisCardHint {
-  margin: 0.3rem 0 0;
-  color: rgba(61, 46, 16, 0.64);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.66rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.signatureAxisTrack {
-  position: relative;
-  height: 2rem;
-  margin-top: 0.55rem;
-}
-
-.signatureAxisTrackBase {
-  position: absolute;
-  top: calc(50% - 0.28rem);
-  left: 0;
-  right: 0;
-  height: 0.56rem;
-  border-radius: 999px;
-  background: rgba(34, 27, 21, 0.08);
-}
-
-.signatureAxisTrackFill {
-  position: absolute;
-  top: calc(50% - 0.28rem);
-  left: 0;
-  height: 0.56rem;
-  border-radius: 999px;
-  background: var(--signature-axis-accent);
-  box-shadow: 0 0 18px -10px var(--signature-axis-accent-glow);
-}
-
-.signatureAxisTrackThumb {
-  position: absolute;
-  top: 50%;
-  width: 1.85rem;
-  height: 1.85rem;
-  border-radius: 50%;
-  background: var(--signature-axis-accent);
-  transform: translate(-50%, -50%);
-  box-shadow:
-    0 0 0 7px var(--signature-axis-accent-soft),
-    0 14px 18px -16px rgba(0, 0, 0, 0.7);
-}
-
-.sigCaption {
-  margin: 0.1rem 0 0;
-  text-align: center;
-  color: rgba(196, 169, 107, 0.58);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  line-height: 1.8;
-}
-
-.axisPanel :global(.axis-note) {
-  color: rgba(196, 169, 107, 0.55);
-  font-family: var(--rcf-font-note), cursive;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.axisUnavailable {
-  padding-left: 1rem;
-  border-left: 3px solid rgba(196, 169, 107, 0.2);
-}
-
-.signatureSnapshot {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.85rem;
-  border: 1px solid rgba(196, 169, 107, 0.2);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(240, 232, 213, 0.06),
-      rgba(240, 232, 213, 0.03)
-    ),
-    rgba(13, 11, 8, 0.28);
-  padding: 1rem 1.25rem 1.1rem;
-  text-align: center;
-}
-
-.signatureSnapshotLabel {
-  margin: 0;
-  color: rgba(196, 169, 107, 0.66);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.signatureSnapshotPills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.55rem;
-}
-
-.signatureSnapshotPill {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.2rem;
-  border: 1px solid rgba(196, 169, 107, 0.24);
-  background: rgba(192, 57, 43, 0.08);
-  padding: 0.4rem 0.9rem;
-  color: rgba(240, 232, 213, 0.94);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
-}
-
-.signatureGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.signatureCard {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  min-height: 100%;
-  border: 1px solid rgba(196, 169, 107, 0.16);
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(192, 57, 43, 0.08),
-      transparent 34%
-    ),
-    rgba(240, 232, 213, 0.05);
-  padding: 1.2rem;
-}
-
-.signatureCardHeader {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.signatureCardHeading {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.signatureLabel {
-  margin: 0;
-  color: rgba(196, 169, 107, 0.72);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-}
-
-.signatureCardTitle {
-  margin: 0;
-  color: rgba(240, 232, 213, 0.94);
-  font-family: var(--rcf-font-display), sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.04em;
-  line-height: 1;
-}
-
-.signatureTrendBadge {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.9rem;
-  border: 1px solid rgba(192, 57, 43, 0.38);
-  padding: 0.25rem 0.65rem;
-  color: rgba(255, 177, 167, 0.9);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.signaturePills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.signatureDominant,
-.signatureOther {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2rem;
-  padding: 0.35rem 0.8rem;
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
-}
-
-.signatureDominant {
-  background: rgba(196, 169, 107, 0.14);
-  color: rgba(240, 232, 213, 0.94);
-}
-
-.signatureOther {
-  border: 1px solid rgba(196, 169, 107, 0.18);
-  color: rgba(196, 169, 107, 0.72);
-}
-
-.signatureBody {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.signatureBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  padding: 0.9rem 1rem;
-  border-left: 3px solid rgba(196, 169, 107, 0.24);
-  background: rgba(240, 232, 213, 0.04);
-}
-
-.signatureBlockLabel {
-  margin: 0;
-  color: rgba(240, 232, 213, 0.86);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.signatureBlockText {
-  margin: 0;
-  color: rgba(196, 169, 107, 0.78);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.78rem;
-  line-height: 1.9;
 }
 
 .twoCol {
@@ -1214,24 +820,6 @@ a.secondaryButton {
   filter: saturate(0.96) contrast(1.1) brightness(0.82);
 }
 
-.compatLinkBadge {
-  position: absolute;
-  top: 0.8rem;
-  left: 0.8rem;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.55rem;
-  padding: 0.18rem 0.55rem;
-  border: 1px solid rgba(240, 232, 213, 0.18);
-  background: rgba(10, 7, 4, 0.58);
-  color: rgba(240, 232, 213, 0.82);
-  font-family: var(--rcf-font-typewriter), monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
 .compatLinkBody {
   position: relative;
   z-index: 2;
@@ -1292,24 +880,6 @@ a.secondaryButton {
   .compatLink::after {
     inset: 8px;
   }
-}
-
-.axisPanel :global(.flex.items-center.justify-between.gap-4.text-sm) {
-  font-size: 0.76rem;
-  letter-spacing: 0.04em;
-}
-
-.axisPanel :global(.font-semibold) {
-  color: rgba(240, 232, 213, 0.94);
-}
-
-.axisPanel :global(.axis-track) {
-  height: 6px;
-  background: rgba(196, 169, 107, 0.14);
-}
-
-.axisPanel :global(.axis-fill) {
-  background: linear-gradient(90deg, var(--rcf-red), var(--rcf-amber));
 }
 
 .sharePanel :global(.primary-button),
@@ -1393,42 +963,14 @@ a.secondaryButton {
     grid-template-columns: 1fr;
   }
 
-  .signatureCardGrid {
-    grid-template-columns: 1fr;
-  }
-
   .signatureBoard {
     border-radius: 1.2rem;
-  }
-
-  .signatureBoardRadar {
-    width: clamp(7rem, 40vw, 10.25rem);
   }
   .signatureBoardCase {
     display: none;
   }
   .signatureBoardCaptionName {
     display: none;
-  }
-  .radarGrid {
-    grid-template-columns: minmax(2rem, auto) 1fr minmax(2rem, auto);
-    gap: 0.1rem;
-  }
-
-  .radarLetter {
-    font-size: 1.08rem;
-  }
-
-  .radarAxisName {
-    font-size: 0.5rem;
-  }
-
-  .radarPercent {
-    font-size: 0.46rem;
-  }
-
-  .signatureGrid {
-    grid-template-columns: 1fr;
   }
 
   .shell {
@@ -1468,33 +1010,14 @@ a.secondaryButton {
   }
 
   .section,
-  .axisPanel,
   .sharePanel {
     padding: 1.5rem;
-  }
-
-  .signatureAxisCardHeader {
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .signatureAxisCardValue {
-    align-self: flex-start;
-  }
-
-  .signatureCardHeader {
-    flex-direction: column;
-  }
-
-  .signatureTrendBadge {
-    align-self: flex-start;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .suspectCard,
   .section,
-  .axisPanel,
   .sharePanel {
     animation: none;
   }
