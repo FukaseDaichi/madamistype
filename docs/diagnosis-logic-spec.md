@@ -11,7 +11,8 @@
 - 4 軸スコア計算
 - 同点処理
 - 16 タイプへの変換
-- 4 軸サマリと共有キー
+- 4 軸サマリ
+- 共有キー `v3`
 
 ## 2. 前提
 
@@ -24,7 +25,7 @@
 
 ### 2.2 軸順
 
-軸順は固定で、`data/question-master.json` の `meta.axisOrder` と `lib/axis.ts` に合わせる。
+軸順は `data/question-master.json` の `meta.axisOrder` と `lib/axis.ts` に合わせる。
 
 1. A1: 発言型 / 観察型
 2. A2: 事実重視 / 推理重視
@@ -33,12 +34,12 @@
 
 ### 2.3 コード対応
 
-| 軸 | 正方向 | 負方向 |
-| --- | --- | --- |
-| A1 | `T` = 発言型 | `O` = 観察型 |
-| A2 | `F` = 事実重視 | `R` = 推理重視 |
-| A3 | `L` = 論理派 | `E` = 感情派 |
-| A4 | `P` = 計画型 | `I` = 即興型 |
+| 軸 | 正方向 | 負方向 | 既定値 |
+| --- | --- | --- | --- |
+| A1 | `T` = 発言型 | `O` = 観察型 | `O` |
+| A2 | `F` = 事実重視 | `R` = 推理重視 | `F` |
+| A3 | `L` = 論理派 | `E` = 感情派 | `L` |
+| A4 | `P` = 計画型 | `I` = 即興型 | `P` |
 
 ## 3. 質問マスタ
 
@@ -58,13 +59,14 @@
 
 ### 3.2 運用ルール
 
-- 現行実装では全問 `weight = 1.0`
 - 集計対象は `isActive = true` の設問のみ
+- 現行マスタでは全問 `weight = 1.0`
 - ページ表示は `pageNo` に従う
+- `tieBreakerPriority` 未設定時は `0` として扱う
 
 ## 4. 回答値
 
-### 4.1 回答と数値
+### 4.1 表示上の回答
 
 | 回答 | 値 |
 | --- | --- |
@@ -97,9 +99,8 @@
 axisScore = Σ(delta × weight)
 ```
 
-現行では `weight = 1.0` 固定のため、実質は `delta` の単純合計である。
-
-各軸 8 問のため、理論上の軸スコア範囲は `-16` から `+16`。
+現行では `weight = 1.0` 固定のため、実質は `delta` の単純合計である。  
+各軸 8 問なので、理論上の軸スコア範囲は `-16` から `+16`。
 
 ## 6. 軸の確定ロジック
 
@@ -120,13 +121,6 @@ axisScore = Σ(delta × weight)
 3. `delta > 0` なら正方向
 4. `delta < 0` なら負方向
 5. 全設問が `0` の場合は軸既定値を使う
-
-軸既定値:
-
-- A1: `O`
-- A2: `F`
-- A3: `L`
-- A4: `P`
 
 ## 7. タイプコード決定
 
@@ -165,11 +159,17 @@ negativePercent = 100 - positivePercent
 
 最終値は `0` から `100` に clamp する。
 
-## 9. 共有キー
+## 9. ユーザー名の扱い
 
-### 9.1 現行仕様
+- 診断開始時と共有キー生成時に trim する
+- 最大 10 文字に切り詰める
+- 共有キーでは UTF-8 バイト列として保持し、40 byte を上限にする
 
-現行の `createShareKey()` は `v3` のみを生成し、shared page も `v3` だけを受け付ける。
+## 10. 共有キー `v3`
+
+### 10.1 論理構造
+
+`createShareKey()` は `v3` のみを生成し、shared page も `v3` だけを受け付ける。
 
 ```json
 {
@@ -179,29 +179,43 @@ negativePercent = 100 - positivePercent
 }
 ```
 
-`t` は 4 軸のトレンド状態を表す compact state 配列で、回答全文ではない。
+- `n`: 正規化済みユーザー名
+- `t`: 4 軸のトレンド状態を表す compact state 配列
+
+`t` は回答全文ではなく、共有ページ再現に必要な軸状態だけを保持する。  
 0 点の軸でも、最終的に正側に倒れたか負側に倒れたかは状態として保持する。
 
-### 9.2 エンコード方式
+### 10.2 エンコード方式
 
 - 共有キーは Base64URL で表現する
-- 名前バイト列 + 4 軸トレンド状態を 3 byte に pack した compact 形式を使う
+- 内部表現は `1 byte の名前長 + 名前 UTF-8 bytes + 3 byte の packed trend states`
+- trend state は 4 軸ぶんの 6 bit 値を 24 bit に pack する
 
-### 9.3 共有ページでの復元
+### 10.3 trend state の扱い
 
-- `v3`: 格納済みトレンド状態から 4 軸サマリを展開する
+- 通常のスコアは `score + 16` に変換する
+- `score = 0` のときだけ専用 state を使う
+- `0` かつ正側確定は `33`
+- `0` かつ負側確定は `16`
 
-## 10. 実装ファイル
+### 10.4 共有ページでの復元
+
+- shared page は `decodeShareKey()` で payload を復元する
+- `expandShareKeyAxisSummaries()` で 4 軸サマリに展開する
+- 復元した `resolvedCode` の連結結果が URL の `typeCode` と一致しない場合は `notFound()` にする
+
+## 11. 実装ファイル
 
 診断ロジックの主要実装:
 
 - `lib/diagnosis.ts`
 - `lib/axis.ts`
 - `lib/share-key.ts`
+- `lib/draft-storage.ts`
 - `data/question-master.json`
 - `app/(types)/types/[typeCode]/[key]/page.tsx`
 
-## 11. 検証観点
+## 12. 検証観点
 
 - 質問数が 32 問であること
 - 各軸 8 問ずつであること
@@ -210,8 +224,3 @@ negativePercent = 100 - positivePercent
 - 同点時処理が決定的に動くこと
 - `positivePercent` / `negativePercent` が 0〜100 に収まること
 - `v3` 共有キーから shared page の軸サマリが復元できること
-
-## 12. 現行実装上の注意
-
-- `v3` は回答全文を持たないため、共有結果ページは「4 軸の傾向復元」が中心になる
-- 診断途中状態は `localStorage` のみで保持し、サーバー保存はしない
