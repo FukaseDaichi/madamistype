@@ -9,7 +9,7 @@ import {
 } from "@/components/type/type-detail-page-content/type-section-frame";
 import { getTypeOgpImagePath } from "@/lib/site";
 
-import styles from "./type-detail-page-content.module.css";
+import styles from "./type-compatibility-section.module.css";
 
 type CompatibleType = {
   typeCode: string;

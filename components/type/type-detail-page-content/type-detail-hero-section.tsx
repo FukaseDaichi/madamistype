@@ -6,7 +6,7 @@ import Link from "next/link";
 import { TypeArtwork } from "@/components/type/type-artwork/type-artwork";
 import { RECOMMENDATION_FEEDBACK_FORM_URL } from "@/lib/post-diagnosis-result";
 
-import styles from "./type-detail-page-content.module.css";
+import styles from "./type-detail-hero-section.module.css";
 
 type TypeDetailHeroSectionProps = {
   mode: "public" | "shared";

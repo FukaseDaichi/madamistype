@@ -3,7 +3,7 @@ import {
   type TypeSectionHeading,
 } from "@/components/type/type-detail-page-content/type-section-frame";
 
-import styles from "./type-detail-page-content.module.css";
+import styles from "./type-list-section.module.css";
 
 type TypeListSectionProps = {
   heading: TypeSectionHeading;

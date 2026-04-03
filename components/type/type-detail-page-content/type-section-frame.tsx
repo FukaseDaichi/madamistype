@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import styles from "./type-detail-page-content.module.css";
+import styles from "./type-section-frame.module.css";
 
 export type TypeSectionHeading = {
   eyebrow: string;

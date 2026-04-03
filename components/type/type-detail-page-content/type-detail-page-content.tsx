@@ -8,13 +8,13 @@ import {
 } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer/site-footer";
-import { ShareActions } from "@/components/type/share-actions/share-actions";
 import { getTypePageJsonLd, stringifyJsonLd } from "@/lib/json-ld";
 import { TypeCompatibilitySection } from "@/components/type/type-detail-page-content/type-compatibility-section";
 import { TypeDetailHeroSection } from "@/components/type/type-detail-page-content/type-detail-hero-section";
 import { TypeListSection } from "@/components/type/type-detail-page-content/type-list-section";
 import { TypeOverviewSection } from "@/components/type/type-detail-page-content/type-overview-section";
 import { type TypeSectionHeading } from "@/components/type/type-detail-page-content/type-section-frame";
+import { TypeSharePanel } from "@/components/type/type-detail-page-content/type-share-panel";
 import { TypeSignatureSection } from "@/components/type/type-detail-page-content/type-signature-section";
 
 import styles from "./type-detail-page-content.module.css";
@@ -184,7 +184,7 @@ export function TypeDetailPageContent({
         />
 
         {isShared ? (
-          <ShareActions
+          <TypeSharePanel
             id="type-share-panel"
             typeCode={typeData.typeCode}
             typeName={typeData.typeName}
@@ -194,7 +194,6 @@ export function TypeDetailPageContent({
             eyebrow="Share"
             title="このタイプページを共有する"
             description="SNS共有はタイプ公開ページへ集約し、この診断結果URLはコピーで送れます。"
-            className={styles.sharePanel}
           />
         ) : null}
 

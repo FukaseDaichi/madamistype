@@ -4,7 +4,7 @@ import type { AxisSummary, TypeData } from "@/lib/types";
 
 import { type TypeSectionHeading } from "@/components/type/type-detail-page-content/type-section-frame";
 
-import styles from "./type-detail-page-content.module.css";
+import styles from "./type-signature-section.module.css";
 
 const AXIS_LETTER_MAP: Record<string, { letter: string; english: string }> = {
   発言型: { letter: "T", english: "Talk" },
