@@ -78,7 +78,8 @@ export function HomeHeroSection({
           <p className={styles.caseBody}>
             32問の答えから、マーダーミステリー卓での発言・推理・感情・進め方のクセを
             4軸で見立てます。一般的な性格診断ではなく、卓上での立ち回りに特化した
-            16タイプ診断です。
+            16タイプ診断です。自分のマダミスタイプを知ることで、卓の相性や
+            おすすめマダミス選びのヒントも見つかります。
           </p>
 
           <div className={styles.statsRow}>

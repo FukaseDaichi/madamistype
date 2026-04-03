@@ -1,7 +1,15 @@
 export const SITE_NAME = "マダミスタイプ診断";
 export const SITE_SHORT_NAME = "マダミスタイプ";
 export const SITE_DESCRIPTION =
-  "マーダーミステリーでの立ち回りを、32問の診断から4軸16タイプで見える化する診断サービス。";
+  "マダミスタイプ診断は、マーダーミステリーでの立ち回りを32問から4軸16タイプで見える化するサービスです。自分のマダミスタイプや、おすすめマダミス選びのヒントがわかります。";
+export const SITE_KEYWORDS = [
+  "マダミスタイプ診断",
+  "マダミスタイプ",
+  "おすすめマダミス",
+  "マーダーミステリー",
+  "マダミス診断",
+  "16タイプ診断",
+] as const;
 export const SITE_TAGLINE = "立ち回りを、16タイプで見える化する。";
 export const SITE_THEME_COLOR = "#f7f2ed";
 export const SITE_BACKGROUND_COLOR = "#f7f2ed";

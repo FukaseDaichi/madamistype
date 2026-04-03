@@ -1,5 +1,11 @@
 import type { TypeData } from "@/lib/types";
-import { SITE_DESCRIPTION, SITE_NAME, getAbsoluteUrl } from "@/lib/site";
+import {
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_SHORT_NAME,
+  getAbsoluteUrl,
+} from "@/lib/site";
 
 export function stringifyJsonLd(value: unknown) {
   return JSON.stringify(value).replace(/</gu, "\\u003c");
@@ -10,7 +16,9 @@ export function getWebsiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE_NAME,
+    alternateName: SITE_SHORT_NAME,
     description: SITE_DESCRIPTION,
+    keywords: SITE_KEYWORDS.join(", "),
     url: getAbsoluteUrl("/"),
     inLanguage: "ja-JP",
   };

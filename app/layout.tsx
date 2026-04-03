@@ -3,6 +3,7 @@ import { Noto_Sans_JP, Shippori_Mincho_B1 } from "next/font/google";
 
 import {
   SITE_DESCRIPTION,
+  SITE_KEYWORDS,
   SITE_NAME,
   SITE_THEME_COLOR,
   getMetadataBase,
@@ -28,11 +29,16 @@ const displayFont = Shippori_Mincho_B1({
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
+  applicationName: SITE_NAME,
   title: {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  keywords: [...SITE_KEYWORDS],
+  verification: {
+    google: "PL4mFXSOkoRJNiMOigMC2VmfdZ3X3nOMzuvZmMPmbmc",
+  },
   formatDetection: {
     email: false,
     telephone: false,
