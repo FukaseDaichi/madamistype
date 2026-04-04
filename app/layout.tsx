@@ -74,12 +74,7 @@ export default function RootLayout({
       lang="ja"
       className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full">
-        <a href="#main-content" className="skip-link">
-          本文へ移動
-        </a>
-        {children}
-      </body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }
