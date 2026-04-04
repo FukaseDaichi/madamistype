@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { StartDiagnosisForm } from "@/components/diagnosis/start-diagnosis-form/start-diagnosis-form";
 import { TypeArtwork } from "@/components/type/type-artwork/type-artwork";
-import { LINE_STAMP_URL, SITE_TAGLINE } from "@/lib/site";
+import { LINE_STAMP_URL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
 import styles from "./home-page.module.css";
 
@@ -39,7 +39,7 @@ export function HomeHeroSection({
     <>
       <header className={styles.masthead}>
         <div>
-          <div className={styles.mastheadLogo}>Murder Mystery Types</div>
+          <div className={styles.mastheadLogo}>{SITE_NAME}</div>
           <div className={styles.mastheadSub}>
             Murder Mystery Personality Diagnosis
           </div>

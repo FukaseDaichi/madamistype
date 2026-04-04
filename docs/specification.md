@@ -170,7 +170,11 @@ SEO / シェア方針:
 - `app/robots.ts`
 - `lib/json-ld.ts`
 
-`NEXT_PUBLIC_SITE_URL` が未設定の場合、絶対 URL は `http://localhost:3000` を基準に生成される。
+絶対 URL の基準は次の優先順で決まる。
+
+- `NEXT_PUBLIC_SITE_URL`
+- Vercel 環境変数 `VERCEL_PROJECT_PRODUCTION_URL` または `VERCEL_URL`
+- `http://localhost:3000`
 
 ## 6. データ仕様
 

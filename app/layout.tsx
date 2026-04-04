@@ -30,12 +30,18 @@ const displayFont = Shippori_Mincho_B1({
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
   applicationName: SITE_NAME,
+  manifest: "/manifest.webmanifest",
   title: {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [...SITE_KEYWORDS],
+  icons: {
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
+    shortcut: ["/favicon.ico"],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   verification: {
     google: "PL4mFXSOkoRJNiMOigMC2VmfdZ3X3nOMzuvZmMPmbmc",
   },
@@ -48,6 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: SITE_NAME,
     locale: "ja_JP",
+    url: "/",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     images: ["/main-ogp.png"],

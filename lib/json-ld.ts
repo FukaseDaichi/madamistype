@@ -15,6 +15,7 @@ export function getWebsiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": getAbsoluteUrl("/#website"),
     name: SITE_NAME,
     alternateName: SITE_SHORT_NAME,
     description: SITE_DESCRIPTION,

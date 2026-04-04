@@ -47,7 +47,11 @@ npm run dev
 - `NEXT_PUBLIC_LINE_STAMP_URL`
   任意。設定するとトップページの LINE スタンプ導線を有効化します
 
-`NEXT_PUBLIC_SITE_URL` を設定しない場合、`lib/site.ts` のフォールバックにより `http://localhost:3000` が使われます。
+絶対 URL の基準は次の優先順で決まります。
+
+- `NEXT_PUBLIC_SITE_URL`
+- Vercel 環境変数 `VERCEL_PROJECT_PRODUCTION_URL` または `VERCEL_URL`
+- `http://localhost:3000`
 
 ### 画像生成スキル
 

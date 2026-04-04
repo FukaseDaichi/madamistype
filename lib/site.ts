@@ -13,8 +13,6 @@ export const SITE_KEYWORDS = [
 export const SITE_TAGLINE = "立ち回りを、16タイプで見える化する。";
 export const SITE_THEME_COLOR = "#f7f2ed";
 export const SITE_BACKGROUND_COLOR = "#f7f2ed";
-export const SITE_ORIGIN =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const LINE_STAMP_URL = process.env.NEXT_PUBLIC_LINE_STAMP_URL ?? "";
 export const DRAFT_STORAGE_KEY = "madamistype:diagnosis-draft:v1";
 
@@ -49,10 +47,46 @@ const PALETTE_COLOR_MAP: Record<string, string> = {
 
 export function getMetadataBase() {
   try {
-    return new URL(SITE_ORIGIN);
+    return new URL(getSiteOrigin());
   } catch {
     return new URL("http://localhost:3000");
   }
+}
+
+function normalizeOrigin(value: string | undefined) {
+  if (!value) {
+    return null;
+  }
+
+  const trimmed = value.trim();
+
+  if (!trimmed) {
+    return null;
+  }
+
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    return trimmed;
+  }
+
+  return `https://${trimmed}`;
+}
+
+export function getSiteOrigin() {
+  const explicitOrigin = normalizeOrigin(process.env.NEXT_PUBLIC_SITE_URL);
+
+  if (explicitOrigin) {
+    return explicitOrigin;
+  }
+
+  const vercelOrigin = normalizeOrigin(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL,
+  );
+
+  if (vercelOrigin) {
+    return vercelOrigin;
+  }
+
+  return "http://localhost:3000";
 }
 
 export function getAbsoluteUrl(pathname = "/") {
