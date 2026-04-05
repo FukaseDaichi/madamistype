@@ -320,7 +320,7 @@
 }
 
 a.secondaryButton {
-  color: var(--rcf-ink);
+  color: #5a4215 !important;
 }
 
 .primaryButton {
