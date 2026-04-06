@@ -78,6 +78,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--manifest", help="Explicit manifest.json path.")
     parser.add_argument("--prompt-output-dir", help="Override the prompt manifest root directory.")
     parser.add_argument("--output-dir", help="Override the image output root directory.")
+    parser.add_argument("--roles", help="Comma-separated roles to process. Example: main,tab,stamp")
+    parser.add_argument("--asset-ids", help="Comma-separated stamp asset ids to process. Example: 01,03")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing asset outputs.")
     parser.add_argument("--poll-interval", type=int, default=8, help="Polling interval in seconds. Default: 8")
     parser.add_argument("--timeout-seconds", type=int, default=600, help="Per-task timeout in seconds. Default: 600")
@@ -145,6 +147,12 @@ def package_path(set_root: Path, asset: dict[str, Any]) -> Path:
 
 def artifact_exists(asset_root: Path) -> bool:
     return (asset_root / "final.png").exists() and (asset_root / "meta.json").exists()
+
+
+def parse_csv_arg(raw: str | None) -> set[str]:
+    if not raw:
+        return set()
+    return {item.strip() for item in raw.split(",") if item.strip()}
 
 
 def build_request_payload(asset: dict[str, Any], *, reference_image_url: str | None, resolution_override: str | None) -> dict[str, Any]:
@@ -351,8 +359,16 @@ def process_manifest(
     asset_results: list[dict[str, Any]] = []
     validations: list[dict[str, Any]] = []
     failed = False
+    requested_roles = parse_csv_arg(args.roles)
+    requested_asset_ids = parse_csv_arg(args.asset_ids)
 
     for asset in manifest.get("assets", []):
+        role = str(asset.get("role") or "")
+        asset_id = str(asset.get("id") or "").strip()
+        if requested_roles and role not in requested_roles:
+            continue
+        if requested_asset_ids and role == "stamp" and asset_id not in requested_asset_ids:
+            continue
         try:
             result, validation = process_asset(
                 client=client,

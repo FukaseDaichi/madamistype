@@ -26,6 +26,8 @@ Always instruct NanoBanana to:
 - render the exact provided text
 - avoid misspelling, omission, or extra characters
 - use cute rounded sticker lettering
+- avoid plain default font styling
+- make the lettering feel custom illustrated rather than typeset
 - keep the text thick and readable
 - keep strong contrast between fill and outline
 - keep the text fully visible inside the frame
@@ -61,6 +63,7 @@ Always instruct NanoBanana to:
 - reaction should read instantly
 - text must not collide with the character
 - keep the silhouette and lettering sticker-friendly
+- vary the body action aggressively across stamps when `poseDirection` is provided
 
 ## Negative Constraints
 

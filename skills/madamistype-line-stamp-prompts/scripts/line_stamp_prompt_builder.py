@@ -180,6 +180,39 @@ def _build_base_identity_lines(type_data: dict[str, Any], style: str) -> list[st
     return lines
 
 
+def _has_non_ascii(text: str) -> bool:
+    return any(ord(char) > 127 for char in text)
+
+
+def _build_text_instruction_lines(
+    text: str,
+    text_design: str,
+    text_placement: str,
+    text_layout: str,
+    text_effect: str,
+) -> list[str]:
+    lines = [
+        f'Include the exact visible text "{text}" as part of the sticker artwork.',
+        "Spell the text exactly as provided, with no missing characters and no extra characters.",
+        f"Use this lettering direction: {text_design}.",
+        f"Place the text at {text_placement} while keeping it fully readable and fully inside the frame.",
+        "The lettering must feel cute, rounded, bold, and high-contrast like a premium sticker design.",
+        "Treat the lettering as custom illustrated hand-drawn sticker typography, not a plain default font or ordinary digital typesetting.",
+        f"Text layout direction: {text_layout}." if text_layout else "",
+        f"Text effect direction: {text_effect}." if text_effect else "",
+    ]
+    if _has_non_ascii(text):
+        lines.extend(
+            [
+                f"Render the visible text in Japanese exactly as 「{text}」.",
+                "Do not translate the text into English.",
+                "Do not romanize, localize, paraphrase, or replace the Japanese characters.",
+                "Keep the Japanese characters large, bold, and clearly legible.",
+            ]
+        )
+    return lines
+
+
 def build_asset_prompt(type_data: dict[str, Any], *, style: str, asset: dict[str, Any]) -> str:
     role = str(asset["role"])
     role_spec = ROLE_SPECS[role]
@@ -188,7 +221,10 @@ def build_asset_prompt(type_data: dict[str, Any], *, style: str, asset: dict[str
     text = str(asset["text"])
     text_design = str(asset["textDesignPrompt"])
     text_placement = str(asset["textPlacement"])
+    text_layout = str(asset.get("textLayoutPrompt") or "").strip()
+    text_effect = str(asset.get("textEffectPrompt") or "").strip()
     intent = str(asset["intent"])
+    pose_direction = str(asset.get("poseDirection") or "").strip()
 
     lines = _build_base_identity_lines(type_data, style)
     lines.extend(role_spec["prompt_lines"])
@@ -196,13 +232,10 @@ def build_asset_prompt(type_data: dict[str, Any], *, style: str, asset: dict[str
         [
             "Draw exactly one character.",
             f"Sticker intent: {intent}.",
+            f"Pose direction: {pose_direction}." if pose_direction else "",
             f"Design for a final canvas of {canvas['width']} by {canvas['height']} pixels.",
             f"Keep about {padding_px} pixels of safe outer margin for both the character and the text.",
-            f'Include the exact visible text "{text}" as part of the sticker artwork.',
-            "Spell the text exactly as provided, with no missing characters and no extra characters.",
-            f"Use this lettering direction: {text_design}.",
-            f"Place the text at {text_placement} while keeping it fully readable and fully inside the frame.",
-            "The lettering must feel cute, rounded, bold, and high-contrast like a premium sticker design.",
+            *_build_text_instruction_lines(text, text_design, text_placement, text_layout, text_effect),
             "Do not place the text in a separate footer bar or detached caption area.",
             "Keep both the character silhouette and the lettering clearly visible at small size.",
         ]
@@ -216,7 +249,7 @@ def build_asset_prompt(type_data: dict[str, Any], *, style: str, asset: dict[str
             f"Avoid: {merge_negative_constraints(type_data)}.",
         ]
     )
-    return " ".join(lines)
+    return " ".join(line for line in lines if line)
 
 
 def _default_file_name(role: str, asset_id: str | None) -> str:
@@ -247,6 +280,9 @@ def _build_asset_payload(
     text_placement = str(raw_asset.get("textPlacement") or role_spec["default_text_placement"]).strip()
     if not text_placement:
         text_placement = role_spec["default_text_placement"]
+    pose_direction = str(raw_asset.get("poseDirection") or "").strip()
+    text_layout_prompt = str(raw_asset.get("textLayoutPrompt") or "").strip()
+    text_effect_prompt = str(raw_asset.get("textEffectPrompt") or "").strip()
 
     asset: dict[str, Any] = {
         "role": role,
@@ -255,6 +291,9 @@ def _build_asset_payload(
         "text": text,
         "textDesignPrompt": text_design_prompt,
         "textPlacement": text_placement,
+        "poseDirection": pose_direction,
+        "textLayoutPrompt": text_layout_prompt,
+        "textEffectPrompt": text_effect_prompt,
         "canvas": dict(role_spec["canvas"]),
         "paddingPx": DEFAULT_PADDING_PX,
         "renderTextInModel": True,
@@ -401,6 +440,8 @@ def build_review_markdown(manifest: dict[str, Any]) -> str:
                 f"- file: `{asset['fileName']}`",
                 f"- text: `{asset['text']}`",
                 f"- placement: `{asset['textPlacement']}`",
+                f"- pose: `{asset.get('poseDirection') or 'default'}`",
+                f"- text layout: `{asset.get('textLayoutPrompt') or 'default'}`",
                 f"- intent: `{asset['intent']}`",
                 f"- canvas: `{asset['canvas']['width']}x{asset['canvas']['height']}`",
                 f"- prompt preview: `{str(asset['prompt'])[:180]}`",

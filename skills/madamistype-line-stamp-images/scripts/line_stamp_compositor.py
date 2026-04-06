@@ -26,6 +26,28 @@ def _find_visible_bbox(image: Any, alpha_threshold: int = 8) -> tuple[int, int, 
     return bbox
 
 
+def _despill_green_halo(image: Any) -> Any:
+    rgba = image.convert("RGBA")
+    pixels = rgba.load()
+    for y in range(rgba.height):
+        for x in range(rgba.width):
+            r, g, b, a = pixels[x, y]
+            if a == 0:
+                continue
+            max_rb = max(r, b)
+            green_excess = g - max_rb
+            if green_excess <= 16:
+                continue
+
+            reduced_g = max_rb + int(green_excess * 0.18)
+            if a < 200:
+                reduced_a = max(0, a - int(min(70, green_excess * 0.9)))
+            else:
+                reduced_a = a
+            pixels[x, y] = (r, max(0, min(255, reduced_g)), b, max(0, min(255, reduced_a)))
+    return rgba
+
+
 def compose_line_stamp(
     *,
     source_path: str | Path,
@@ -40,7 +62,7 @@ def compose_line_stamp(
     destination_path = Path(destination_path)
 
     with Image.open(source_path) as source_image:
-        source = source_image.convert("RGBA")
+        source = _despill_green_halo(source_image)
         bbox = _find_visible_bbox(source)
         cropped = source.crop(bbox)
 
@@ -51,7 +73,7 @@ def compose_line_stamp(
     target_height = max(1, int(round(cropped.height * scale)))
 
     resampling = getattr(Image, "Resampling", Image).LANCZOS
-    resized = cropped.resize((target_width, target_height), resampling)
+    resized = _despill_green_halo(cropped.resize((target_width, target_height), resampling))
 
     canvas = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     offset_x = max(0, (width - target_width) // 2)

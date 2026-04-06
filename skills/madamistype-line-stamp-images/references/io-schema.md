@@ -23,6 +23,7 @@ The image skill expects at least:
 - `assets[].text`
 - `assets[].textDesignPrompt`
 - `assets[].textPlacement`
+- `assets[].poseDirection`
 - `assets[].canvas.width`
 - `assets[].canvas.height`
 - `assets[].paddingPx`

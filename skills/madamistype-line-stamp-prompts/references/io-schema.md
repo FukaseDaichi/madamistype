@@ -26,16 +26,26 @@ Each set JSON is expected to provide at least:
 - `main.intent`
 - `main.text`
 - `main.textDesignPrompt`
+- `main.poseDirection` (optional)
+- `main.textLayoutPrompt` (optional)
+- `main.textEffectPrompt` (optional)
 - `tab.intent`
 - `tab.text`
 - `tab.textDesignPrompt`
+- `tab.poseDirection` (optional)
+- `tab.textLayoutPrompt` (optional)
+- `tab.textEffectPrompt` (optional)
 - `stamps[]`
 - `stamps[].id`
 - `stamps[].text`
 - `stamps[].intent`
 - `stamps[].textDesignPrompt`
+- `stamps[].poseDirection` (optional)
+- `stamps[].textLayoutPrompt` (optional)
+- `stamps[].textEffectPrompt` (optional)
 
 `textPlacement` is optional and will default by role.
+`poseDirection` is optional but recommended when the set needs strong pose variation across stickers.
 
 ## Output Root
 
@@ -79,6 +89,9 @@ Each asset entry must include:
 - `text`
 - `textDesignPrompt`
 - `textPlacement`
+- `poseDirection`
+- `textLayoutPrompt`
+- `textEffectPrompt`
 - `canvas.width`
 - `canvas.height`
 - `paddingPx`
