@@ -14,6 +14,7 @@
 - [frontend-directory-structure-spec.md](./frontend-directory-structure-spec.md)
 - [character-image-skill-spec.md](./character-image-skill-spec.md)
 - [type-ogp-image-spec.md](./type-ogp-image-spec.md)
+- [line-stamp-skill-spec.md](./line-stamp-skill-spec.md)
 
 ## 2. サービス概要
 

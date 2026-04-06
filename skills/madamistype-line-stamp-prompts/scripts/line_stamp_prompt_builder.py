@@ -1,0 +1,411 @@
+from __future__ import annotations
+
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+
+SKILL_NAME = "madamistype-line-stamp-prompts"
+DEFAULT_PADDING_PX = 10
+DEFAULT_RESOLUTION = "2K"
+DEFAULT_REFERENCE_BASE_URL = "https://raw.githubusercontent.com/FukaseDaichi/madamistype/refs/heads/main/public/types"
+
+ROLE_SPECS: dict[str, dict[str, Any]] = {
+    "main": {
+        "canvas": {"width": 240, "height": 240},
+        "default_text_placement": "bottom-center",
+        "default_intent": "package cover",
+        "generation_aspect_ratio": "1:1",
+        "prompt_lines": [
+            "This asset is the package main image for a LINE sticker set.",
+            "Make it memorable and emotionally expressive at small square size.",
+            "The composition must still work when viewed at 240 by 240 pixels.",
+        ],
+    },
+    "tab": {
+        "canvas": {"width": 96, "height": 74},
+        "default_text_placement": "right",
+        "default_intent": "small icon",
+        "generation_aspect_ratio": "4:3",
+        "prompt_lines": [
+            "This asset is the tab icon for a LINE sticker set.",
+            "Optimize for recognition at very small size.",
+            "Face or upper-body framing is allowed if that improves clarity.",
+        ],
+    },
+    "stamp": {
+        "canvas": {"width": 370, "height": 320},
+        "default_text_placement": "top-right",
+        "default_intent": "reaction",
+        "generation_aspect_ratio": "4:3",
+        "prompt_lines": [
+            "This asset is a LINE sticker reaction image.",
+            "The reaction must read instantly without needing extra context.",
+            "Keep the pose and lettering clean, bold, and sticker-friendly.",
+        ],
+    },
+}
+
+COMMON_NEGATIVE_CONSTRAINTS = [
+    "multiple characters",
+    "cropped head",
+    "cropped feet",
+    "deformed hands",
+    "extra fingers",
+    "missing text",
+    "misspelled text",
+    "extra text",
+    "tiny unreadable text",
+    "weak text contrast",
+    "logo",
+    "watermark",
+    "speech bubble",
+    "background clutter",
+    "background shadows",
+    "background gradient",
+    "green clothing",
+    "green accessories",
+    "green hair highlights",
+    "green text",
+]
+
+TRANSPARENT_MODE_INSTRUCTIONS = [
+    "Fill the entire background with a perfectly uniform bright chroma key green (#00FF00).",
+    "Do not use green on the character, clothing, props, hair, or visible text.",
+    "Keep the boundary between the foreground and background crisp and easy to key.",
+    "Do not add gradients, patterns, shadows, or extra objects in the background.",
+]
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_type_data(type_path: Path) -> dict[str, Any]:
+    return load_json(type_path)
+
+
+def load_stamp_set(set_path: Path) -> dict[str, Any]:
+    return load_json(set_path)
+
+
+def resolve_local_reference_path(repo_root: Path, type_code: str) -> Path | None:
+    candidates = [
+        repo_root / "public" / "types" / f"{type_code}_chibi.png",
+        repo_root / "output" / "character-images" / type_code / "chibi" / "transparent.png",
+        repo_root / "output" / "character-images" / type_code / "chibi" / "raw.png",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def _require_non_empty_string(value: Any, *, field_name: str) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"Missing required string field: {field_name}")
+    return value.strip()
+
+
+def _format_color_palette(colors: Any) -> str:
+    if not isinstance(colors, list):
+        return ""
+    cleaned = [str(color).strip() for color in colors if str(color).strip()]
+    return ", ".join(cleaned)
+
+
+def _dedupe_constraints(parts: list[str]) -> list[str]:
+    seen: set[str] = set()
+    deduped: list[str] = []
+    for part in parts:
+        normalized = part.strip()
+        key = normalized.lower()
+        if normalized and key not in seen:
+            deduped.append(normalized)
+            seen.add(key)
+    return deduped
+
+
+def merge_negative_constraints(type_data: dict[str, Any]) -> str:
+    negative_prompt = type_data.get("negativePrompt", {})
+    pieces: list[str] = []
+    if isinstance(negative_prompt, dict):
+        for key in ("en", "ja"):
+            value = negative_prompt.get(key)
+            if isinstance(value, str) and value.strip():
+                pieces.append(value.strip())
+    pieces.extend(COMMON_NEGATIVE_CONSTRAINTS)
+    return ", ".join(_dedupe_constraints(pieces))
+
+
+def _build_base_identity_lines(type_data: dict[str, Any], style: str) -> list[str]:
+    visual = type_data.get("visualProfile", {})
+    type_name = str(type_data.get("typeName", "")).strip()
+    type_code = str(type_data.get("typeCode", "")).strip()
+    gender = str(visual.get("genderPresentation", "")).strip()
+    age_range = str(visual.get("ageRange", "")).strip()
+    archetype = str(visual.get("characterArchetype", "")).strip()
+    character_description = str(visual.get("characterDescription", "")).strip()
+    outfit_description = str(visual.get("outfitDescription", "")).strip()
+    pose = str(visual.get("pose", "")).strip()
+    expression = str(visual.get("expression", "")).strip()
+    color_palette = _format_color_palette(visual.get("colorPalette"))
+
+    lines = [
+        "Create a polished anime-style LINE sticker illustration for the Madamistype project.",
+        f"Character identity: {type_name} ({type_code}).",
+        f"Sticker set style: {style}.",
+    ]
+    if gender:
+        lines.append(f"Gender presentation: {gender}.")
+    if age_range:
+        lines.append(f"Age impression: {age_range}.")
+    if archetype:
+        lines.append(f"Archetype: {archetype}.")
+    if character_description:
+        lines.append(f"Character description: {character_description}.")
+    if outfit_description:
+        lines.append(f"Outfit and props: {outfit_description}.")
+    if color_palette:
+        lines.append(f"Color palette: {color_palette}.")
+    if pose:
+        lines.append(f"Base pose inspiration: {pose}.")
+    if expression:
+        lines.append(f"Base expression inspiration: {expression}.")
+    return lines
+
+
+def build_asset_prompt(type_data: dict[str, Any], *, style: str, asset: dict[str, Any]) -> str:
+    role = str(asset["role"])
+    role_spec = ROLE_SPECS[role]
+    canvas = asset["canvas"]
+    padding_px = int(asset["paddingPx"])
+    text = str(asset["text"])
+    text_design = str(asset["textDesignPrompt"])
+    text_placement = str(asset["textPlacement"])
+    intent = str(asset["intent"])
+
+    lines = _build_base_identity_lines(type_data, style)
+    lines.extend(role_spec["prompt_lines"])
+    lines.extend(
+        [
+            "Draw exactly one character.",
+            f"Sticker intent: {intent}.",
+            f"Design for a final canvas of {canvas['width']} by {canvas['height']} pixels.",
+            f"Keep about {padding_px} pixels of safe outer margin for both the character and the text.",
+            f'Include the exact visible text "{text}" as part of the sticker artwork.',
+            "Spell the text exactly as provided, with no missing characters and no extra characters.",
+            f"Use this lettering direction: {text_design}.",
+            f"Place the text at {text_placement} while keeping it fully readable and fully inside the frame.",
+            "The lettering must feel cute, rounded, bold, and high-contrast like a premium sticker design.",
+            "Do not place the text in a separate footer bar or detached caption area.",
+            "Keep both the character silhouette and the lettering clearly visible at small size.",
+        ]
+    )
+    lines.extend(TRANSPARENT_MODE_INSTRUCTIONS)
+    lines.extend(
+        [
+            "Do not include any text other than the exact requested text.",
+            "Do not include logos or watermarks.",
+            "Keep the final image clean, commercially usable, and sticker-friendly.",
+            f"Avoid: {merge_negative_constraints(type_data)}.",
+        ]
+    )
+    return " ".join(lines)
+
+
+def _default_file_name(role: str, asset_id: str | None) -> str:
+    if role == "main":
+        return "main.png"
+    if role == "tab":
+        return "tab.png"
+    if asset_id is None:
+        raise ValueError("stamp assets require an id.")
+    return f"{asset_id}.png"
+
+
+def _build_asset_payload(
+    *,
+    type_data: dict[str, Any],
+    style: str,
+    role: str,
+    raw_asset: dict[str, Any],
+    asset_id: str | None = None,
+) -> dict[str, Any]:
+    role_spec = ROLE_SPECS[role]
+    text = _require_non_empty_string(raw_asset.get("text"), field_name=f"{role}.text")
+    text_design_prompt = _require_non_empty_string(
+        raw_asset.get("textDesignPrompt"),
+        field_name=f"{role}.textDesignPrompt",
+    )
+    intent = str(raw_asset.get("intent") or role_spec["default_intent"]).strip()
+    text_placement = str(raw_asset.get("textPlacement") or role_spec["default_text_placement"]).strip()
+    if not text_placement:
+        text_placement = role_spec["default_text_placement"]
+
+    asset: dict[str, Any] = {
+        "role": role,
+        "fileName": _default_file_name(role, asset_id),
+        "intent": intent,
+        "text": text,
+        "textDesignPrompt": text_design_prompt,
+        "textPlacement": text_placement,
+        "canvas": dict(role_spec["canvas"]),
+        "paddingPx": DEFAULT_PADDING_PX,
+        "renderTextInModel": True,
+        "generationAspectRatio": role_spec["generation_aspect_ratio"],
+        "generationResolution": DEFAULT_RESOLUTION,
+    }
+    if asset_id is not None:
+        asset["id"] = asset_id
+
+    asset["prompt"] = build_asset_prompt(type_data, style=style, asset=asset)
+    asset["negativePrompt"] = merge_negative_constraints(type_data)
+    return asset
+
+
+def validate_stamp_set(set_data: dict[str, Any]) -> None:
+    _require_non_empty_string(set_data.get("setId"), field_name="setId")
+    _require_non_empty_string(set_data.get("typeCode"), field_name="typeCode")
+    _require_non_empty_string(set_data.get("packageName"), field_name="packageName")
+    _require_non_empty_string(set_data.get("locale"), field_name="locale")
+    _require_non_empty_string(set_data.get("style"), field_name="style")
+
+    main_asset = set_data.get("main")
+    tab_asset = set_data.get("tab")
+    stamps = set_data.get("stamps")
+
+    if not isinstance(main_asset, dict):
+        raise ValueError("main must be an object.")
+    if not isinstance(tab_asset, dict):
+        raise ValueError("tab must be an object.")
+    if not isinstance(stamps, list) or not stamps:
+        raise ValueError("stamps must be a non-empty list.")
+
+    _require_non_empty_string(main_asset.get("text"), field_name="main.text")
+    _require_non_empty_string(main_asset.get("textDesignPrompt"), field_name="main.textDesignPrompt")
+    _require_non_empty_string(tab_asset.get("text"), field_name="tab.text")
+    _require_non_empty_string(tab_asset.get("textDesignPrompt"), field_name="tab.textDesignPrompt")
+
+    seen_ids: set[str] = set()
+    for index, stamp in enumerate(stamps, start=1):
+        if not isinstance(stamp, dict):
+            raise ValueError(f"stamps[{index}] must be an object.")
+        asset_id = _require_non_empty_string(stamp.get("id"), field_name=f"stamps[{index}].id")
+        if asset_id in seen_ids:
+            raise ValueError(f"Duplicate stamp id: {asset_id}")
+        seen_ids.add(asset_id)
+        _require_non_empty_string(stamp.get("text"), field_name=f"stamps[{index}].text")
+        _require_non_empty_string(
+            stamp.get("textDesignPrompt"),
+            field_name=f"stamps[{index}].textDesignPrompt",
+        )
+
+
+def build_manifest(*, repo_root: Path, type_data: dict[str, Any], set_data: dict[str, Any]) -> dict[str, Any]:
+    validate_stamp_set(set_data)
+
+    set_id = _require_non_empty_string(set_data.get("setId"), field_name="setId")
+    type_code = _require_non_empty_string(set_data.get("typeCode"), field_name="typeCode").upper()
+    resolved_type_code = str(type_data.get("typeCode", "")).strip().upper()
+    if resolved_type_code and resolved_type_code != type_code:
+        raise ValueError(f"Sticker set typeCode {type_code} does not match type data {resolved_type_code}.")
+    package_name = _require_non_empty_string(set_data.get("packageName"), field_name="packageName")
+    locale = _require_non_empty_string(set_data.get("locale"), field_name="locale")
+    style = _require_non_empty_string(set_data.get("style"), field_name="style")
+    allow_prompt_only_fallback = bool(set_data.get("allowPromptOnlyFallback"))
+
+    local_reference_path = resolve_local_reference_path(repo_root, type_code)
+    public_reference_url = f"{DEFAULT_REFERENCE_BASE_URL}/{type_code}_chibi.png"
+
+    assets: list[dict[str, Any]] = []
+    assets.append(
+        _build_asset_payload(
+            type_data=type_data,
+            style=style,
+            role="main",
+            raw_asset=dict(set_data["main"]),
+        )
+    )
+    assets.append(
+        _build_asset_payload(
+            type_data=type_data,
+            style=style,
+            role="tab",
+            raw_asset=dict(set_data["tab"]),
+        )
+    )
+
+    for stamp in set_data["stamps"]:
+        stamp_asset = dict(stamp)
+        asset_id = _require_non_empty_string(stamp_asset.get("id"), field_name="stamp.id")
+        assets.append(
+            _build_asset_payload(
+                type_data=type_data,
+                style=style,
+                role="stamp",
+                raw_asset=stamp_asset,
+                asset_id=asset_id,
+            )
+        )
+
+    manifest: dict[str, Any] = {
+        "schemaVersion": "v1",
+        "skill": SKILL_NAME,
+        "generatedAt": now_iso(),
+        "setId": set_id,
+        "typeCode": type_code,
+        "typeName": str(type_data.get("typeName", "")).strip(),
+        "packageName": package_name,
+        "locale": locale,
+        "style": style,
+        "referencePolicy": {
+            "preferredVariant": "chibi",
+            "allowPromptOnlyFallback": allow_prompt_only_fallback,
+            "localReferencePath": str(local_reference_path) if local_reference_path else None,
+            "publicReferenceUrl": public_reference_url,
+        },
+        "assets": assets,
+    }
+    return manifest
+
+
+def build_review_markdown(manifest: dict[str, Any]) -> str:
+    lines = [
+        f"# {manifest['packageName']}",
+        "",
+        f"- setId: `{manifest['setId']}`",
+        f"- typeCode: `{manifest['typeCode']}`",
+        f"- locale: `{manifest['locale']}`",
+        f"- style: `{manifest['style']}`",
+        f"- local reference: `{manifest['referencePolicy'].get('localReferencePath') or 'not found'}`",
+        f"- public reference: `{manifest['referencePolicy'].get('publicReferenceUrl') or 'none'}`",
+        "",
+        "## Assets",
+        "",
+    ]
+
+    for asset in manifest.get("assets", []):
+        asset_label = str(asset["role"])
+        if asset.get("id"):
+            asset_label = f"{asset_label}:{asset['id']}"
+        lines.extend(
+            [
+                f"### {asset_label}",
+                "",
+                f"- file: `{asset['fileName']}`",
+                f"- text: `{asset['text']}`",
+                f"- placement: `{asset['textPlacement']}`",
+                f"- intent: `{asset['intent']}`",
+                f"- canvas: `{asset['canvas']['width']}x{asset['canvas']['height']}`",
+                f"- prompt preview: `{str(asset['prompt'])[:180]}`",
+                "",
+            ]
+        )
+
+    return "\n".join(lines).strip() + "\n"

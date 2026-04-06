@@ -76,6 +76,7 @@ npm run lint
 app/          ルート定義、metadata files、ページ入口
 components/   画面本文と UI コンポーネント
 data/         質問マスタと 16 タイプ定義
+data/line-stamps/ LINE スタンプセット定義
 docs/         実装基準の仕様書
 lib/          データ取得、診断ロジック、共有キー、メタデータ補助
 public/       配信用の静的アセット
@@ -101,6 +102,8 @@ output/       画像生成スキルの作業出力
   キャラクター画像生成スキルの運用
 - [docs/type-ogp-image-spec.md](./docs/type-ogp-image-spec.md)
   タイプ別 OGP 画像生成スキルの運用
+- [docs/line-stamp-skill-spec.md](./docs/line-stamp-skill-spec.md)
+  LINE スタンプ用 prompt / image スキルの設計
 
 ## 検証メモ
 
