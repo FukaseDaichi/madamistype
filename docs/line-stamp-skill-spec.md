@@ -67,6 +67,7 @@ LINE スタンプ用の最終成果物は次の要件を満たす。
 - 表情、ポーズ、視線、フレーミング、余白方針を決める
 - 各 asset に入れる文言と、可愛いスタンプ風の文字デザイン指定を決める
 - 画像生成用 `prompt` と `negativePrompt` を確定する
+- `data/types/*.json` 由来の `文字なし` / `文字` 系の禁止語は LINE スタンプ用途では `negativePrompt` に持ち込まない
 - 画像生成スキルへ渡す `manifest.json` を出力する
 
 非責務:
@@ -304,6 +305,7 @@ output/line-stamp-prompts/{setId}/
 - 文字は可愛いスタンプ風のデザインにする
 - 文字は太め、丸み、縁取り、高コントラストを基本とする
 - ロゴ、透かし、指定外の文字は入れない
+- 文字の完全一致、可読性、タイポグラフィ品質は `prompt` 側で強く指示し、`negativePrompt` では文字自体を否定しない
 - 背景は後段で透過化しやすい単色前提にする
 - シルエットが欠けない
 - 約 10px の余白を後段で確保できる構図にする
@@ -335,6 +337,7 @@ output/line-stamp-prompts/{setId}/
 prompt スキルの完了条件:
 
 - すべての asset に `prompt` と `negativePrompt` がある
+- `negativePrompt` に `文字`、`text`、`letters` など文字生成を阻害する語が入っていない
 - すべての asset に `text` と `textDesignPrompt` がある
 - `main`、`tab`、`stamp` の役割差が manifest 上で明文化されている
 - 参照画像ポリシーが確定している

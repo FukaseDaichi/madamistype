@@ -53,11 +53,6 @@ COMMON_NEGATIVE_CONSTRAINTS = [
     "cropped feet",
     "deformed hands",
     "extra fingers",
-    "missing text",
-    "misspelled text",
-    "extra text",
-    "tiny unreadable text",
-    "weak text contrast",
     "logo",
     "watermark",
     "speech bubble",
@@ -67,8 +62,27 @@ COMMON_NEGATIVE_CONSTRAINTS = [
     "green clothing",
     "green accessories",
     "green hair highlights",
-    "green text",
 ]
+
+TEXT_RELATED_NEGATIVE_TERMS = (
+    "文字",
+    "テキスト",
+    "字幕",
+    "台詞",
+    "セリフ",
+    "吹き出し文字",
+    "text",
+    "texts",
+    "letter",
+    "letters",
+    "lettering",
+    "typography",
+    "caption",
+    "captions",
+    "subtitle",
+    "subtitles",
+    "wording",
+)
 
 TRANSPARENT_MODE_INSTRUCTIONS = [
     "Fill the entire background with a perfectly uniform bright chroma key green (#00FF00).",
@@ -131,6 +145,24 @@ def _dedupe_constraints(parts: list[str]) -> list[str]:
     return deduped
 
 
+def _split_negative_constraints(value: str) -> list[str]:
+    normalized = (
+        value.replace("、", ",")
+        .replace("，", ",")
+        .replace(";", ",")
+        .replace("；", ",")
+        .replace("\n", ",")
+    )
+    return [part.strip() for part in normalized.split(",") if part.strip()]
+
+
+def _is_text_related_negative_constraint(part: str) -> bool:
+    normalized = part.strip().lower()
+    if not normalized:
+        return False
+    return any(term in part or term in normalized for term in TEXT_RELATED_NEGATIVE_TERMS)
+
+
 def merge_negative_constraints(type_data: dict[str, Any]) -> str:
     negative_prompt = type_data.get("negativePrompt", {})
     pieces: list[str] = []
@@ -138,7 +170,11 @@ def merge_negative_constraints(type_data: dict[str, Any]) -> str:
         for key in ("en", "ja"):
             value = negative_prompt.get(key)
             if isinstance(value, str) and value.strip():
-                pieces.append(value.strip())
+                pieces.extend(
+                    part
+                    for part in _split_negative_constraints(value)
+                    if not _is_text_related_negative_constraint(part)
+                )
     pieces.extend(COMMON_NEGATIVE_CONSTRAINTS)
     return ", ".join(_dedupe_constraints(pieces))
 

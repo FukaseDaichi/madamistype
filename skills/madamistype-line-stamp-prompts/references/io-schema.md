@@ -98,3 +98,6 @@ Each asset entry must include:
 - `prompt`
 - `negativePrompt`
 - `renderTextInModel`
+
+`negativePrompt` must not contain text-suppression terms such as `文字`, `text`, `letters`, or `typography`.
+Text correctness and lettering design must be enforced in `prompt`, because NanoBanana is responsible for rendering the visible text.

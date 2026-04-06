@@ -17,6 +17,9 @@ This skill does not call NanoBanana directly. Its job is to convert repo data in
 - transparent-ready green background directions
 - padding-safe framing rules
 
+For this skill, treat NanoBanana as responsible for rendering the requested text and text styling inside the image.
+Do not carry over character-image assumptions like `文字なし` or text-suppression negatives into the LINE sticker `negativePrompt`.
+
 Read [line-stamp-skill-spec.md](../../docs/line-stamp-skill-spec.md) when changing the overall design or acceptance criteria.
 
 ## Workflow
@@ -56,6 +59,7 @@ The script writes:
 Every asset must define visible text and text styling.
 
 Do not treat text as a later overlay. The prompt must instruct NanoBanana to render the exact text inside the image.
+Keep text quality constraints on the positive-prompt side, and keep `negativePrompt` free of text-ban wording.
 
 For detailed prompt rules, read [references/prompt-rules.md](./references/prompt-rules.md).
 

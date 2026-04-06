@@ -31,6 +31,7 @@ Always instruct NanoBanana to:
 - keep the text thick and readable
 - keep strong contrast between fill and outline
 - keep the text fully visible inside the frame
+- keep text-related quality control in the main prompt instead of the negative prompt
 
 ## Transparency Rules
 
@@ -67,19 +68,18 @@ Always instruct NanoBanana to:
 
 ## Negative Constraints
 
-Keep these near the end of the prompt or in `negativePrompt`:
+Keep these near the end of the prompt or in `negativePrompt`.
+
+Do not put text-suppression terms such as `文字`, `text`, `letters`, or `typography` into `negativePrompt`.
+For LINE stamps, NanoBanana is expected to render the requested text and lettering design inside the image, so all text requirements stay on the positive-prompt side.
+
+Recommended `negativePrompt` items:
 
 - multiple characters
 - cropped head or feet
-- missing text
-- misspelled text
-- extra text
-- tiny unreadable text
-- weak text contrast
 - speech bubbles unless explicitly requested
 - logo
 - watermark
 - background clutter
 - green clothing
 - green props
-- green text
