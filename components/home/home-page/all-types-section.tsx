@@ -23,6 +23,7 @@ export function AllTypesSection({ allTypes }: AllTypesSectionProps) {
           <Link
             key={type.typeCode}
             href={`/types/${type.typeCode}`}
+            prefetch={false}
             className={styles.typeChip}
           >
             <span className={styles.typeChipCode}>{type.typeCode}</span>

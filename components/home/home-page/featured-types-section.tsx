@@ -30,6 +30,7 @@ export function FeaturedTypesSection({
           <Link
             key={type.typeCode}
             href={`/types/${type.typeCode}`}
+            prefetch={false}
             className={styles.typeCard}
           >
             <div

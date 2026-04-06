@@ -145,6 +145,7 @@ export function HomeHeroSection({
             <p className={styles.cardSummary}>{heroType.summary}</p>
             <Link
               href={`/types/${heroType.typeCode}`}
+              prefetch={false}
               className={styles.cardLink}
             >
               ファイルを開く →

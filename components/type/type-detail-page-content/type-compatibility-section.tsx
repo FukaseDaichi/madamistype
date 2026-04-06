@@ -46,6 +46,7 @@ export function TypeCompatibilitySection({
               <Link
                 key={compatibleType.typeCode}
                 href={`/types/${compatibleType.typeCode}`}
+                prefetch={false}
                 className={styles.compatLink}
               >
                 <Image

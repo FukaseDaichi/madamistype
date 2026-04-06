@@ -298,7 +298,7 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
             <p className={styles.statusCopy}>
               このページを直接開いた場合は、トップページの開始フォームから進んでください。
             </p>
-            <Link href="/" className={styles.ctaPrimary}>
+            <Link href="/" prefetch={false} className={styles.ctaPrimary}>
               トップページへ戻る
             </Link>
           </section>
@@ -351,7 +351,7 @@ export function DiagnosisFlow({ questionMaster }: DiagnosisFlowProps) {
               </p>
             </div>
 
-            <Link href="/" className={styles.backLink}>
+            <Link href="/" prefetch={false} className={styles.backLink}>
               トップへ戻る
             </Link>
           </div>

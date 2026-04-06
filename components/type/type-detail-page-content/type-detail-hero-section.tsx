@@ -47,10 +47,14 @@ export function TypeDetailHeroSection({
   return (
     <>
       <header className={styles.mast}>
-        <Link href="/" className={styles.mastLogo}>
+        <Link href="/" prefetch={false} className={styles.mastLogo}>
           Murder Mystery Types
         </Link>
-        <Link href={isShared ? publicUrl : "/"} className={styles.mastBack}>
+        <Link
+          href={isShared ? publicUrl : "/"}
+          prefetch={false}
+          className={styles.mastBack}
+        >
           {"<-"} {isShared ? "タイプ公開ページへ" : "トップへ戻る"}
         </Link>
       </header>
@@ -130,11 +134,11 @@ export function TypeDetailHeroSection({
               </a>
             </>
           ) : isShared ? (
-            <Link href="/" className={styles.primaryButton}>
+            <Link href="/" prefetch={false} className={styles.primaryButton}>
               自分でも診断する
             </Link>
           ) : (
-            <Link href="/" className={styles.primaryButton}>
+            <Link href="/" prefetch={false} className={styles.primaryButton}>
               自分でも診断する
             </Link>
           )}
