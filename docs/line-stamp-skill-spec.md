@@ -64,7 +64,7 @@ LINE スタンプ用の最終成果物は次の要件を満たす。
 
 - `data/types/*.json` からキャラクター同一性の正本を読む
 - スタンプセット定義を読み、各スタンプの意図を解釈する
-- 表情、ポーズ、視線、フレーミング、余白方針を決める
+- 表情、ポーズ、カメラアングル、視線、フレーミング、余白方針を決める
 - 各 asset に入れる文言と、可愛いスタンプ風の文字デザイン指定を決める
 - 画像生成用 `prompt` と `negativePrompt` を確定する
 - `data/types/*.json` 由来の `文字なし` / `文字` 系の禁止語は LINE スタンプ用途では `negativePrompt` に持ち込まない
@@ -234,6 +234,8 @@ output/line-stamp-prompts/{setId}/manifest.json
       "text": "了解",
       "intent": "acknowledgement",
       "textDesignPrompt": "cute handwritten Japanese sticker text, bold rounded strokes, white fill, pink outline",
+      "cameraDirection": "やや煽りのある斜め前からの中距離ショット",
+      "expressionDirection": "相手を見透かすような半笑い",
       "textPlacement": "top-right",
       "canvas": { "width": 370, "height": 320 },
       "paddingPx": 10,
@@ -251,6 +253,7 @@ output/line-stamp-prompts/{setId}/manifest.json
 - 各 asset は最終キャンバスサイズを manifest 上で確定する
 - 画像生成スキルは `prompt` を勝手に補わず、必要な追加は共通安全制約だけに限定する
 - 各 asset は `text`、`textDesignPrompt`、`textPlacement` を持つ
+- 各 asset は必要に応じて `poseDirection`、`cameraDirection`、`expressionDirection` を持てる
 - `renderTextInModel` は常に `true` とする
 - 文字は prompt で完全一致指定し、ローカル後乗せでは扱わない
 

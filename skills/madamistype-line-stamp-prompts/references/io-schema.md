@@ -27,12 +27,16 @@ Each set JSON is expected to provide at least:
 - `main.text`
 - `main.textDesignPrompt`
 - `main.poseDirection` (optional)
+- `main.cameraDirection` (optional)
+- `main.expressionDirection` (optional)
 - `main.textLayoutPrompt` (optional)
 - `main.textEffectPrompt` (optional)
 - `tab.intent`
 - `tab.text`
 - `tab.textDesignPrompt`
 - `tab.poseDirection` (optional)
+- `tab.cameraDirection` (optional)
+- `tab.expressionDirection` (optional)
 - `tab.textLayoutPrompt` (optional)
 - `tab.textEffectPrompt` (optional)
 - `stamps[]`
@@ -41,6 +45,8 @@ Each set JSON is expected to provide at least:
 - `stamps[].intent`
 - `stamps[].textDesignPrompt`
 - `stamps[].poseDirection` (optional)
+- `stamps[].cameraDirection` (optional)
+- `stamps[].expressionDirection` (optional)
 - `stamps[].textLayoutPrompt` (optional)
 - `stamps[].textEffectPrompt` (optional)
 
@@ -90,6 +96,8 @@ Each asset entry must include:
 - `textDesignPrompt`
 - `textPlacement`
 - `poseDirection`
+- `cameraDirection`
+- `expressionDirection`
 - `textLayoutPrompt`
 - `textEffectPrompt`
 - `canvas.width`

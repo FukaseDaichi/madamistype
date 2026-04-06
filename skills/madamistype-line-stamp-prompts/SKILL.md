@@ -13,6 +13,7 @@ This skill does not call NanoBanana directly. Its job is to convert repo data in
 
 - role-specific composition for `main`, `tab`, and `stamp`
 - exact visible text for each asset
+- per-asset pose, camera angle, and facial-expression direction
 - cute sticker-style lettering directions
 - transparent-ready green background directions
 - padding-safe framing rules

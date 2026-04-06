@@ -261,6 +261,8 @@ def build_asset_prompt(type_data: dict[str, Any], *, style: str, asset: dict[str
     text_effect = str(asset.get("textEffectPrompt") or "").strip()
     intent = str(asset["intent"])
     pose_direction = str(asset.get("poseDirection") or "").strip()
+    camera_direction = str(asset.get("cameraDirection") or "").strip()
+    expression_direction = str(asset.get("expressionDirection") or "").strip()
 
     lines = _build_base_identity_lines(type_data, style)
     lines.extend(role_spec["prompt_lines"])
@@ -269,6 +271,8 @@ def build_asset_prompt(type_data: dict[str, Any], *, style: str, asset: dict[str
             "Draw exactly one character.",
             f"Sticker intent: {intent}.",
             f"Pose direction: {pose_direction}." if pose_direction else "",
+            f"Camera direction: {camera_direction}." if camera_direction else "",
+            f"Expression direction: {expression_direction}." if expression_direction else "",
             f"Design for a final canvas of {canvas['width']} by {canvas['height']} pixels.",
             f"Keep about {padding_px} pixels of safe outer margin for both the character and the text.",
             *_build_text_instruction_lines(text, text_design, text_placement, text_layout, text_effect),
@@ -317,6 +321,8 @@ def _build_asset_payload(
     if not text_placement:
         text_placement = role_spec["default_text_placement"]
     pose_direction = str(raw_asset.get("poseDirection") or "").strip()
+    camera_direction = str(raw_asset.get("cameraDirection") or "").strip()
+    expression_direction = str(raw_asset.get("expressionDirection") or "").strip()
     text_layout_prompt = str(raw_asset.get("textLayoutPrompt") or "").strip()
     text_effect_prompt = str(raw_asset.get("textEffectPrompt") or "").strip()
 
@@ -328,6 +334,8 @@ def _build_asset_payload(
         "textDesignPrompt": text_design_prompt,
         "textPlacement": text_placement,
         "poseDirection": pose_direction,
+        "cameraDirection": camera_direction,
+        "expressionDirection": expression_direction,
         "textLayoutPrompt": text_layout_prompt,
         "textEffectPrompt": text_effect_prompt,
         "canvas": dict(role_spec["canvas"]),
@@ -477,6 +485,8 @@ def build_review_markdown(manifest: dict[str, Any]) -> str:
                 f"- text: `{asset['text']}`",
                 f"- placement: `{asset['textPlacement']}`",
                 f"- pose: `{asset.get('poseDirection') or 'default'}`",
+                f"- camera: `{asset.get('cameraDirection') or 'default'}`",
+                f"- expression: `{asset.get('expressionDirection') or 'default'}`",
                 f"- text layout: `{asset.get('textLayoutPrompt') or 'default'}`",
                 f"- intent: `{asset['intent']}`",
                 f"- canvas: `{asset['canvas']['width']}x{asset['canvas']['height']}`",

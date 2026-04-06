@@ -65,6 +65,8 @@ Always instruct NanoBanana to:
 - text must not collide with the character
 - keep the silhouette and lettering sticker-friendly
 - vary the body action aggressively across stamps when `poseDirection` is provided
+- vary the camera angle aggressively across stamps when `cameraDirection` is provided
+- vary the facial read aggressively across stamps when `expressionDirection` is provided
 
 ## Negative Constraints
 
