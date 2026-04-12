@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { TypeArtwork } from "@/components/type/type-artwork/type-artwork";
-import { RECOMMENDATION_FEEDBACK_FORM_URL } from "@/lib/post-diagnosis-result";
+import { TypeCharacterMemo } from "@/components/type/type-detail-page-content/type-character-memo";
 
 import styles from "./type-detail-hero-section.module.css";
 
@@ -121,17 +121,18 @@ export function TypeDetailHeroSection({
         <div className={styles.heroActions}>
           {shouldShowPostDiagnosisActions ? (
             <>
-              <a href="#type-share-panel" className={styles.primaryButton}>
+              <a
+                href="#type-share-panel"
+                className={`${styles.primaryButton} ${styles.shareButton}`.trim()}
+              >
                 共有
               </a>
-              <a
-                href={RECOMMENDATION_FEEDBACK_FORM_URL}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.secondaryButton}
-              >
-                おすすめマダミス
-              </a>
+              <TypeCharacterMemo
+                typeCode={typeData.typeCode}
+                typeName={typeData.typeName}
+                shareKey={shareKey!}
+                className={styles.characterMemo}
+              />
             </>
           ) : isShared ? (
             <Link href="/" prefetch={false} className={styles.primaryButton}>
@@ -143,11 +144,6 @@ export function TypeDetailHeroSection({
             </Link>
           )}
         </div>
-        {shouldShowPostDiagnosisActions ? (
-          <p className={styles.heroActionNote}>
-            タイプごとのおすすめマダミスを集計したいので、よければフォームで教えてください。
-          </p>
-        ) : null}
       </section>
     </>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 
@@ -67,9 +68,22 @@ export function StartDiagnosisForm() {
           </p>
         </div>
 
-        <button type="submit" disabled={isDisabled} className="primary-button">
-          32問の診断をはじめる
-        </button>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <button
+            type="submit"
+            disabled={isDisabled}
+            className="primary-button justify-center"
+          >
+            32問の診断をはじめる
+          </button>
+          <Link
+            href="/trends"
+            prefetch={false}
+            className="secondary-button justify-center"
+          >
+            傾向を見る
+          </Link>
+        </div>
       </form>
 
       {resumeName ? (

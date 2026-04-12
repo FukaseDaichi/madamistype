@@ -1,0 +1,116 @@
+.memo {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(139, 105, 20, 0.36);
+  background: rgba(255, 249, 246, 0.92);
+  padding: 1rem 1rem 0.95rem;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    inset 0 0 24px rgba(139, 105, 20, 0.04);
+}
+
+.memo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(139, 105, 20, 0.08) 31px,
+    rgba(139, 105, 20, 0.08) 32px
+  );
+  pointer-events: none;
+}
+
+.header,
+.description,
+.label,
+.footer,
+.textarea {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0 0 0.2rem;
+  color: var(--rcf-sepia);
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--rcf-ink);
+  font-family: var(--rcf-font-display), sans-serif;
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+
+.description,
+.label,
+.hint {
+  margin: 0;
+  color: #4a3812;
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.72rem;
+  line-height: 1.8;
+}
+
+.label {
+  display: block;
+  margin-top: 0.75rem;
+  margin-bottom: 0.45rem;
+}
+
+.textarea {
+  min-height: 132px;
+  width: 100%;
+  resize: vertical;
+  border: 1px solid rgba(139, 105, 20, 0.28);
+  background: rgba(255, 255, 255, 0.68);
+  padding: 0.8rem 0.9rem;
+  color: var(--rcf-ink);
+  font-family: var(--rcf-font-serif), serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.textarea:focus-visible {
+  outline: none;
+  border-color: var(--rcf-sepia);
+  box-shadow: 0 0 0 3px rgba(139, 105, 20, 0.14);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.clearButton {
+  border: 1px solid rgba(139, 105, 20, 0.35);
+  background: transparent;
+  color: #5a4215;
+  padding: 0.45rem 0.8rem;
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.clearButton:hover {
+  background: rgba(139, 105, 20, 0.08);
+}
+
+@media (max-width: 640px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

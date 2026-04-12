@@ -14,6 +14,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 1,
     },
+    {
+      url: getAbsoluteUrl("/trends"),
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     ...typeCodes.map((typeCode) => ({
       url: getAbsoluteUrl(`/types/${typeCode}`),
       lastModified: now,
