@@ -203,7 +203,8 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
               <p>
                 その次に多かったのは
                 {supportingTypeLabels}
-                あたりでした。全体としては、次のような遊び方の方向に協力者が集まっていた印象です。
+                あたりでした。全体としては「感情や熱量、表現、場の動きに反応しやすい」「受け身より、自分の中で強く没入して味わう」方向が多い
+                方に協力者が集まっていた印象です。
               </p>
             </div>
           </section>
