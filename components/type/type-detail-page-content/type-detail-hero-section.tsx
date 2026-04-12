@@ -140,7 +140,7 @@ export function TypeDetailHeroSection({
                 自分でも診断する
               </Link>
               <Link
-                href="/trends"
+                href={`/trends#type-${typeData.typeCode}`}
                 prefetch={false}
                 className={`${styles.secondaryButton} ${styles.trendsButton}`.trim()}
               >
@@ -153,7 +153,7 @@ export function TypeDetailHeroSection({
                 自分でも診断する
               </Link>
               <Link
-                href="/trends"
+                href={`/trends#type-${typeData.typeCode}`}
                 prefetch={false}
                 className={`${styles.secondaryButton} ${styles.trendsButton}`.trim()}
               >

@@ -75,7 +75,7 @@ function TypeTrendSection({
   const body = "summary" in entry ? entry.summary : entry.insight;
 
   return (
-    <article className={styles.typeSection}>
+    <article id={`type-${type.typeCode}`} className={styles.typeSection}>
       <div className={styles.typeHeader}>
         <div className={styles.typeAvatar}>
           <Image

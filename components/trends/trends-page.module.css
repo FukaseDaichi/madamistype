@@ -292,6 +292,7 @@
 .typeSection {
   padding-top: 1.35rem;
   border-top: 1px dashed rgba(139, 105, 20, 0.25);
+  scroll-margin-top: 2rem;
 }
 
 .typeHeader {
