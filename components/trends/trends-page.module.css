@@ -35,12 +35,15 @@
 .meta {
   margin: 0 0 0.5rem;
   color: var(--color-text-subtle);
+  font-family: var(--rcf-font-typewriter), monospace;
   font-size: 0.88rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .title {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--rcf-font-display), sans-serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
   line-height: 1.25;
   letter-spacing: var(--tracking-tight);
@@ -54,6 +57,7 @@
 .numberList {
   font-size: 1rem;
   line-height: 1.95;
+  font-family: var(--rcf-font-serif), serif;
 }
 
 .lead {
@@ -74,13 +78,14 @@
 
 .heading {
   margin: 0 0 1rem;
-  font-family: var(--font-display);
+  font-family: var(--rcf-font-display), sans-serif;
   font-size: clamp(1.45rem, 3vw, 1.9rem);
   line-height: 1.35;
 }
 
 .subheading {
   margin: 1.5rem 0 0.5rem;
+  font-family: var(--rcf-font-serif), serif;
   font-size: 1.08rem;
   line-height: 1.6;
 }
@@ -130,24 +135,16 @@
 }
 
 .typeTitle {
-  display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
   margin: 0;
+  font-family: var(--rcf-font-serif), serif;
   font-size: 1.28rem;
   line-height: 1.5;
-}
-
-.typeTitle span {
-  color: var(--color-text-subtle);
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: var(--tracking-wide);
 }
 
 .typeTagline {
   margin: 0.2rem 0 0;
   color: var(--color-text-subtle);
+  font-family: var(--rcf-font-note), cursive;
   font-size: 0.95rem;
   line-height: 1.8;
 }
@@ -183,8 +180,7 @@
   }
 
   .typeTitle {
-    flex-direction: column;
-    gap: 0.1rem;
+    font-size: 1.18rem;
   }
 
   .actionRow {

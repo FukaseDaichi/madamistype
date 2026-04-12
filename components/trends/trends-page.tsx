@@ -1,4 +1,10 @@
 import type { TypeData } from "@/lib/types";
+import {
+  Bebas_Neue,
+  Caveat,
+  Noto_Serif_JP,
+  Special_Elite,
+} from "next/font/google";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +18,38 @@ import {
 
 import styles from "./trends-page.module.css";
 
+const displayFont = Bebas_Neue({
+  variable: "--rcf-font-display",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+});
+
+const typewriterFont = Special_Elite({
+  variable: "--rcf-font-typewriter",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+});
+
+const serifFont = Noto_Serif_JP({
+  variable: "--rcf-font-serif",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  preload: false,
+});
+
+const noteFont = Caveat({
+  variable: "--rcf-font-note",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  preload: false,
+});
+
 type TrendsPageProps = {
   allTypes: TypeData[];
 };
@@ -20,6 +58,10 @@ type TypeTrendEntry = SurveyTrendFeaturedType | SurveyTrendCompactType;
 
 function buildTypeMap(allTypes: TypeData[]) {
   return new Map(allTypes.map((type) => [type.typeCode, type]));
+}
+
+function formatTypeLabel(type: TypeData) {
+  return `${type.typeName}（${type.typeCode}）`;
 }
 
 function TypeTrendSection({
@@ -45,10 +87,7 @@ function TypeTrendSection({
           />
         </div>
         <div>
-          <h3 className={styles.typeTitle}>
-            {type.typeName}
-            <span>{type.typeCode}</span>
-          </h3>
+          <h3 className={styles.typeTitle}>{formatTypeLabel(type)}</h3>
           <p className={styles.typeTagline}>「{type.tagline}」</p>
         </div>
       </div>
@@ -78,9 +117,24 @@ function TypeTrendSection({
 
 export function TrendsPage({ allTypes }: TrendsPageProps) {
   const typeMap = buildTypeMap(allTypes);
+  const dominantTypeLabels = SURVEY_TRENDS_CONTENT.dominantTypes
+    .map(({ typeCode, count }) => {
+      const type = typeMap.get(typeCode);
+      return type ? `${formatTypeLabel(type)} が ${count}件` : `${typeCode} が ${count}件`;
+    })
+    .join("、");
+  const supportingTypeLabels = SURVEY_TRENDS_CONTENT.supportingTypeCodes
+    .map((typeCode) => {
+      const type = typeMap.get(typeCode);
+      return type ? formatTypeLabel(type) : typeCode;
+    })
+    .join("、");
 
   return (
-    <main id="main-content" className={styles.page}>
+    <main
+      id="main-content"
+      className={`${displayFont.variable} ${typewriterFont.variable} ${serifFont.variable} ${noteFont.variable} ${styles.page}`}
+    >
       <div className={styles.container}>
         <div className={styles.topLinkRow}>
           <Link href="/" prefetch={false} className={styles.backLink}>
@@ -103,14 +157,12 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
                 今回の回答は
                 {SURVEY_TRENDS_CONTENT.responseCount}
                 件でした。特に多かったのは
-                {SURVEY_TRENDS_CONTENT.dominantTypes
-                  .map(({ typeCode, count }) => `${typeCode}（${count}件）`)
-                  .join("、")}
+                {dominantTypeLabels}
                 です。
               </p>
               <p>
                 その次に多かったのは
-                {SURVEY_TRENDS_CONTENT.supportingTypeCodes.join("、")}
+                {supportingTypeLabels}
                 あたりでした。全体としては、次のような遊び方の方向に協力者が集まっていた印象です。
               </p>
               <ul className={styles.bulletList}>

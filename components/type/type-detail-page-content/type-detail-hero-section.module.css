@@ -304,6 +304,10 @@
   min-width: 0;
 }
 
+.trendsButton {
+  align-self: stretch;
+}
+
 .primaryButton,
 .secondaryButton {
   display: inline-flex;

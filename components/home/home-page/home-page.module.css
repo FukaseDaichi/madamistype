@@ -271,6 +271,37 @@
   flex-shrink: 0;
 }
 
+.ctaRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(139, 105, 20, 0.5);
+  background: transparent;
+  color: var(--rcf-ink);
+  padding: 0.85rem 1.9rem;
+  text-decoration: none;
+  font-family: var(--rcf-font-typewriter), monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.ctaSecondary:hover {
+  background: rgba(139, 105, 20, 0.1);
+  transform: translateY(-1px);
+}
+
 .features {
   position: relative;
   z-index: 1;

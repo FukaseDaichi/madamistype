@@ -135,13 +135,31 @@ export function TypeDetailHeroSection({
               />
             </>
           ) : isShared ? (
-            <Link href="/" prefetch={false} className={styles.primaryButton}>
-              自分でも診断する
-            </Link>
+            <>
+              <Link href="/" prefetch={false} className={styles.primaryButton}>
+                自分でも診断する
+              </Link>
+              <Link
+                href="/trends"
+                prefetch={false}
+                className={`${styles.secondaryButton} ${styles.trendsButton}`.trim()}
+              >
+                おすすめマダミス傾向
+              </Link>
+            </>
           ) : (
-            <Link href="/" prefetch={false} className={styles.primaryButton}>
-              自分でも診断する
-            </Link>
+            <>
+              <Link href="/" prefetch={false} className={styles.primaryButton}>
+                自分でも診断する
+              </Link>
+              <Link
+                href="/trends"
+                prefetch={false}
+                className={`${styles.secondaryButton} ${styles.trendsButton}`.trim()}
+              >
+                おすすめマダミス傾向
+              </Link>
+            </>
           )}
         </div>
       </section>

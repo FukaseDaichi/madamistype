@@ -101,20 +101,25 @@ export function HomeHeroSection({
             </div>
           </div>
 
-          <a href="#start" className={styles.ctaPrimary}>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-            診断を始める
-          </a>
+          <div className={styles.ctaRow}>
+            <a href="#start" className={styles.ctaPrimary}>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              診断する
+            </a>
+            <Link href="/trends" prefetch={false} className={styles.ctaSecondary}>
+              傾向を見る
+            </Link>
+          </div>
 
           <div className={styles.features}>
             {FEATURE_SUMMARIES.map((feature) => (
