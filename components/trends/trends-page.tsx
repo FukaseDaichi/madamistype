@@ -120,7 +120,9 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
   const dominantTypeLabels = SURVEY_TRENDS_CONTENT.dominantTypes
     .map(({ typeCode, count }) => {
       const type = typeMap.get(typeCode);
-      return type ? `${formatTypeLabel(type)} が ${count}件` : `${typeCode} が ${count}件`;
+      return type
+        ? `${formatTypeLabel(type)} が ${count}件`
+        : `${typeCode} が ${count}件`;
     })
     .join("、");
   const supportingTypeLabels = SURVEY_TRENDS_CONTENT.supportingTypeCodes
@@ -135,22 +137,53 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
       id="main-content"
       className={`${displayFont.variable} ${typewriterFont.variable} ${serifFont.variable} ${noteFont.variable} ${styles.page}`}
     >
-      <div className={styles.container}>
-        <div className={styles.topLinkRow}>
-          <Link href="/" prefetch={false} className={styles.backLink}>
-            トップへ戻る
-          </Link>
-        </div>
+      <div aria-hidden="true" className={styles.backdrop} />
 
-        <article className={styles.article}>
-          <header className={styles.hero}>
-            <p className={styles.meta}>アンケート傾向まとめ</p>
-            <h1 className={styles.title}>アンケートから見えたマダミス傾向</h1>
-            <p className={styles.lead}>{SURVEY_TRENDS_CONTENT.hero.lead}</p>
-            <p className={styles.note}>{SURVEY_TRENDS_CONTENT.hero.caution}</p>
-          </header>
+      <div className={styles.shell}>
+        <header className={styles.masthead}>
+          <div>
+            <Link href="/" prefetch={false} className={styles.mastheadLogo}>
+              マダミスタイプ診断
+            </Link>
+          </div>
 
-          <section className={styles.section}>
+          <nav aria-label="傾向ページナビゲーション">
+            <ul className={styles.mastheadNav}>
+              <li>
+                <a href="#overview">Overview</a>
+              </li>
+              <li>
+                <a href="#type-trends">Type Trends</a>
+              </li>
+              <li>
+                <a href="#feedback">Feedback</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <article className={styles.caseFile}>
+          <span className={styles.stamp}>Survey Report</span>
+
+          <h1 className={styles.caseTitle}>
+            <em>アンケートから見た</em>
+            <br />
+            マダミス傾向
+          </h1>
+
+          <p className={styles.handnote}>
+            - よく薦められた作品とタイプ分布の記録
+          </p>
+
+          <div className={styles.introBlock}>
+            <p className={styles.caseBody}>{SURVEY_TRENDS_CONTENT.hero.lead}</p>
+            <p className={styles.caseNote}>
+              {SURVEY_TRENDS_CONTENT.hero.caution}
+            </p>
+          </div>
+
+          <section id="overview" className={styles.section}>
+            <p className={styles.sectionEyebrow}>Overview</p>
             <h2 className={styles.heading}>全体の傾向</h2>
             <div className={styles.sectionContent}>
               <p>
@@ -165,15 +198,11 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
                 {supportingTypeLabels}
                 あたりでした。全体としては、次のような遊び方の方向に協力者が集まっていた印象です。
               </p>
-              <ul className={styles.bulletList}>
-                {SURVEY_TRENDS_CONTENT.overallSignals.map((signal) => (
-                  <li key={signal}>{signal}</li>
-                ))}
-              </ul>
             </div>
           </section>
 
           <section className={styles.section}>
+            <p className={styles.sectionEyebrow}>Works</p>
             <h2 className={styles.heading}>全体でよく名前が挙がった作品</h2>
             <div className={styles.sectionContent}>
               <ol className={styles.numberList}>
@@ -185,7 +214,8 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
             </div>
           </section>
 
-          <section className={styles.section}>
+          <section id="type-trends" className={styles.section}>
+            <p className={styles.sectionEyebrow}>Type Trends</p>
             <h2 className={styles.heading}>タイプ別・よく薦められていた作品</h2>
             <div className={styles.sectionContent}>
               <p>ここからは、タイプごとに目立っていた作品をまとめています。</p>
@@ -210,6 +240,7 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
           </section>
 
           <section className={styles.section}>
+            <p className={styles.sectionEyebrow}>More Types</p>
             <h2 className={styles.heading}>そのほかのタイプ</h2>
             <div className={styles.typeSectionList}>
               {SURVEY_TRENDS_CONTENT.compactTypes.map((entry) => {
@@ -230,7 +261,8 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
             </div>
           </section>
 
-          <section className={styles.section}>
+          <section id="feedback" className={styles.section}>
+            <p className={styles.sectionEyebrow}>Feedback</p>
             <h2 className={styles.heading}>自由記述で多かった意見</h2>
             <div className={styles.sectionContent}>
               <p>
@@ -261,6 +293,7 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
           </section>
 
           <section className={styles.section}>
+            <p className={styles.sectionEyebrow}>Summary</p>
             <h2 className={styles.heading}>まとめ</h2>
             <div className={styles.sectionContent}>
               <ul className={styles.bulletList}>
@@ -272,10 +305,14 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
           </section>
 
           <div className={styles.actionRow}>
-            <Link href="/diagnosis" prefetch={false} className="primary-button">
+            <Link
+              href="/diagnosis"
+              prefetch={false}
+              className={styles.primaryButton}
+            >
               診断する
             </Link>
-            <Link href="/" prefetch={false} className="secondary-button">
+            <Link href="/" prefetch={false} className={styles.secondaryButton}>
               トップページへ戻る
             </Link>
           </div>

@@ -14,10 +14,6 @@
   color: var(--rcf-paper);
 }
 
-.home a {
-  color: inherit;
-}
-
 .home :global(.font-display) {
   font-family: var(--rcf-font-serif), serif;
   letter-spacing: 0.04em;
