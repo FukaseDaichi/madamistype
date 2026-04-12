@@ -117,6 +117,8 @@ function TypeTrendSection({
 
 export function TrendsPage({ allTypes }: TrendsPageProps) {
   const typeMap = buildTypeMap(allTypes);
+  const surveyPeriodLabel = SURVEY_TRENDS_CONTENT.surveyPeriod.rangeLabel;
+  const releaseDateLabel = SURVEY_TRENDS_CONTENT.surveyPeriod.releaseDateLabel;
   const dominantTypeLabels = SURVEY_TRENDS_CONTENT.dominantTypes
     .map(({ typeCode, count }) => {
       const type = typeMap.get(typeCode);
@@ -165,6 +167,10 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
         <article className={styles.caseFile}>
           <span className={styles.stamp}>Survey Report</span>
 
+          <p className={styles.fileMeta}>
+            Released {releaseDateLabel} / Collected {surveyPeriodLabel}
+          </p>
+
           <h1 className={styles.caseTitle}>
             <em>アンケートから見た</em>
             <br />
@@ -187,7 +193,8 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
             <h2 className={styles.heading}>全体の傾向</h2>
             <div className={styles.sectionContent}>
               <p>
-                今回の回答は
+                {surveyPeriodLabel}
+                に収集した回答は
                 {SURVEY_TRENDS_CONTENT.responseCount}
                 件でした。特に多かったのは
                 {dominantTypeLabels}
@@ -218,7 +225,11 @@ export function TrendsPage({ allTypes }: TrendsPageProps) {
             <p className={styles.sectionEyebrow}>Type Trends</p>
             <h2 className={styles.heading}>タイプ別・よく薦められていた作品</h2>
             <div className={styles.sectionContent}>
-              <p>ここからは、タイプごとに目立っていた作品をまとめています。</p>
+              <p>
+                ここからは、
+                {surveyPeriodLabel}
+                の回答でタイプごとに目立っていた作品をまとめています。
+              </p>
             </div>
             <div className={styles.typeSectionList}>
               {SURVEY_TRENDS_CONTENT.featuredTypes.map((entry) => {

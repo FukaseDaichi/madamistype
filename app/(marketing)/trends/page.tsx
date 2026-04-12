@@ -7,7 +7,7 @@ import { SITE_KEYWORDS } from "@/lib/site";
 export const metadata: Metadata = {
   title: "アンケート傾向",
   description:
-    "206件のアンケート回答から見えたタイプ分布と、おすすめマダミスの傾向をまとめた公開ページです。",
+    "2026年4月4日〜2026年4月11日の一週間限定で収集した206件のアンケート回答から見えたタイプ分布と、おすすめマダミスの傾向をまとめた公開ページです。",
   keywords: [...SITE_KEYWORDS, "アンケート結果", "タイプ別おすすめ"],
   alternates: {
     canonical: "/trends",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "アンケート傾向 | マダミスタイプ診断",
     description:
-      "206件のアンケート回答から見えたタイプ分布と、おすすめマダミスの傾向をまとめました。",
+      "2026年4月4日〜2026年4月11日に収集した206件のアンケート回答から見えたタイプ分布と、おすすめマダミスの傾向をまとめました。",
     url: "/trends",
     images: ["/main-ogp.png"],
   },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "アンケート傾向 | マダミスタイプ診断",
     description:
-      "タイプ分布とおすすめマダミスの傾向をまとめた静的記事ページです。",
+      "2026年4月4日〜2026年4月11日の一週間集計をまとめた静的記事ページです。",
     images: ["/main-ogp.png"],
   },
 };
